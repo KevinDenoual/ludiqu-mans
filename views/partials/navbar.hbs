@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-white rounded">
   <a class="navbar-brand" href="/">
     <img src="/ressources/images/logo.png" alt="logo" width="60">
   </a>
@@ -15,7 +15,7 @@
           Actu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/actus">Les derniers les actus</a>
+          <a class="dropdown-item" href="#">Les dernieres actus</a>
           <a class="dropdown-item" href="#">Toutes les actus</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Créer les actus</a>
@@ -37,18 +37,17 @@
         <a class="nav-link" href="/marketplace">Market place <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="wandw">Où et quand<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/wandw">Où et quand<span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#signin" data-toggle="modal" data-target="#exampleModal">se connecter<span
+          <a class="nav-link" href="#signin" data-toggle="modal" data-target="#exampleModal">Se connecter<span
               class="sr-only navbar-text">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#" data-toggle="modal" data-target=".bs-modal-sm">créer un compte<span
-              class="sr-only navbar-text">(current)</span></a>
+          <a class="nav-link" href="/signup">Créer un compte<span class="sr-only navbar-text">(current)</span></a>
         </li>
       </ul>
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -66,19 +65,22 @@
       <div class="container login-container">
         <div class="row">
           <div class="col-md-6 login-form-1">
-            <h3>Login for Form 1</h3>
+            <h3>Se connecter</h3>
             <form>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                <input type="text" class="form-control" placeholder="Votre Email *" value="" />
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                <input type="password" class="form-control" placeholder="Votre mot de passe *" value="" />
               </div>
               <div class="form-group">
-                <input type="submit" class="btnSubmit" value="Login" />
+                <input type="submit" class="btnSubmit" value="Se connecter" />
+              </div>
+              <div class="checkbox">
+                <label> <input type="checkbox"> Se rappeler de moi. </label>
               </div>
               <div class="form-group">
-                <a href="#" class="ForgetPwd">Forget Password?</a>
+                <a href="#" class="ForgetPwd">Mot de passe oublié</a>
               </div>
             </form>
           </div>
