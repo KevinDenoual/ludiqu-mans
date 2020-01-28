@@ -12,6 +12,7 @@ const signup = require('./controllers/signup')
 const marketplace = require('./controllers/marketplace')
 const wandw = require('./controllers/wandw')
 const actus = require('./controllers/actus')
+const actuSingle = require ('./controllers/actuSingle')
 
 // Home
 router.route('/')
@@ -29,8 +30,12 @@ router.route('/marketplace')
 router.route('/wandw')
     .get(wandw.get)
 
-// dernieresActus
+// actus
 router.route('/actus')
     .get(actus.get)
+
+// actuSingle
+router.route('/actuSingle')
+    .get(actuSingle.get)
 
 module.exports = router
