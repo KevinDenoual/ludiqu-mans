@@ -11,7 +11,7 @@ const home = require('./controllers/home')
 const signup = require('./controllers/signup')
 const marketplace = require('./controllers/marketplace')
 const wandw = require('./controllers/wandw')
-const dernieresActus = require('./controllers/dernieresActus')
+const actus = require('./controllers/actus')
 
 // Home
 router.route('/')
@@ -30,7 +30,7 @@ router.route('/wandw')
     .get(wandw.get)
 
 // dernieresActus
-router.route('/dernieresActus')
-    .get(dernieresActus.get)
+router.route('/actus')
+    .get(actus.get)
 
 module.exports = router
