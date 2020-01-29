@@ -1,6 +1,7 @@
-/*
- * Router.js
- ***********/
+/************
+ * Router.js*
+ ************/
+
 // Import
 const express = require('express')
 const router = express.Router()
@@ -18,6 +19,8 @@ const contact = require ('./controllers/contact')
 const jeux = require('./controllers/jeux')
 const addJeux = require('./controllers/addJeux')
 const jeuSingle = require('./controllers/jeuSingle')
+const marketplaceCreate     = require('./controllers/marketplaceCreate')
+const admin                 = require ('./controllers/admin')
 
 // Home
 router.route('/')
@@ -30,6 +33,10 @@ router.route('/signup')
 // marketplace
 router.route('/marketplace')
     .get(marketplace.get)
+
+// marketplace
+router.route('/marketplaceCreate')
+    .get(marketplaceCreate.get)
 
 // wandw
 router.route('/wandw')
@@ -61,5 +68,10 @@ router.route('/addJeux')
 // jeuSingle
 router.route('/jeuSingle')
     .get(jeuSingle.get)
+//adminpage
+router.route('/admin')
+    .get(admin.get)
+
+
 
 module.exports = router
