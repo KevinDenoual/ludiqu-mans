@@ -13,6 +13,8 @@ const marketplace = require('./controllers/marketplace')
 const wandw = require('./controllers/wandw')
 const actus = require('./controllers/actus')
 const actuSingle = require ('./controllers/actuSingle')
+const jeux = require('./controllers/jeux')
+const addJeux = require('./controllers/addJeux')
 
 // Home
 router.route('/')
@@ -38,4 +40,12 @@ router.route('/actus')
 router.route('/actuSingle')
     .get(actuSingle.get)
 
+// Jeux 
+router.route('/jeux')
+    .get(jeux.get)
+
+// AddJeux
+router.route('/addJeux')
+    .get(addJeux.get)
+    
 module.exports = router
