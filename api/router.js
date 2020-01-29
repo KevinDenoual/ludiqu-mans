@@ -15,6 +15,7 @@ const actus = require('./controllers/actus')
 const actuSingle = require ('./controllers/actuSingle')
 const jeux = require('./controllers/jeux')
 const addJeux = require('./controllers/addJeux')
+const jeuSingle = require('./controllers/jeuSingle')
 
 // Home
 router.route('/')
@@ -47,5 +48,9 @@ router.route('/jeux')
 // AddJeux
 router.route('/addJeux')
     .get(addJeux.get)
-    
+
+// jeuSingle
+router.route('/jeuSingle')
+    .get(jeuSingle.get)
+
 module.exports = router
