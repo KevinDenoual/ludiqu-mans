@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <h1>Nom du jeu</h1>
+    </div>
+    <div class="row">
+        <img src="https://picsum.photos/480/480" class="img-fluid" alt="Responsive image">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore laborum beatae sed, doloremque rerum
+            consequuntur, quibusdam atque deleniti error veritatis dolorum. Quis possimus porro provident excepturi.
+            Obcaecati nulla dolore ipsa?
+            Sapiente dolorum autem, fugit minus vero cumque a beatae eos, laudantium facere odit inventore maxime eum
+            impedit, sed tenetur facilis vitae illo iusto nobis. Dolore illo sint animi quibusdam aperiam.
+            Quo ad blanditiis excepturi dolorem consequatur totam. Quis quam assumenda dignissimos eaque aliquid odio
+            eum facilis itaque. Iusto deserunt fuga, fugiat dolores nam quibusdam non dicta ut recusandae, optio
+            delectus.
+            Autem possimus sint ipsa incidunt neque dolore repudiandae ut fugiat officiis esse beatae ratione
+            consectetur expedita commodi similique illum, cupiditate quo iusto? Quisquam nulla asperiores facilis cum,
+            non corporis iure?
+            Mollitia sapiente eos, quis repellat, maxime impedit sit deserunt aperiam ipsa minima, excepturi quibusdam.
+            Eum laboriosam quis quam, et dolor error deleniti doloremque, vel eligendi at adipisci omnis, ipsam impedit!
+        </p>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalCommenter"
+            data-whatever="@getbootstrap">Commenter</button>
+        <button class="btn btn-outline-primary" type="submit">Modifier</button>
+        <button class="btn btn-outline-primary" type="submit">Supprimer</button>
+        {{!-- modal commenter --}}
+        <div class="modal fade" id="modalCommenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="rating form-group">
+                                <div class="stars">
+                                    <i class="fa fa-star gold"></i>
+                                    <i class="fa fa-star gold"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p>Votre note</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="commentaire-text" class="col-form-label">Commentaire</label>
+                                <textarea class="form-control" id="commentaire-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary">Poster le commentaire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
