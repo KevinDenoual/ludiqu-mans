@@ -18,8 +18,52 @@
             Mollitia sapiente eos, quis repellat, maxime impedit sit deserunt aperiam ipsa minima, excepturi quibusdam.
             Eum laboriosam quis quam, et dolor error deleniti doloremque, vel eligendi at adipisci omnis, ipsam impedit!
         </p>
-        <a href="#" class="btn btn-outline-primary" role="button" aria-pressed="true">Commenter</a>
-        <a href="#" class="btn btn-outline-primary" role="button" aria-pressed="true">Modifier</a>
-        <a href="#" class="btn btn-outline-primary" role="button" aria-pressed="true">Supprimer</a>
+
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalCommenter"
+            data-whatever="@getbootstrap">Commenter</button>
+        <button class="btn btn-outline-primary" type="submit">Modifier</button>
+        <button class="btn btn-outline-primary" type="submit">Supprimer</button>
+
+
+        {{!-- modal commenter --}}
+        <div class="modal fade" id="modalCommenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+
+                            <div class="rating form-group">
+                                <div class="stars">
+                                    <i class="fa fa-star gold"></i>
+                                    <i class="fa fa-star gold"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p>Votre note</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="commentaire-text" class="col-form-label">Commentaire</label>
+                                <textarea class="form-control" id="commentaire-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary">Poster le commentaire</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
