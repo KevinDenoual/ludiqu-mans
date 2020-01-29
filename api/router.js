@@ -11,9 +11,10 @@ const home = require('./controllers/home')
 const signup = require('./controllers/signup')
 const marketplace = require('./controllers/marketplace')
 const wandw = require('./controllers/wandw')
-const actus = require('./controllers/actus')
-const actuSingle = require ('./controllers/actuSingle')
-const actuCreate = require ('./controllers/actuCreate')
+const actus = require('./controllers/actu/actus')
+const actuSingle = require ('./controllers/actu/actuSingle')
+const actuCreate = require ('./controllers/actu/actuCreate')
+const contact = require ('./controllers/contact')
 
 // Home
 router.route('/')
@@ -42,5 +43,9 @@ router.route('/actuSingle')
 // actuCreate
 router.route('/actuCreate')
     .get(actuCreate.get)
+
+// contact
+router.route('/contact')
+    .get(contact.get)
 
 module.exports = router

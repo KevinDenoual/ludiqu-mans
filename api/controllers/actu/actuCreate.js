@@ -1,5 +1,5 @@
 module.exports = {
     get: (req, res) => {
-        res.render('actuSingle')
+        res.render('actu/actuCreate')
     }
 }
