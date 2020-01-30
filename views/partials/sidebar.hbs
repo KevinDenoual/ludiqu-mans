@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <ul class="nav flex-column" >
+        <ul class="nav flex-column sideReseau rounded" >
             <li class="nav-item">
                 <a class="nav-link active" href="#"><i class="fab fa-facebook-square"></i></a>
             </li>
@@ -16,3 +16,21 @@
         </ul>
     </div>
 </div>
+
+<style>
+    .sideReseau {
+        position:fixed; 
+        width:100px;
+        top: 30vh;
+        right:-60px;
+        text-align: left;
+        transition: 1s;
+        box-shadow: 10px 10px 10px;
+        background-color: #F2A81D;
+    }
+    .sideReseau:hover {
+        transform: translateX(-20px);
+        transition: 1s;
+    }
+</style>
+
