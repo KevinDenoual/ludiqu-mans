@@ -1,17 +1,52 @@
+$actuColor: #3098D9;
+$jeuxColor: #12A646;
+$marketplaceColor:#A62985;
+$wandwColor: #F2A81D;
+$signColor:#F2522E;
+
+//couleur de texte 
 .actu-color{
-    color: #3098D9
+    color: $actuColor
 }
     
 .jeux-color{
-    color: #12A646
+    color: $jeuxColor
 }
 
 .marketplace-color{
-    color: #A62985 
+    color: $marketplaceColor 
 }
 .wandw-color{
-    color: #F2A81D
+    color: $wandwColor
 }
 .sign-color{
-    color: #F2522E
+    color: $signColor
 }
+
+//mise en forme des boutons
+.btn-actu {
+    color: #fff;
+    background-color: $actuColor;
+    border-color: $actuColor; }
+    .btn-actu:hover {
+      color: #fff;
+      background-color:  #2485c2;
+      border-color: #1c6897; }
+
+.btn-marketplace {
+  color: #fff;
+  background-color: $marketplaceColor;
+  border-color: $marketplaceColor; }
+  .btn-marketplace:hover {
+    color: #fff;
+    background-color: #8f2472;
+    border-color: #661952; }
+
+.btn-sign {
+    color: #fff;
+    background-color: $signColor;
+    border-color: $signColor; }
+    .btn-sign:hover {
+      color: #fff;
+      background-color: #f0380f;
+      border-color: #c02d0c; }
