@@ -1,19 +1,15 @@
 body {
     padding: 0;
     margin: 0;
+   background-color: rgba(247, 253, 246, 0.5);
 }
 
+/* =============== CARD =============== */
 .card {
     border: solid 2px ;
     border-radius: 10px;  
     transition: width 1s, height 1s, transform 0.7s;
     margin: 10px;
-}
-
-.card:hover {
-    box-shadow: 20px 20px 10px rgba(48, 152, 217, 0.5) ;
-    transition: 1s;
-    transform: scale(1.05, 1.05);
 }
 
 .card-body {
@@ -26,12 +22,30 @@ body {
     box-shadow: 10px 10px 5px rgba(48, 152, 217, 0.5) ;
 }
 
+.card-actu:hover {
+    box-shadow: 20px 20px 10px rgba(48, 152, 217, 0.3);
+    transition: 1s;
+    transform: scale(1.05, 1.05);
+}
+
 .card-mkp {
     border-color: rgb(166, 41, 133);
     box-shadow: 10px 10px 5px rgba(166, 41, 133, 0.5) ;
 }
 
+.card-mkp:hover {
+    box-shadow: 20px 20px 10px  rgba(166, 41, 133, 0.3);
+    transition: 1s;
+    transform: scale(1.05, 1.05);
+}
+
 .card-footer {
     background-color: rgba(221, 221, 221, 0.5);
 }
+
+/* =============== NAVBAR =============== */
+
+/* .nav {
+    background-color: green;
+} */
 
