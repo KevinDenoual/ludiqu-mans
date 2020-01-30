@@ -3,87 +3,33 @@ body {
     margin: 0;
 }
 
-/* css adminpage */
-/* 
-.panel {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+.card {
+    border: solid 2px ;
+    border-radius: 10px;  
+    transition: width 0.7s, height 1s, transform 2s;
 }
 
-.panel-heading {
-    padding: 10px 15px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
-/*panel-primary*/
-/* .panel-primary {
-    border-color: #337ab7;
-}
-.panel-primary > .panel-heading {
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
-}
-.panel-primary a {
-    color: #337ab7;
+.card:hover {
+   
+    transform: scale(1.07, 1.07);
 }
 
-.panel-primary a:hover {
-    color: #b52b27;
+.card-body {
+    text-align: center;
 }
 
 
-/*panel-green*/
-/* .panel-green {
-    border-color: #5cb85c;
-}
-.panel-green > .panel-heading {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #5cb85c;
-}
-.panel-green a {
-    color: #5cb85c;
-}
-.panel-green a:hover {
-    color: #3d8b3d; */
-/* } */
-
-/*panel-yellow*/
-/* .panel-yellow {
-    border-color: #f0ad4e
-}
-.panel-yellow > .panel-heading {
-    color: #fff;
-    background-color: #f0ad4e;
-    border-color: #f0ad4e;
-}
-.panel-yellow a {
-    color: #f0ad4e;
+.card-actu {
+    border-color: rgb(48, 152, 217);
+    box-shadow: 10px 10px 5px rgba(48, 152, 217, 0.5) ;
 }
 
-.panel-yellow a:hover {
-    color: #df8a13;
-} */
-
-/*panel-red*/
-/* .panel-red {
-    border-color: #d9534f;
-}
-.panel-red > .panel-heading {
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #d9534f;
-}
-.panel-red a {
-    color: #d9534f;
+.card-mkp {
+    border-color: rgb(166, 41, 133);
+    box-shadow: 10px 10px 5px rgba(166, 41, 133, 0.5) ;
 }
 
-.panel-red a:hover {
-    color: #b52b27;
-} */
+.card-footer {
+    background-color: rgba(221, 221, 221, 0.5);
+}
+
