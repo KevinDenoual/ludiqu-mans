@@ -13,8 +13,8 @@ const signup = require('./controllers/signup')
 const marketplace = require('./controllers/marketplace/marketplace')
 const wandw = require('./controllers/wandw')
 const actus = require('./controllers/actu/actus')
-const actuSingle = require ('./controllers/actu/actuSingle')
-const actuCreate = require ('./controllers/actu/actuCreate')
+// const actuSingle = require ('./controllers/actu/actuSingle')
+// const actuCreate = require ('./controllers/actu/actuCreate')
 const contact = require ('./controllers/contact')
 const jeux = require('./controllers/jeux')
 const addJeux = require('./controllers/addJeux')
@@ -44,15 +44,15 @@ router.route('/wandw')
 
 // actus
 router.route('/actus')
-    .get(actus.get)
+    .get(actus.getActu)
 
 // actuSingle
 router.route('/actuSingle')
-    .get(actuSingle.get)
+    .get(actus.getActuSingle)
 
 // actuCreate
 router.route('/actuCreate')
-    .get(actuCreate.get)
+    .get(actus.getActuCreate)
 
 // contact
 router.route('/contact')

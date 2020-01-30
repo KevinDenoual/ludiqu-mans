@@ -6,21 +6,23 @@ body {
 .card {
     border: solid 2px ;
     border-radius: 10px;  
-    transition: width 0.7s, height 1s, transform 2s;
+    transition: width 1s, height 1s, transform 0.7s;
+    margin: 10px;
 }
 
 .card:hover {
-   
-    transform: scale(1.07, 1.07);
+    box-shadow: 20px 20px 10px rgba(48, 152, 217, 0.5) ;
+    transition: 1s;
+    transform: scale(1.05, 1.05);
 }
 
 .card-body {
     text-align: center;
 }
 
-
 .card-actu {
     border-color: rgb(48, 152, 217);
+    transition: 1s;
     box-shadow: 10px 10px 5px rgba(48, 152, 217, 0.5) ;
 }
 
