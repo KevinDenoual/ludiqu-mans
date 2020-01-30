@@ -3,52 +3,51 @@
 </div>
 
 
-<div class="container mx-auto mt-3">
-    <form action="" method="POST" enctype="multipart/form-data">
-        <div class="form-row">
-            <label class="label">Nom du jeu à vendre</label>
-            <div class="control">
-                <input class="input" type="text" name="title">
+<div class="container  mt-3">
+    <div class="px-auto">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="title">Nom du jeu à vendre</label>
+                    <input type="input" class="form-control" id="title">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <label class="label">Description</label>
-            <div class="control">
-                <textarea class="textarea" name="description"></textarea>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="description">Description / état</label>
+                    <textarea class="form-control" id="validationTextarea"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <label class="label">Vendeur</label>
-            <div class="control">
-                <input class="input" type="text" name="author">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="seller">Vendeur</label>
+                    <input type="input" class="form-control" placeholder="Votre nom d'utilisateur" id="seller">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <label class="label">Prix</label>
-            <div class="control">
-                <input class="input" type="text" name="author">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="price">Prix</label>
+                    <input type="input" class="form-control" placeholder="En euros uniquement" id="price">
+                </div>
             </div>
-        </div>
-        <div class="file">
-            <label class="file-label">
-                <input class="file-input" type="file" name="image">
-                <span class="file-cta">
-                    <span class="file-icon">
-                        <i class="fas fa-upload"></i>
+            <div class="file">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="image">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Envoyer une image au format .jpg .jpeg .gif uniquement
+                        </span>
                     </span>
-                    <span class="file-label">
-                        Envoyer une image format jpg
-                    </span>
-                </span>
-            </label>
-        </div>
-        <div class="field is-grouped">
-            <div class="control">
-                <button class="button is-link">Enregistrer</button>
+                </label>
             </div>
-            <div class="control">
-                <button class="button is-link is-light">Annuler</button>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="btn btn-marketplace">Enregistrer</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
