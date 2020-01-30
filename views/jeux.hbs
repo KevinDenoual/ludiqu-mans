@@ -1,9 +1,13 @@
 <section class="item">
+    <div class="border-bottom mx-auto " style="width: 40%;">
+        <h1 class="text-center ">Tout les jeux</h1>
+    </div>
+
+    <div style="height: 15px;"></div>
     <div class="container">
         <div class="row">
             <!-- GET -->
             <div class="col-md-3">
-                <h1>Tout les jeux</h1>
                 <div class="card">
                     <div class="card-body">
 
@@ -11,7 +15,7 @@
                             {{#each item }}
                             <li class="list-group-item">
                                 <h3>{{ this.title }}</h3>
-                                <p>{{this.category.title}}</p>                               
+                                <p>{{this.category.title}}</p>
                                 <img src="{{image}}" alt="" style="max-width: 100px;">
                             </li>
                             {{/each }}
