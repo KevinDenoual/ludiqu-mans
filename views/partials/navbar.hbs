@@ -10,20 +10,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/actus" style="color: #758C1F;">Les actus<span class="sr-only" >(current)</span></a>
+        <a class="nav-link" href="/actus" style="color: #3098D9;">Les actus<span class="sr-only" >(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/jeux">Les jeux<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/jeux" style="color: #12A646;">Les jeux<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown " style="color: #A62985;">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          aria-haspopup="true" aria-expanded="false" style="color: #A62985;">
           Le bon jeu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/marketplace">Toutes les annonces</a>
+          <a class="dropdown-item" href="/marketplace" style="color: #A62985;">Toutes les annonces</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/marketplaceCreate">Créer une annonce</a>
+          <a class="dropdown-item" href="/marketplaceCreate" style="color: #A62985;">Créer une annonce</a>
         </div>
       </li>
       <li class="nav-item active">
@@ -33,11 +33,19 @@
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#signin" data-toggle="modal" data-target="#exampleModal">Se connecter<span
+          <a class="nav-link" href="#signin" data-toggle="modal" data-target="#exampleModal" style="color: #F2522E;">Se connecter<span
+              class="sr-only navbar-text">(current)</span></a>
+        </li>
+                <li class="nav-item active">
+          <a class="nav-link" href="#signin" data-toggle="modal" data-target="#exampleModal" style="color: #F2522E;">Se deconnecter<span
+              class="sr-only navbar-text">(current)</span></a>
+        </li>
+                <li class="nav-item active">
+          <a class="nav-link" href="#signin" data-toggle="modal" data-target="#exampleModal" style="color: #F2522E;">Admin<span
               class="sr-only navbar-text">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/signup">Créer un compte<span class="sr-only navbar-text">(current)</span></a>
+          <a class="nav-link" href="/signup" style="color: #F2522E;">Créer un compte<span class="sr-only navbar-text">(current)</span></a>
         </li>
       </ul>
       <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
@@ -53,9 +61,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="container login-container">
-        <div class="row">
-          <div class="col-md-6 login-form-1">
-            <h3>Se connecter</h3>
+        <div class="row ">
+          <div class="col-md-12 login-form-1 text-center">
+            <h3 style="color: #F2522E;">Se connecter</h3>
             <form>
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Votre Email *" value="" />
@@ -64,7 +72,7 @@
                 <input type="password" class="form-control" placeholder="Votre mot de passe *" value="" />
               </div>
               <div class="form-group">
-                <input type="submit" class="btnSubmit" value="Se connecter" />
+                <input type="submit" class="btn btn-sign" value="Se connecter" />
               </div>
               <div class="checkbox">
                 <label> <input type="checkbox"> Se rappeler de moi. </label>

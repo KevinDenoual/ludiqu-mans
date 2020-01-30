@@ -7788,4 +7788,34 @@ a.text-dark:hover, a.text-dark:focus {
 .sign-color {
   color: #F2522E; }
 
+.btn-actu {
+  color: #fff;
+  background-color: #3098D9;
+  border-color: #3098D9; }
+
+.btn-actu:hover {
+  color: #fff;
+  background-color: #2485c2;
+  border-color: #1c6897; }
+
+.btn-marketplace {
+  color: #fff;
+  background-color: #A62985;
+  border-color: #A62985; }
+
+.btn-marketplace:hover {
+  color: #fff;
+  background-color: #8f2472;
+  border-color: #661952; }
+
+.btn-sign {
+  color: #fff;
+  background-color: #F2522E;
+  border-color: #F2522E; }
+
+.btn-sign:hover {
+  color: #fff;
+  background-color: #f0380f;
+  border-color: #c02d0c; }
+
 /*# sourceMappingURL=bootstrap.css.map */
