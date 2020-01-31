@@ -1,29 +1,35 @@
-<section class="section">
-    <div class="container">
+<div class="border-bottom mx-auto " style="width: 40%;">
+    <h1 class="text-center jeux-color ">Créer un jeu</h1>
+</div>
+
+
+<div class="container  mt-3">
+    <div class="px-auto">
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-row">
-                <label class="label">Titre du jeu</label>
-                <div class="control">
-                    <input class="input" type="text" name="title">
+                <div class="form-group col-md-12">
+                    <label for="title">Titre du jeu</label>
+                    <input type="input" class="form-control" id="title">
                 </div>
             </div>
-
             <div class="form-row">
-                <label class="label">Description</label>
-                <div class="control">
-                    <textarea class="textarea" name="description"></textarea>                  
+                <div class="form-group col-md-12">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="validationTextarea"></textarea>
                 </div>
             </div>
-
             <div class="form-row">
-                <label class="label">Auteur</label>
-                <div class="control">
-                    <input class="input" type="text" name="author">
+                <div class="form-group col-md-12">
+                    <label for="seller">Auteur/éditeur</label>
+                    <input type="input" class="form-control"  id="seller">
                 </div>
             </div>
-
-
-
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="price">Prix public conseillé</label>
+                    <input type="input" class="form-control" placeholder="En euros uniquement" id="price">
+                </div>
+            </div>
             <div class="file">
                 <label class="file-label">
                     <input class="file-input" type="file" name="image">
@@ -32,20 +38,16 @@
                             <i class="fas fa-upload"></i>
                         </span>
                         <span class="file-label">
-                            Envoyer une image format jpg
+                            Envoyer une image au format .jpg .jpeg .gif uniquement
                         </span>
                     </span>
                 </label>
             </div>
-
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="button is-link">Enregistrer</button>
-                </div>
-                <div class="control">
-                    <button class="button is-link is-light">Annuler</button>
+                    <button class="btn btn-jeux">Enregistrer</button>
                 </div>
             </div>
         </form>
     </div>
-</section>
+</div>

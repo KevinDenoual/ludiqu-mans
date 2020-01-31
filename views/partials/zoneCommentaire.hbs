@@ -1,0 +1,26 @@
+{{!-- Zone commentaire --}}
+<div class="row mt-3">
+    <div>
+        <div class="rating form-group">
+            <div class="stars mb-2 mt-5">
+                <i class="far fa-star gold"></i>
+                <i class="far fa-star gold"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="commentaire-text" cols="110"
+                    placeholder="Commentaire lorem*3"></textarea>
+            </div>
+        </div>
+        <div>
+            <a href="/contact"><button type="button" class="btn btn-sign" type="submit">Signaler</button></a>
+            <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
+                data-target="#modalConfirmSupp">Supprimer</button>
+        </div>
+    </div>
+</div>
+
+{{!-- Modal confirmation de suppression --}}
+{{>modalConfirmSupp}}
