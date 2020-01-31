@@ -56,8 +56,7 @@ h1 {
     
 }
 
-
-.btn-actu {
-    font-family: 'sacramento ';
+li {
+    display: none;
 }
 
