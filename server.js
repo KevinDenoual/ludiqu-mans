@@ -31,6 +31,10 @@ app.use( (req, res) => {
     res.render('error404')
 })
 
+//JS adminpage
+
+  
+
 // Port
 app.listen(port, function () {
     console.log("Le serveur tourne sur le port : " + port);

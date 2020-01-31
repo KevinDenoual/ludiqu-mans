@@ -1,0 +1,52 @@
+$actuColor: #3098D9;
+$jeuxColor: #12A646;
+$marketplaceColor:#A62985;
+$wandwColor: #F2A81D;
+$signColor:#F2522E;
+
+//couleur de texte 
+.actu-color{
+    color: $actuColor
+}
+    
+.jeux-color{
+    color: $jeuxColor
+}
+
+.marketplace-color{
+    color: $marketplaceColor 
+}
+.wandw-color{
+    color: $wandwColor
+}
+.sign-color{
+    color: $signColor
+}
+
+//mise en forme des boutons
+.btn-actu {
+    color: #fff;
+    background-color: $actuColor;
+    border-color: $actuColor; }
+    .btn-actu:hover {
+      color: #fff;
+      background-color:  #2485c2;
+      border-color: #1c6897; }
+
+.btn-marketplace {
+  color: #fff;
+  background-color: $marketplaceColor;
+  border-color: $marketplaceColor; }
+  .btn-marketplace:hover {
+    color: #fff;
+    background-color: #8f2472;
+    border-color: #661952; }
+
+.btn-sign {
+    color: #fff;
+    background-color: $signColor;
+    border-color: $signColor; }
+    .btn-sign:hover {
+      color: #fff;
+      background-color: #f0380f;
+      border-color: #c02d0c; }
