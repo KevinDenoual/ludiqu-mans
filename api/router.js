@@ -68,6 +68,7 @@ router.route('/addJeux')
 // jeuSingle
 router.route('/jeuSingle')
     .get(jeuSingle.get)
+    
 //adminpage
 router.route('/admin')
     .get(admin.get)

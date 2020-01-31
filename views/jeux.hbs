@@ -3,38 +3,41 @@
         <h1 class="text-center jeux-color">Tout les jeux</h1>
     </div>
 
-    <div style="height: 15px;"></div>
+    
     <div class="container">
         <div class="row">
             <!-- GET -->
-            <div class="col-md-3">
-                <ul class="list-group">
-                    {{#each item }}
-                    <li class="list-group-item">
-                        <h3>{{ this.title }}</h3>
-                        <p>{{this.category.title}}</p>
-                        <img src="{{image}}" alt="" style="max-width: 100px;">
-                    </li>
-                    {{/each }}
-                </ul>
 
+            <div class="col-md-12 col-sm-12">
                 <ul class="list-group ">
-                    <div class="row">
-                        <div class="col-md-">
 
-                        </div>
+                    
 
-                    </div>
                     <li class="list-item">
-                        <h3>Jeu xxx</h3>
-                        <p>Plateau</p>
-                        <img src="https://picsum.photos/480/480" alt="" style="max-width: 100px;">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4  column">
+                                <h3>Jeu xxx</h3>
+                               <a href="/jeuSingle"><img src="https://picsum.photos/480/480" alt="" style="max-width: 100px;"></a> 
+                            </div>
+                            <div class="col-md-8 pt-4 col-sm-8">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos beatae quia
+                                    minima
+                                    ipsum maxime deserunt vero id, non sit, vitae ratione autem aliquam voluptatibus
+                                    voluptatum nihil fuga quo, soluta quisquam!</p>
+                            </div>
+                        </div>
                     </li>
+
+
                 </ul>
 
 
 
             </div>
         </div>
-
+    </div>
 </section>
+
+<style>
+li {list-style: none;}
+</style>
