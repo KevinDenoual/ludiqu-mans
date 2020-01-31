@@ -1,28 +1,28 @@
 <div class="container mt-3">
-<div class="row text-center">
-    <div class="modal fade" id="modalEditer" tabindex="-1" role="dialog" aria-labelledby="modalEditerLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modifier {{ Title }} </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="/article/{{_id}}" method="post"></form>
-                            <h4 contenteditable="true">Titre</h4>
-                            <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block"
-                                alt="Responsive image">
-                            <p>Modifier le : </br> 01/01/01</p>
-                            <p contenteditable="true">
-                                L'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des
-                                morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
-                                que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans
-                                que son contenu n'en soit modifié. Il a été popularisé dans les années 196
-                            </p>
-                        
+    <div class="row text-center">
+        <div class="modal fade" id="modalEditer" tabindex="-1" role="dialog" aria-labelledby="modalEditerLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modifier {{ Title }} </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/article/{{_id}}" method="post"></form>
+                        <h4 contenteditable="true">Titre</h4>
+                        <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block"
+                            alt="Responsive image">
+                        <p>Modifier le : </br> 01/01/01</p>
+                        <p contenteditable="true">
+                            L'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des
+                            morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
+                            que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans
+                            que son contenu n'en soit modifié. Il a été popularisé dans les années 196
+                        </p>
+
                         <div class="file">
                             <label class="file-label">
                                 <input class="file-input" type="file" name="image">
@@ -36,15 +36,15 @@
                                 </span>
                             </label>
                         </div>
-                   
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Confirmer la modification</button>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary">Confirmer la modification</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    
+</div>
