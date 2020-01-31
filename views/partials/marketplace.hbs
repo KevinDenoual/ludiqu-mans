@@ -5,10 +5,11 @@
                 <h5 class="card-title mx-auto mt-3">Nom produit à vendre</h5>
                 <img class="card-img-top" src="https://picsum.photos/480/480" alt="Card image cap">
                 <div class="card-body">
-                    
+
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
-                    <a href="#" class="btn btn-marketplace">Contacter le vendeur</a>
+                    <button type="button" class="btn btn-marketplace" data-toggle="modal"
+                        data-target="#modalContactVendeur" data-whatever="@getbootstrap">Contacter le vendeur</button>
                     <button class="btn btn-marketplace" type="submit">Signaler</button>
                     <button class="btn btn-marketplace" type="submit">Supprimer</button>
                 </div>
@@ -20,10 +21,11 @@
                 <h5 class="card-title mx-auto mt-3">Nom produit à vendre</h5>
                 <img class="card-img-top" src="https://picsum.photos/480/480" alt="Card image cap">
                 <div class="card-body">
-                    
+
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
                     </p>
-                    <a href="#" class="btn btn-marketplace">Contacter le vendeur</a>
+                    <button type="button" class="btn btn-marketplace" data-toggle="modal"
+                        data-target="#modalContactVendeur" data-whatever="@getbootstrap">Contacter le vendeur</button>
                     <button class="btn btn-marketplace" type="submit">Signaler</button>
                     <button class="btn btn-marketplace" type="submit">Supprimer</button>
                 </div>
@@ -38,7 +40,8 @@
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                         additional content. This card has even longer content than the first to show that equal height
                         action.</p>
-                    <a href="#" class="btn btn-marketplace">Contacter le vendeur</a>
+                    <button type="button" class="btn btn-marketplace" data-toggle="modal"
+                        data-target="#modalContactVendeur" data-whatever="@getbootstrap">Contacter le vendeur</button>
                     <button class="btn btn-marketplace" type="submit">Signaler</button>
                     <button class="btn btn-marketplace" type="submit">Supprimer</button>
                 </div>
@@ -48,4 +51,8 @@
             </div>
         </div>
     </div>
+
+    {{!-- Modal bouton contacter le vendeur --}}
+    {{>modalContactVendeur}}
+
 </div>
