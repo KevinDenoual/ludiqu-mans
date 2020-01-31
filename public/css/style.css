@@ -43,11 +43,9 @@ body {
     background-color: rgba(221, 221, 221, 0.5);
 }
 
-/* =============== NAVBAR =============== */
 
-/* .nav {
-    background-color: green;
-} */
+
+
 
 /* =============== FoNT =============== */
 
@@ -110,7 +108,7 @@ body{
 .btn-sign {
     color: #fff;
     background-color: #F2522E;
-    border-color: $#F2522E; }
+    border-color: #F2522E; }
     .btn-sign:hover {
       color: #fff;
       background-color: #f0380f;
@@ -135,30 +133,32 @@ body{
 }
 
 .footer {
-        
     bottom: 0;
     width: 100%;
     background: rgb(221, 221, 221);
     margin-top: 30px;
 }
 
+/* =============== sidebar =============== */
+
 .sideReseau {
     z-index: 10;
-    position:fixed; 
-    width:100px;
+    position: fixed;
+    width: 100px;
     top: 30vh;
-    right:-60px;
+    right: -60px;
     text-align: left;
     transition: 1s;
     box-shadow: 10px 10px 10px;
-    background-color: rgba(18, 165, 70, 0.3);
-}
-.sideReseau:hover {
+    background-color: rgba(18, 165, 70, 0.3); }
+  
+  .sideReseau:hover {
     transform: translateX(-20px);
-    transition: 1s;
-}
+    transition: 1s; }
 
-.nav-link{
+
+/* =============== NAVBAR =============== */
+.nav-ludi{
     font-family: 'sacramento';
      font-size: 180%;
       font-weight: bold;
