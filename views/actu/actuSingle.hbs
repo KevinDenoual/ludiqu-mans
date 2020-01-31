@@ -22,9 +22,16 @@
     </div>
     <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter"
         data-whatever="@getbootstrap">Commenter</button>
-    <button class="btn btn-actu" type="submit">Modifier</button>
-    <button class="btn btn-actu" type="submit">Supprimer</button>
+    <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalEditer">Modifier</button>
+    <button type="button" class="btn btn-actu" data-toggle="modal" type="submit"
+        data-target="#modalConfirmSupp">Supprimer</button>
 
+
+    {{!-- Modal Editer Article --}}
+    {{>modalEdit}}
+
+    {{!-- Modal confirmation de suppression --}}
+    {{>modalConfirmSupp}}
 
     {{!-- Modal commenter --}}
     {{>modalCommenter}}
