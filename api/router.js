@@ -17,6 +17,7 @@ const contact = require ('./controllers/contact')
 const jeux = require('./controllers/jeux')
 const admin = require ('./controllers/admin')
 
+
 // Home
 router.route('/')
     .get(home.get)
@@ -37,6 +38,8 @@ router.route('/marketplaceCreate')
 router.route('/wandw')
     .get(wandw.get)
 
+
+//*********ACTU***********//
 // actus
 router.route('/actus')
     .get(actus.getActu)

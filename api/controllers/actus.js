@@ -1,3 +1,5 @@
+const actuModel = require('../database/models/actuModel');
+
 module.exports = {
     getActu: (req, res) => {
         res.render('actu/actus')
