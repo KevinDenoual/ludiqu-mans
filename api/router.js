@@ -10,17 +10,12 @@ const router = express.Router()
 // Import de controllers
 const home = require('./controllers/home')
 const signup = require('./controllers/signup')
-const marketplace = require('./controllers/marketplace/marketplace')
+const marketplace = require('./controllers/marketplace')
 const wandw = require('./controllers/wandw')
-const actus = require('./controllers/actu/actus')
-// const actuSingle = require ('./controllers/actu/actuSingle')
-// const actuCreate = require ('./controllers/actu/actuCreate')
+const actus = require('./controllers/actus')
 const contact = require ('./controllers/contact')
 const jeux = require('./controllers/jeux')
-const addJeux = require('./controllers/addJeux')
-const jeuSingle = require('./controllers/jeuSingle')
-const marketplaceCreate     = require('./controllers/marketplace/marketplaceCreate')
-const admin                 = require ('./controllers/admin')
+const admin = require ('./controllers/admin')
 
 // Home
 router.route('/')
@@ -32,11 +27,11 @@ router.route('/signup')
 
 // marketplace
 router.route('/marketplace')
-    .get(marketplace.get)
+    .get(marketplace.getMarketPlace)
 
-// marketplace
+// marketplaceCreate
 router.route('/marketplaceCreate')
-    .get(marketplaceCreate.get)
+    .get(marketplace.getMarketPlaceCreate)
 
 // wandw
 router.route('/wandw')
@@ -59,15 +54,15 @@ router.route('/contact')
     .get(contact.get)
 // Jeux 
 router.route('/jeux')
-    .get(jeux.get)
+    .get(jeux.getJeux)
 
-// AddJeux
-router.route('/addJeux')
-    .get(addJeux.get)
+// JeuCreate
+router.route('/jeuCreate')
+    .get(jeux.getJeuCreate)
 
 // jeuSingle
 router.route('/jeuSingle')
-    .get(jeuSingle.get)
+    .get(jeux.getJeuSingle)
     
 //adminpage
 router.route('/admin')
