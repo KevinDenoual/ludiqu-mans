@@ -43,112 +43,12 @@ body {
     background-color: rgba(221, 221, 221, 0.5);
 }
 
-
-/*couleur de texte */
-.actu-color{
-    color: #3098D9
-}
-    
-.jeux-color{
-    color: #12A646
-}
-
-.marketplace-color{
-    color: #A62985 
-}
-.wandw-color{
-    color: #F2A81D
-}
-.sign-color{
-    color: #F2522E
-}
-
-/*mise en forme des boutons*/
-.btn-actu {
-    color: #fff;
-    background-color: #3098D9;
-    border-color: #3098D9; }
-    .btn-actu:hover {
-      color: #fff;
-      background-color:  #2485c2;
-      border-color: #1c6897; }
-
-.btn-marketplace {
-  color: #fff;
-  background-color: #A62985;
-  border-color: #A62985; }
-  .btn-marketplace:hover {
-    color: #fff;
-    background-color: #8f2472;
-    border-color: #661952; }
-
-.btn-sign {
-    color: #fff;
-    background-color: #F2522E;
-    border-color: #F2522E; }
-    .btn-sign:hover {
-      color: #fff;
-      background-color: #f0380f;
-      border-color: #c02d0c; }
-
-.btn-jeux {
-    color: #fff;  
-    background-color: #12A646;   
-    border-color: #12A646; }  
-    .btn-jeux:hover {   
-        color: #fff;   
-        background-color: #0f8a3a; 
-        border-color: #0d7330; }
-
-/* =============== scrollup =============== */
-
-.scrollup {
-    z-index: 10;
-    position:fixed; 
-    width:100px;
-    top: 90vh;
-    right:-60px;
-}
-
-/* =============== footer =============== */
-
-.footer {
-        
-    bottom: 0;
-    width: 100%;
-    background: rgb(221, 221, 221);
-    margin-top: 30px;
-}
-
-/* =============== sidebar =============== */
-
-.sideReseau {
-    z-index: 10;
-    position:fixed; 
-    width:100px;
-    top: 30vh;
-    right:-60px;
-    text-align: left;
-    transition: 1s;
-    box-shadow: 10px 10px 10px;
-    background-color: rgba(18, 165, 70, 0.3);
-}
-.sideReseau:hover {
-    transform: translateX(-20px);
-    transition: 1s;
-}
-
 /* =============== FoNT =============== */
 
 h1 {
     font-family: 'neucha';
     
 }
-
-
-
-
-
 
 /*couleur de texte */
 .actu-color{
@@ -182,37 +82,47 @@ body{
     color: #fff;
     background-color: #3098D9;
     border-color: #3098D9; }
-    .btn-actu:hover {
-      color: #fff;
-      background-color:  #2485c2;
-      border-color: #1c6897; }
+.btn-actu:hover {
+    color: #fff;
+     background-color:  #2485c2;
+    border-color: #1c6897; 
+}
 
 .btn-marketplace {
   color: #fff;
   background-color: #A62985;
-  border-color: #A62985; }
-  .btn-marketplace:hover {
+  border-color: #A62985; 
+}
+.btn-marketplace:hover {
     color: #fff;
     background-color: #8f2472;
-    border-color: #661952; }
+    border-color: #661952;
+}
 
 .btn-sign {
     color: #fff;
     background-color: #F2522E;
-    border-color: #F2522E; }
-    .btn-sign:hover {
-      color: #fff;
-      background-color: #f0380f;
-      border-color: #c02d0c; }
+    border-color: #F2522E; 
+}
+
+.btn-sign:hover {
+     
+    color: #fff;
+    background-color: #f0380f;
+    border-color: #c02d0c; 
+    }
 
 .btn-jeux {
     color: #fff;  
     background-color: #12A646;   
-    border-color: #12A646; }  
-    .btn-jeux:hover {   
-        color: #fff;   
-        background-color: #0f8a3a; 
-        border-color: #0d7330; }
+    border-color: #12A646; 
+} 
+
+.btn-jeux:hover {   
+    color: #fff;   
+    background-color: #0f8a3a; 
+    border-color: #0d7330; 
+}
 
 
 .scrollup {
