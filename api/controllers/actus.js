@@ -1,11 +1,11 @@
 module.exports = {
     getActu: (req, res) => {
-        res.render('actus')
+        res.render('actu/actus')
     },
     getActuCreate: (req, res) => {
-        res.render('actuCreate')
+        res.render('actu/actuCreate')
     },
     getActuSingle: (req, res) => {
-        res.render('actuSingle')
+        res.render('actu/actuSingle')
     }
 }

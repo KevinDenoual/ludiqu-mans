@@ -1,11 +1,11 @@
 module.exports = {
     getJeux: (req, res) => {
-        res.render('jeux')
+        res.render('jeux/jeux')
     },
     getJeuSingle: (req, res) => {
-        res.render('jeuSingle')
+        res.render('jeux/jeuSingle')
     },
     getJeuCreate: (req, res) => {
-        res.render('jeuCreate')
+        res.render('jeux/jeuCreate')
     }
 }
