@@ -4,7 +4,8 @@ const jeuSchema = new mongoose.schema ({
 
     title: String, 
     content: String,
-    author: String,  
+    author: String,
+    price: Number, 
     image: String,
     createDate: {
         type: Date, 

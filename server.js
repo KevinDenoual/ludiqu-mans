@@ -2,15 +2,23 @@
 const express = require('express'); 
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 
 
 const app = express()
 const port = process.env.PORT || 3000
 const router = require('./api/router')
-app.use("/", router)
+const urlDB = "mongodb://localhost:27017/ludiqu'mans"
 
+app.use("/", router)
 app.use(express.static('public'));
+
+// Mongoose
+mongoose.connect( urlDB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 // Body Parser
 app.use(bodyParser.json())
