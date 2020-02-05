@@ -26,6 +26,8 @@ router.route('/')
 router.route('/signup')
     .get(signup.get)
 
+
+//********* MARKETPLACE ***********//
 // marketplace
 router.route('/marketplace')
     .get(marketplace.getMarketPlace)
@@ -34,12 +36,14 @@ router.route('/marketplace')
 router.route('/marketplaceCreate')
     .get(marketplace.getMarketPlaceCreate)
 
+
+//********* OU ET QUAND ***********//
 // wandw
 router.route('/wandw')
     .get(wandw.get)
 
 
-//*********ACTU***********//
+//********* ACTU ***********//
 // actus
 router.route('/actus')
     .get(actus.getActu)
@@ -52,9 +56,14 @@ router.route('/actuSingle')
 router.route('/actuCreate')
     .get(actus.getActuCreate)
 
+
+//********* CONTACT ***********//
 // contact
 router.route('/contact')
     .get(contact.get)
+
+
+//********* JEUX ***********//
 // Jeux 
 router.route('/jeux')
     .get(jeux.getJeux)
@@ -62,11 +71,16 @@ router.route('/jeux')
 // JeuCreate
 router.route('/jeuCreate')
     .get(jeux.getJeuCreate)
+    .post(jeux.postJeuItem)
 
 // jeuSingle
-router.route('/jeuSingle')
+router.route('/jeuSingle/:id')
     .get(jeux.getJeuSingle)
+
+
     
+
+//********* ADMIN ***********//
 //adminpage
 router.route('/admin')
     .get(admin.get)

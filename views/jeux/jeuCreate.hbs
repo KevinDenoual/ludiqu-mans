@@ -5,7 +5,7 @@
 
 <div class="container  mt-3">
     <div class="px-auto">
-        <form action="/" method="POST" enctype="multipart/form-data">
+        <form action="/jeuCreate" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="title">Titre du jeu</label>
@@ -15,7 +15,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="validationTextarea" type="text" name="description"></textarea>
+                    <textarea class="form-control" id="validationTextarea" type="text" name="content"></textarea>
                 </div>
             </div>
             <div class="form-row">
@@ -45,7 +45,7 @@
             </div>
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="btn btn-jeux">Enregistrer</button>
+                    <button class="btn btn-jeux" type="submit">Enregistrer</button>
                 </div>
             </div>
         </form>

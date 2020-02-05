@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 
-const jeuSchema = new mongoose.Schema ({
+const JeuxModelSchema = new mongoose.Schema ({
 
     title: String, 
     content: String,
@@ -14,6 +14,6 @@ const jeuSchema = new mongoose.Schema ({
     }
 })
 
-const jeuModel = mongoose.model ('jeuModel', jeuSchema)
+const JeuxModel = mongoose.model('JeuxModel', JeuxModelSchema)
 
-module.exports = jeuModel
+module.exports = JeuxModel
