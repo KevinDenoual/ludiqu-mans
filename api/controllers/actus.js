@@ -1,26 +1,33 @@
-const actuModel = require('../database/models/actuModel');
+const actuCollection = require('../database/models/actuModel');
 
 
 module.exports = {
-    getActu: (req, res) => {
-        res.render('actu/actus')
+    getActu: async(req, res) => {
+        const dbActu = await actuCollection.find({})
+        // console.log(dbActu);
+        
+        res.render('actu/actus', { dbActu })
+        // res.render('actu/actus')
     },
-    getActuCreate: (req, res) => {
-        res.render('actu/actuCreate')
-    },
+
     getActuSingle: (req, res) => {
         res.render('actu/actuSingle')
     },
 
-    postActuCreate: (req, res) => {
-        actuModel.create(
+    getActuCreate: (req, res) => {
+        res.render('actu/actuCreate')
+    },
+
+    postActuCreate: async(req, res) => {
+        const dbActu = await actuCollection.find({})
+        actuCollection.create(
             {
                 title: req.body.title,
                 content: req.body.content,
             },
-            res.redirect('/')
+            res.render('actu/actus', { dbActu })
         )
-        console.log(req.body.title)
+        // console.log(req.body)
         // res.redirect('/')
     },
 }

@@ -19,6 +19,6 @@ const actuSchema = new mongoose.Schema({
 
 })
 
-const actuModel = mongoose.model('actuCollection', actuSchema)
+const actuCollection = mongoose.model('actucollection', actuSchema)
 
-module.exports = actuModel
+module.exports = actuCollection
