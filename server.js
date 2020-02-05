@@ -13,19 +13,23 @@ const path = require('path');
 
 const app = express()
 const port = process.env.PORT || 3000
-const router = require('./api/router')
-const urlDB = "mongodb://localhost:27017/ludiqu'mans"
+
+const urlDB = "mongodb://localhost:27017/ludiqumans"
 const mongoStore = MongoStore(expressSession);
 
-app.use("/", router)
+// Body Parser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+
 app.use(express.static('public'));
 app.use(connectFlash())
 app.use(fileupload())
 
-app.use('*', (req, res, next) => {
-    res.locals.user = req.session.userId;
-    next()
-})
+// app.use('*', (req, res, next) => {
+//     res.locals.user = req.session.userId;
+//     next()
+// })
     
 
 app.use(expressSession ({
@@ -45,9 +49,7 @@ mongoose.connect( urlDB, {
     useUnifiedTopology: true
 });
 
-// Body Parser
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+
 
 
 
@@ -59,12 +61,15 @@ app.engine('hbs', exphbs({
  }));
 app.set('view engine', 'hbs');
 
+
+const router = require('./api/router')
+app.use("/", router)
+
+
 // Error404
 app.use( (req, res) => {
     res.render('error404')
 })
-
-//JS adminpage
 
   
 

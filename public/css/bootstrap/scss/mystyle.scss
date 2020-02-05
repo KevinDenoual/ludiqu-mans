@@ -1,6 +1,6 @@
 $actuColor: #3098D9;
 $jeuxColor: #12A646;
-$marketplaceColor:#A62985;
+$mkpColor:#A62985;
 $wandwColor: #F2A81D;
 $signColor:#F2522E;
 
@@ -13,8 +13,8 @@ $signColor:#F2522E;
     color: $jeuxColor
 }
 
-.marketplace-color{
-    color: $marketplaceColor 
+.mkp-color{
+    color: $mkpColor 
 }
 .wandw-color{
     color: $wandwColor
@@ -33,11 +33,11 @@ $signColor:#F2522E;
       background-color:  #2485c2;
       border-color: #1c6897; }
 
-.btn-marketplace {
+.btn-mkp {
   color: #fff;
-  background-color: $marketplaceColor;
-  border-color: $marketplaceColor; }
-  .btn-marketplace:hover {
+  background-color: $mkpColor;
+  border-color: $mkpColor; }
+  .btn-mkp:hover {
     color: #fff;
     background-color: #8f2472;
     border-color: #661952; }

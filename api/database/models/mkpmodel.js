@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
-const marcketplaceSchema = new mongoose.Schema({
+const mkpModelSchema = new mongoose.Schema({
 
     title : String,
     content : String,
-    Seller: String,
+    seller: String,
     image: String,
     price: Number,
     createDate : {
@@ -15,6 +15,6 @@ const marcketplaceSchema = new mongoose.Schema({
     interessed: Boolean,
 })
 
-const mkpmodel = mongoose.model('mkpmodel', marcketplaceSchema)
 
-module.exports = mkpmodel
+
+module.exports =  mongoose.model('mkpcollection', mkpModelSchema)

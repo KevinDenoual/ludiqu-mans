@@ -59,7 +59,7 @@ h1 {
     color: #12A646
 }
 
-.marketplace-color{
+.mkp-color{
     color: #A62985 
 }
 .wandw-color{
@@ -88,12 +88,12 @@ body{
     border-color: #1c6897; 
 }
 
-.btn-marketplace {
+.btn-mkp {
   color: #fff;
   background-color: #A62985;
   border-color: #A62985; 
 }
-.btn-marketplace:hover {
+.btn-mkp:hover {
     color: #fff;
     background-color: #8f2472;
     border-color: #661952;

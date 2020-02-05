@@ -1,33 +1,33 @@
 <div class="border-bottom mx-auto " style="width: 40%;">
-    <h1 class="text-center marketplace-color ">Vendez vos jeux</h1>
+    <h1 class="text-center mkp-color ">Vendez vos jeux</h1>
 </div>
 
 
 <div class="container  mt-3">
     <div class="px-auto">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="/mkpCreate" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="title">Nom du jeu à vendre</label>
-                    <input type="input" class="form-control" id="title">
+                    <input type="text" class="form-control" id="title" name="title" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="description">Description / état</label>
-                    <textarea class="form-control" id="validationTextarea"></textarea>
+                    <textarea class="form-control" id="validationTextarea" type="text" name="content"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="seller">Vendeur</label>
-                    <input type="input" class="form-control" placeholder="Votre nom d'utilisateur" id="seller">
+                    <input type="text" class="form-control" placeholder="Votre nom d'utilisateur" name="seller">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="price">Prix</label>
-                    <input type="input" class="form-control" placeholder="En euros uniquement" id="price">
+                    <input type="number" class="form-control" placeholder="En euros uniquement" name="price">
                 </div>
             </div>
             <div class="file">
@@ -45,7 +45,7 @@
             </div>
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="btn btn-marketplace">Enregistrer</button>
+                    <button type="submit" class="btn btn-mkp">Enregistrer</button>
                 </div>
             </div>
         </form>
