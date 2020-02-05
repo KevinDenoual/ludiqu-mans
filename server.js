@@ -3,6 +3,11 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const fileupload = require('express-fileupload');
+const expressSession = require('express-session');
+const MongoStore = require('connect-mongo');
+const connectFlash = require('connect-flash');
+const path = require('path');
 
 
 
@@ -10,9 +15,29 @@ const app = express()
 const port = process.env.PORT || 3000
 const router = require('./api/router')
 const urlDB = "mongodb://localhost:27017/ludiqu'mans"
+const mongoStore = MongoStore(expressSession);
 
 app.use("/", router)
 app.use(express.static('public'));
+app.use(connectFlash())
+app.use(fileupload())
+
+app.use('*', (req, res, next) => {
+    res.locals.user = req.session.userId;
+    next()
+})
+    
+
+app.use(expressSession ({
+    secret: 'securite', 
+    name: 'cookie',
+    saveUninitialized: true, 
+    resave: false, 
+
+    store: new mongoStore(
+        {mongooseConnection: mongoose.connection}
+    )
+}));
 
 // Mongoose
 mongoose.connect( urlDB, {

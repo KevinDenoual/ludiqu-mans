@@ -13,72 +13,76 @@ module.exports = {
 
     getJeuCreate: (req, res) => {
 
-        if(req.session.adminId) {
+        if (req.session.adminId) {
             return res.render('jeux/jeuCreate')
         } else {
             res.redirect('/')
         }
+    },
+    post: (req, res) => {
+        const file = req.file;
+        const newJeu = new jeuModel({
+            title: req.body.title,
+            description: req.body.description,
+            author: req.body.author,
+            price: req.body.price,
+        })
 
-        post(upload.single("image"),(req, res) => {
-            const file = req.file;
-            const newJeu = new jeuModel( {
-                title: req.body.title,
-                description: req.body.description,
-                author: req.body.author,
-                price: req.body.price,
-            })
-        });
-        
-        if(file) {
+        if (file) {
             newJeu.image = {
                 name: file.filename,
                 originalName: file.originalname,
                 path: file.path.replace('public', ''),
                 createAt: Date.now()
             }
+
+            newJeu.save(function (err) {
+                if (!err) {
+                    res.redirect('/')
+                } else {
+                    res.send(err)
+                }
+            })
         }
 
-        newJeu.save(function(err) {
-            if(!err) {
+
+    },
+
+
+
+
+        putJeuModel: (req, res) => {
+    jeuModel.updateOne(
+        { _id: req.params.id },
+        {
+            title: req.body.title,
+            description: req.body.description,
+            author: req.body.author,
+            price: req.body.price,
+            image: req.body.image,
+        },
+        { multi: true },
+        function (err) {
+            if (!err) {
                 res.redirect('/')
             } else {
                 res.send(err)
             }
-        })
-    },
+        }
+    )
+},
 
-    putJeuModel: (req, res) => {
-        jeuModel.updateOne(
-            {_id: req.params.id },
-            {
-                title: req.body.title, 
-                description: req.body.description,
-                author: req.body.author,
-                price: req.body.price,
-                image: req.body.image,
-            },
-            {multi: true},
-            function (err) {
-                if(!err) {
-                    res.redirect('/')
-                } else {
-                    res.send(err)
-                }
+deleteJeuSingle: (req, res) => {
+    jeuModel.deleteOne(
+        { _id: req.params.id },
+        function (err) {
+            if (!err) {
+                res.redirect('/')
+            } else {
+                res.send(err)
             }
-        )
-    },
-
-    deleteJeuSingle: (req, res) => {
-        jeuModel.deleteOne(
-            {_id: req.params.id},
-            function(err) {
-                if(!err) {
-                    res.redirect('/')
-                } else {
-                    res.send(err)
-                }
-            }
-        )
-    }
+        }
+    )
+}
 
 }
