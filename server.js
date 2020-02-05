@@ -13,21 +13,27 @@ const path = require('path');
 
 const app = express()
 const port = process.env.PORT || 3000
-const router = require('./api/router')
-const urlDB = "mongodb://localhost:27017/ludiqu'mans"
+const urlDB = "mongodb://localhost:27017/ludiqumans"
 const mongoStore = MongoStore(expressSession);
 
-app.use("/", router)
+
 app.use(express.static('public'));
 app.use(connectFlash())
 app.use(fileupload())
 
-app.use('*', (req, res, next) => {
-    res.locals.user = req.session.userId;
-    next()
-})
+
+// app.use('*', (req, res, next) => {
+//     res.locals.user = req.session.userId;
+//     next()
+// })
+
+
+// Body Parser (PENSER à le mettre avant "app.use("/", router)" sinon il ne prend pas le "req.body")
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
     
 
+// Express Session
 app.use(expressSession ({
     secret: 'securite', 
     name: 'cookie',
@@ -45,11 +51,6 @@ mongoose.connect( urlDB, {
     useUnifiedTopology: true
 });
 
-// Body Parser
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-
-
 
 // Handlebars
 var handlebars = require('handlebars')
@@ -59,14 +60,17 @@ app.engine('hbs', exphbs({
  }));
 app.set('view engine', 'hbs');
 
+
+// Router (PENSER à mettre à la fin dans l'architecture)
+const router = require('./api/router')
+app.use("/", router)
+
+
 // Error404
 app.use( (req, res) => {
     res.render('error404')
 })
-
-//JS adminpage
-
-  
+ 
 
 // Port
 app.listen(port, function () {

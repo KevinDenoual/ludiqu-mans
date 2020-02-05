@@ -51,6 +51,9 @@ router.route('/actuSingle')
 // actuCreate
 router.route('/actuCreate')
     .get(actus.getActuCreate)
+    .post(actus.postActuCreate)
+
+
 
 // contact
 router.route('/contact')
