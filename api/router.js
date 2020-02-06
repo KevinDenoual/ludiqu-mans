@@ -60,6 +60,7 @@ router.route('/actuCreate')
 // contact
 router.route('/contact')
     .get(contact.get)
+    
 // Jeux 
 router.route('/jeux')
     .get(jeux.getJeux)
