@@ -1,17 +1,19 @@
-
-    <div id="carouselExampleSlidesOnly" class="carousel slide pb-2" data-ride="carousel">
-        <div class="carousel-inner img-thumbnail">
-            <div class="carousel-item active">
-                <img src="https://siboneycubancuisine.com/image/76370-full_thumbnail-background-1920x1080.png" height="600px" class="d-block w-100" alt="">
-            </div>
-            <div class="carousel-item img-thumbnail">
-                <img src="https://siboneycubancuisine.com/image/76370-full_thumbnail-background-1920x1080.png" height="600px" class="d-block w-100" alt="">
-            </div>
-            <div class="carousel-item img-thumbnail">
-                <img src="https://siboneycubancuisine.com/image/76370-full_thumbnail-background-1920x1080.png" height="600px" class="d-block w-100" alt="">
-            </div>
+<div id="carouselExampleSlidesOnly" class="carousel slide pb-2" data-ride="carousel">
+    <div class="carousel-inner img-thumbnail">
+        <div class="carousel-item active">
+            <img src="https://siboneycubancuisine.com/image/76370-full_thumbnail-background-1920x1080.png"
+                height="600px" class="d-block w-100" alt="">
+        </div>
+        <div class="carousel-item img-thumbnail">
+            <img src="https://siboneycubancuisine.com/image/76370-full_thumbnail-background-1920x1080.png"
+                height="600px" class="d-block w-100" alt="">
+        </div>
+        <div class="carousel-item img-thumbnail">
+            <img src="https://siboneycubancuisine.com/image/76370-full_thumbnail-background-1920x1080.png"
+                height="600px" class="d-block w-100" alt="">
         </div>
     </div>
+</div>
 
 
 <div class="container">
@@ -24,7 +26,13 @@
 
 <div class="container">
     <h1>Les dernières bonnes affaires</h1>
-    {{> cards/mkp }}
+    <div class="row">
+        <div class="card-deck">
+            {{#each (limitEach dbMkp 3) }}
+            {{> cards/mkp }}
+            {{/each}}
+        </div>
+    </div>
     <div class="d-flex flex-row-reverse bd-highlight mr-5 pt-2">
         <a href="/mkp">Voir la suite</a>
     </div>

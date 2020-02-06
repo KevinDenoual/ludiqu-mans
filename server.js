@@ -8,6 +8,8 @@ const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const connectFlash = require('connect-flash');
 const path = require('path');
+const moment = require('moment')
+const Handlebars = require("handlebars")
 
 
 
@@ -30,6 +32,22 @@ app.use(fileupload())
 //     res.locals.user = req.session.userId;
 //     next()
 // })
+
+
+moment().format('DD MM YYYY');
+
+// Helpers
+// **************limitEach***********
+Handlebars.registerHelper('reverse', function (arr) {
+    if (!Array.isArray(arr)) { return []; }
+    return arr.reverse();
+  });
+
+  Handlebars.registerHelper('limitEach', function (arr, limitEach) {
+    if (!Array.isArray(arr)) { return []; }
+    return arr.slice(-limitEach).reverse();
+  });
+
     
 
 app.use(expressSession ({

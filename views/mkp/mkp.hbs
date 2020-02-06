@@ -1,8 +1,14 @@
 <div class="border-bottom mx-auto " style="width: 40%;">
     <h1 class="text-center mkp-color">Le bon jeu</h1>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="card-deck">
+            {{#each (reverse dbMkp)}}
 
+            {{> cards/mkp }}
 
-    {{> cards/mkp }}
-    {{> cards/mkp }}
-
+            {{/each}}
+        </div>
+    </div>
+</div>
