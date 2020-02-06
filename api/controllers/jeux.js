@@ -37,7 +37,7 @@ module.exports = {
             },
             
             ),
-            res.render('jeux/jeux')
+            res.redirect('/jeux')
     },
 
 
@@ -72,9 +72,7 @@ module.exports = {
             },
             { multi: true },
             function (err) {
-                if (!err) {
-                    res.redirect('/')
-                } else {
+                if (!err) { res.redirect('/jeux')
                     res.send(err)
                 }
             }
@@ -82,16 +80,19 @@ module.exports = {
     },
 
     deleteJeuSingle: (req, res) => {
-        jeuItem.deleteOne(
-            { _id: req.params.id },
-            function (err) {
+    const query = { _id: req.params.id }
+        JeuxModel.deleteOne(
+            query,
+            
+             (err) => {
                 if (!err) {
-                    res.redirect('/')
+                    res.redirect('/jeux')
                 } else {
                     res.send(err)
                 }
             }
         )
+       
     }
 
 }

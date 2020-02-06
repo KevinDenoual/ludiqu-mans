@@ -8,12 +8,15 @@ const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const connectFlash = require('connect-flash');
 const path = require('path');
-
+const methodOverride = require('method-override');
 
 const app = express()
 const port = process.env.PORT || 3000
 const urlDB = "mongodb://localhost:27017/ludiqumans"
 const mongoStore = MongoStore(expressSession);
+
+// Method-Override
+app.use(methodOverride('_method'));
 
 // Body Parser
 app.use(bodyParser.json())

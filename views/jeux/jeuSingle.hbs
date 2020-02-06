@@ -1,32 +1,30 @@
 <div class="border-bottom mx-auto" style="width: 40%;">
-    <h1 class="text-center jeux-color title">{{ dbJeuSingle.title }}</h1>
+    <h1 class="text-center jeux-color title">{{ dbJeuModel.title }}</h1>
 </div>
 <div class="container mt-3">
     <div class="row text-center">
 
-        
+
         <img src="" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
-        <p class="mt-3">{{ dbJeuSingle.content }} </p>
+        <p class="mt-3">{{ dbJeuModel.content }} </p>
+        <p>{{ dbJeuModel.price}} </p>
 
         <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter"
             data-whatever="@getbootstrap">Commenter</button>
-        <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalEditer">Modifier</button>
-        <button type="button" class="btn btn-actu" data-toggle="modal" type="submit"
-            data-target="#modalConfirmSupp">Supprimer</button>
-    </div>
 
+        <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalEditer">Modifier</button>
+
+        <form action="/jeuSingle/{{ dbJeuModel._id }}/?_method=DELETE" method="post">
+            <button class="btn btn-actu" data-toggle="modal" type="submit">Supprimer</button>       
+        </form>
+    </div>
 
     {{!-- Modal Editer Article --}}
     {{> modals/modalEdit }}
 
-    {{!-- Modal confirmation de suppression --}}
-    {{> modals/modalConfirmSupp }}
+   
+   
 
-    {{!-- Modal commenter --}}
-    {{> modals/modalCommenter }}
-
-
-    {{!-- Zone commentaire --}}
-    {{> zoneCommentaire }}
+   
 
 </div>

@@ -76,8 +76,7 @@ router.route('/jeuCreate')
 // jeuSingle
 router.route('/jeuSingle/:id')
     .get(jeux.getJeuSingle)
-
-
+    .delete(jeux.deleteJeuSingle)
     
 
 //********* ADMIN ***********//
