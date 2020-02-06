@@ -12,19 +12,49 @@
         <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter"
             data-whatever="@getbootstrap">Commenter</button>
 
-        <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalEditer">Modifier</button>
 
-        <form action="/jeuSingle/{{ dbJeuModel._id }}/?_method=DELETE" method="post">
-            <button class="btn btn-actu" data-toggle="modal" type="submit">Supprimer</button>       
-        </form>
+        {{!-- Modal Editer Article --}}
+        {{> modals/modalEdit }}
+
+        
+        <button class="btn btn-actu" data-toggle="modal" type="subit"
+            data-target="#modalConfirmSuppJeu{{ _id }}">Supprimer</button>
+
+
+        {{!-- modal confirmation suppression --}}
+        <div class="modal fade" id="modalConfirmSuppJeu{{ _id }}" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Confirmez-vous la suppression ?</p>
+                    </div>
+                    <div class="modal-footer">
+
+                        <form action="/jeuSingle/{{ dbJeuModel._id }}/?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-sign">Oui</button>
+                        </form>
+
+
+                        <button type="button" class="btn btn-sign">Non</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
-    {{!-- Modal Editer Article --}}
-    {{> modals/modalEdit }}
 
-   
-   
 
-   
+
+
+
+
 
 </div>

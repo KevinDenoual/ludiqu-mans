@@ -60,7 +60,7 @@ module.exports = {
 
     // },
 
-    putJeuItem: (req, res) => {
+    putJeuSingle: (req, res) => {
         jeuItem.updateOne(
             { _id: req.params.id },
             {
