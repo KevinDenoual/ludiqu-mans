@@ -6,22 +6,21 @@ const mongoose = require('mongoose');
 const fileupload = require('express-fileupload');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
+const methodOverride = require('method-override');
 const connectFlash = require('connect-flash');
 const Handlebars = require("handlebars");
 const path = require('path');
 
-
-
-const app = express()
-const port = process.env.PORT || 3000
-const urlDB = "mongodb://localhost:27017/ludiqumans"
+const app = express();
+const port = process.env.PORT || 3000;
+const urlDB = "mongodb://localhost:27017/ludiqumans";
 const mongoStore = MongoStore(expressSession);
 
 
 app.use(express.static('public'));
-app.use(connectFlash())
-app.use(fileupload())
-
+app.use(connectFlash());
+app.use(fileupload());
+app.use(methodOverride('_method'));
 
 // app.use('*', (req, res, next) => {
 //     res.locals.user = req.session.userId;
@@ -36,7 +35,7 @@ Handlebars.registerHelper('limitEach', function (arr, limitEach) {
     return arr.slice(-limitEach).reverse();
 });
 // **************reverse***********
-Handlebars.registerHelper('reverse', function (arr, reverse) {
+Handlebars.registerHelper('reverse', function (arr) {
     if (!Array.isArray(arr)) { return []; }
     return arr.reverse();
 });

@@ -17,23 +17,29 @@
             {{ dbActu.createDate }}
         </p>
     </div>
-    <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter"
-        data-whatever="@getbootstrap">Commenter</button>
-    <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalEditer">Modifier</button>
-    <button type="button" class="btn btn-actu" data-toggle="modal" type="submit"
-        data-target="#modalConfirmSupp">Supprimer</button>
 
-{{!-- Modal Editer Article --}}
-{{> modals/modalEdit }}
+    <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
+        type="submit">Commenter</button>
+    <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditer" type="submit">Modifier</button>
+    
+    <form action="/actuSingle/{{ dbActu.id }}/?_method=delete" method="post">
+        <button class="btn btn-actu" data-toggle="modal" type="submit"
+            data-target="#modalConfirmSupp">Supprimer</button>
+    </form>
 
+
+    {{!-- Modal Editer Article --}}
+    {{> modals/modalEdit }}
+
+    {{!-- Modal commenter --}}
+    {{> modals/modalCommenter }}
+
+    <!--
 {{!-- Modal confirmation de suppression --}}
 {{> modals/modalConfirmSupp }}
 
-{{!-- Modal commenter --}}
-{{> modals/modalCommenter }}
-
-
 {{!-- Zone commentaire --}}
 {{> zoneCommentaire }}
+-->
 
 </div>

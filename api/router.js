@@ -47,7 +47,8 @@ router.route('/actus')
 // actuSingle
 router.route('/actuSingle/:id')
     .get(actus.getActuSingle)
-
+    .delete(actus.deleteOneActuSingle)
+    
 // actuCreate
 router.route('/actuCreate')
     .get(actus.getActuCreate)
