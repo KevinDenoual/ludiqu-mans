@@ -3,15 +3,16 @@ const express = require('express')
     , mkpmodel = require('../database/models/mkpmodel')
     , fileupload = require('express-fileupload')
     , moment = require('moment')
-    
 
-    moment.locale('fr'); // 'fr'
+
+moment.locale('fr'); // 'fr'
 
 
 
 module.exports = {
     getmkp: async (req, res) => {
         const dbMkp = await mkpmodel.find({})
+
         // console.log(dbMkp);   affiche le contenu de la db dasn la console     
         res.render('mkp/mkp', {dbMkp})
     },
