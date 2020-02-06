@@ -10,6 +10,7 @@ const connectFlash = require('connect-flash');
 const path = require('path');
 const moment = require('moment')
 const Handlebars = require("handlebars")
+const methodOverride = require('method-override')
 
 
 
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.use(connectFlash())
 app.use(fileupload())
+app.use(methodOverride('_method'))
 
 // app.use('*', (req, res, next) => {
 //     res.locals.user = req.session.userId;

@@ -38,9 +38,26 @@ module.exports = {
                     interessed: false
                 }
                 , (error, post) => {
-                    res.render('mkp/mkpCreate')
+                    res.redirect('/mkp')
                 })
         // })
     },
+    // supprimé une annonce
+
+    deletemkp: (req, res) => {
+        mkpmodel.deleteOne(
+            { 
+                _id: req.params.id 
+            },
+            (err) => {
+                if (!err){
+                    res.redirect('/mkp')
+                } else {
+                    res.send(err)
+                }
+            }
+            
+        )
+    }
 }
 

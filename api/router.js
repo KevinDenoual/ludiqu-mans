@@ -30,6 +30,9 @@ router.route('/signup')
 router.route('/mkp')
     .get(mkp.getmkp)
 
+router.route('/mkp/:id')
+    .delete(mkp.deletemkp)
+
 // mkpCreate
 router.route('/mkpCreate')
     .get(mkp.getmkpCreate)
