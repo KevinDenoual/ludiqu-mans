@@ -1,5 +1,5 @@
 // Import Module
-const express = require('express'); 
+const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -7,6 +7,7 @@ const fileupload = require('express-fileupload');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const connectFlash = require('connect-flash');
+const Handlebars = require("handlebars");
 const path = require('path');
 
 
@@ -28,25 +29,38 @@ app.use(fileupload())
 // })
 
 
+// Helpers
+// **************limitEach***********
+Handlebars.registerHelper('limitEach', function (arr, limitEach) {
+    if (!Array.isArray(arr)) { return []; }
+    return arr.slice(-limitEach).reverse();
+});
+// **************reverse***********
+Handlebars.registerHelper('reverse', function (arr, reverse) {
+    if (!Array.isArray(arr)) { return []; }
+    return arr.reverse();
+});
+
+
 // Body Parser (PENSER à le mettre avant "app.use("/", router)" sinon il ne prend pas le "req.body")
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-    
+
 
 // Express Session
-app.use(expressSession ({
-    secret: 'securite', 
+app.use(expressSession({
+    secret: 'securite',
     name: 'cookie',
-    saveUninitialized: true, 
-    resave: false, 
+    saveUninitialized: true,
+    resave: false,
 
     store: new mongoStore(
-        {mongooseConnection: mongoose.connection}
+        { mongooseConnection: mongoose.connection }
     )
 }));
 
 // Mongoose
-mongoose.connect( urlDB, {
+mongoose.connect(urlDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -55,9 +69,9 @@ mongoose.connect( urlDB, {
 // Handlebars
 var handlebars = require('handlebars')
 app.engine('hbs', exphbs({
-    extname: 'hbs', 
+    extname: 'hbs',
     defaultLayout: 'main'
- }));
+}));
 app.set('view engine', 'hbs');
 
 
@@ -67,10 +81,10 @@ app.use("/", router)
 
 
 // Error404
-app.use( (req, res) => {
+app.use((req, res) => {
     res.render('error404')
 })
- 
+
 
 // Port
 app.listen(port, function () {
