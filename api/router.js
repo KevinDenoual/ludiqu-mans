@@ -30,6 +30,7 @@ router.route('/signup')
 router.route('/mkp')
     .get(mkp.getmkp)
 
+//mkp/:id(for delete)
 router.route('/mkp/:id')
     .delete(mkp.deletemkp)
 
@@ -37,9 +38,6 @@ router.route('/mkp/:id')
 router.route('/mkpCreate')
     .get(mkp.getmkpCreate)
     .post(mkp.postmkpCreate)
-
-
-    
 
 // wandw
 router.route('/wandw')
