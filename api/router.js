@@ -45,7 +45,7 @@ router.route('/actus')
     .get(actus.getActu)
 
 // actuSingle
-router.route('/actuSingle')
+router.route('/actuSingle/:id')
     .get(actus.getActuSingle)
 
 // actuCreate

@@ -7,11 +7,13 @@ module.exports = {
         // console.log(dbActu);
         
         res.render('actu/actus', { dbActu })
-        // res.render('actu/actus')
     },
 
-    getActuSingle: (req, res) => {
-        res.render('actu/actuSingle')
+    getActuSingle: async(req, res) => {
+        const dbActu = await actuCollection.findById(req.params.id)
+        // console.log(req.params.id);
+
+        res.render('actu/actuSingle', { dbActu })
     },
 
     getActuCreate: (req, res) => {
@@ -25,9 +27,9 @@ module.exports = {
                 title: req.body.title,
                 content: req.body.content,
             },
-            res.render('actu/actus', { dbActu })
+            // res.render('actu/actus', { dbActu })
         )
         // console.log(req.body)
-        // res.redirect('/')
+        res.redirect('/actus')
     },
 }
