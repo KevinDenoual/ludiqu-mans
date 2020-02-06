@@ -19,7 +19,7 @@ module.exports = {
         res.render('actu/actuCreate')
     },
 
-    postActuCreate: async (req, res) => {
+    postActuCreate: (req, res) => {
         actuCollection.create(
             {
                 title: req.body.title,
@@ -30,7 +30,7 @@ module.exports = {
         res.redirect('/actus')
     },
 
-    deleteOneActuSingle: async (req, res, next) => {
+    deleteOneActuSingle: (req, res) => {
         // console.log('delete Article')
         actuCollection.deleteOne(
             {_id: req.params.id},
@@ -41,5 +41,9 @@ module.exports = {
                     res.send(err)
                 }
             })
+    },
+
+    putActuSingle: (req, res) => {
+        
     }
 }

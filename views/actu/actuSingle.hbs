@@ -20,12 +20,33 @@
 
     <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
         type="submit">Commenter</button>
-    <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditer" type="submit">Modifier</button>
-    
-    <form action="/actuSingle/{{ dbActu.id }}/?_method=delete" method="post">
-        <button class="btn btn-actu" data-toggle="modal" type="submit"
-            data-target="#modalConfirmSupp">Supprimer</button>
-    </form>
+
+    <button class="btn btn-actu" data-toggle="modal" type="submit"
+        data-target="#modalConfirmSuppActu{{id}}">Supprimer</button>
+
+
+    {{!-- modal confirmation suppression --}}
+    <div class="modal fade" id="modalConfirmSuppActu{{id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirmez-vous la suppression de {{dbActu.title}} ?</p>
+                </div>
+                <div class="modal-footer">
+                    <form action="/actuSingle/{{ dbActu.id }}/?_method=delete" method="post">
+                        <button type="submit" class="btn btn-sign">Oui</button>
+                    </form>
+                    <button type="submit" type="button" data-dismiss="modal" aria-label="Close"
+                        class="btn btn-sign">Non</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     {{!-- Modal Editer Article --}}
@@ -34,12 +55,7 @@
     {{!-- Modal commenter --}}
     {{> modals/modalCommenter }}
 
-    <!--
-{{!-- Modal confirmation de suppression --}}
-{{> modals/modalConfirmSupp }}
-
-{{!-- Zone commentaire --}}
-{{> zoneCommentaire }}
--->
+    {{!-- Zone commentaire --}}
+    {{> zoneCommentaire }}
 
 </div>
