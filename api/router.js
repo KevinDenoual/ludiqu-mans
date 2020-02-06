@@ -10,7 +10,7 @@ const router = express.Router()
 // Import de controllers
 const home = require('./controllers/home')
 const signup = require('./controllers/signup')
-const marketplace = require('./controllers/marketplace')
+const mkp = require('./controllers/mkp')
 const wandw = require('./controllers/wandw')
 const actus = require('./controllers/actus')
 const contact = require ('./controllers/contact')
@@ -26,15 +26,18 @@ router.route('/')
 router.route('/signup')
     .get(signup.get)
 
+// mkp
+router.route('/mkp')
+    .get(mkp.getmkp)
 
-//********* MARKETPLACE ***********//
-// marketplace
-router.route('/marketplace')
-    .get(marketplace.getMarketPlace)
+//mkp/:id(for delete)
+router.route('/mkp/:id')
+    .delete(mkp.deletemkp)
 
-// marketplaceCreate
-router.route('/marketplaceCreate')
-    .get(marketplace.getMarketPlaceCreate)
+// mkpCreate
+router.route('/mkpCreate')
+    .get(mkp.getmkpCreate)
+    .post(mkp.postmkpCreate)
 
 
 //********* OU ET QUAND ***********//

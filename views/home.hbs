@@ -40,8 +40,14 @@
 
 <div class="container">
     <h1>Les dernières bonnes affaires</h1>
-    {{> cards/marketplace }}
+    <div class="row">
+        <div class="card-deck">
+            {{#each (limitEach dbMkp 3) }}
+            {{> cards/mkp }}
+            {{/each}}
+        </div>
+    </div>
     <div class="d-flex flex-row-reverse bd-highlight mr-5 pt-2">
-        <a href="/marketplace">Voir la suite</a>
+        <a href="/mkp">Voir la suite</a>
     </div>
 </div>
