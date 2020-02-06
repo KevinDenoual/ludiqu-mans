@@ -1,13 +1,49 @@
-const actuModel = require('../database/models/actuModel');
+const actuCollection = require('../database/models/actuModel');
 
 module.exports = {
-    getActu: (req, res) => {
-        res.render('actu/actus')
+    getActu: async (req, res) => {
+        const dbActu = await actuCollection.find({})
+        // console.log(dbActu);
+
+        res.render('actu/actus', { dbActu })
     },
+
+    getActuSingle: async (req, res) => {
+        const dbActu = await actuCollection.findById(req.params.id)
+        // console.log(req.params.id);
+
+        res.render('actu/actuSingle', { dbActu })
+    },
+
     getActuCreate: (req, res) => {
         res.render('actu/actuCreate')
     },
-    getActuSingle: (req, res) => {
-        res.render('actu/actuSingle')
+
+    postActuCreate: (req, res) => {
+        actuCollection.create(
+            {
+                title: req.body.title,
+                content: req.body.content,
+            },
+        )
+        // console.log(req.body)
+        res.redirect('/actus')
+    },
+
+    deleteOneActuSingle: (req, res) => {
+        // console.log('delete Article')
+        actuCollection.deleteOne(
+            {_id: req.params.id},
+            (err) => {
+                if (!err) {
+                    res.redirect('/actus')
+                } else {
+                    res.send(err)
+                }
+            })
+    },
+
+    putActuSingle: (req, res) => {
+        
     }
 }

@@ -5,17 +5,17 @@
 
 <div class="container  mt-3">
     <div class="px-auto">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="/actuCreate" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="title">Titre de l'article</label>
-                    <input type="input" class="form-control" id="title">
+                    <input class="form-control" type="text" name="title">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="description">Contenu</label>
-                    <textarea class="form-control" id="validationTextarea"></textarea>
+                    <textarea class="form-control" id="validationTextarea" type="text" name="content"></textarea>
                 </div>
             </div>
             <div class="file">

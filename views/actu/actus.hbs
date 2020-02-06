@@ -2,6 +2,16 @@
     <h1 class="text-center actu-color">Toutes les actus</h1>
 </div>
 
+<div class="container mt-3">
+    <div class="row">
+        <div class="card-deck">
 
-    {{> cards/actu }}
-    {{> cards/actu }}
+            {{#each (reverse dbActu) }}
+
+            {{> cards/actu }}
+
+            {{/each }}
+
+        </div>
+    </div>
+</div>

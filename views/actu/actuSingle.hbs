@@ -1,41 +1,58 @@
 <div class="border-bottom mx-auto" style="width: 40%;">
-    <h1 class="text-center actu-color">Article.Title</h1>
+    <h1 class="text-center actu-color">{{ dbActu.title }}</h1>
 </div>
-<div class="container mt-3">
+<div class="container mt-3 ">
     <div class="row text-center">
         <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
-        <p class="mt-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore laborum beatae sed, doloremque
-            rerum
-            consequuntur, quibusdam atque deleniti error veritatis dolorum. Quis possimus porro provident excepturi.
-            Obcaecati nulla dolore ipsa?
-            Sapiente dolorum autem, fugit minus vero cumque a beatae eos, laudantium facere odit inventore maxime eum
-            impedit, sed tenetur facilis vitae illo iusto nobis. Dolore illo sint animi quibusdam aperiam.
-            Quo ad blanditiis excepturi dolorem consequatur totam. Quis quam assumenda dignissimos eaque aliquid odio
-            eum facilis itaque. Iusto deserunt fuga, fugiat dolores nam quibusdam non dicta ut recusandae, optio
-            delectus.
-            Autem possimus sint ipsa incidunt neque dolore repudiandae ut fugiat officiis esse beatae ratione
-            consectetur expedita commodi similique illum, cupiditate quo iusto? Quisquam nulla asperiores facilis cum,
-            non corporis iure?
-            Mollitia sapiente eos, quis repellat, maxime impedit sit deserunt aperiam ipsa minima, excepturi quibusdam.
-            Eum laboriosam quis quam, et dolor error deleniti doloremque, vel eligendi at adipisci omnis, ipsam impedit!
+    </div>
+    <div class="row ">
+        <div class="col-md-12">
+            <p class="mt-3 text-center">
+                {{ dbActu.content }}
+            </p>
+        </div>
+    </div>
+    <div class="row ">
+        <p class="mt-3">
+            {{ dbActu.createDate }}
         </p>
     </div>
-    <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter"
-        data-whatever="@getbootstrap">Commenter</button>
-    <button type="button" class="btn btn-actu" data-toggle="modal" data-target="#modalEditer">Modifier</button>
-    <button type="button" class="btn btn-actu" data-toggle="modal" type="submit"
-        data-target="#modalConfirmSupp">Supprimer</button>
+
+    <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
+        type="submit">Commenter</button>
+
+    <button class="btn btn-actu" data-toggle="modal" type="submit"
+        data-target="#modalConfirmSuppActu{{id}}">Supprimer</button>
+
+
+    {{!-- modal confirmation suppression --}}
+    <div class="modal fade" id="modalConfirmSuppActu{{id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirmez-vous la suppression de {{dbActu.title}} ?</p>
+                </div>
+                <div class="modal-footer">
+                    <form action="/actuSingle/{{ dbActu.id }}/?_method=delete" method="post">
+                        <button type="submit" class="btn btn-sign">Oui</button>
+                    </form>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sign">Non</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     {{!-- Modal Editer Article --}}
     {{> modals/modalEdit }}
 
-    {{!-- Modal confirmation de suppression --}}
-    {{> modals/modalConfirmSupp }}
-
     {{!-- Modal commenter --}}
     {{> modals/modalCommenter }}
-
 
     {{!-- Zone commentaire --}}
     {{> zoneCommentaire }}

@@ -49,12 +49,16 @@ router.route('/actus')
     .get(actus.getActu)
 
 // actuSingle
-router.route('/actuSingle')
+router.route('/actuSingle/:id')
     .get(actus.getActuSingle)
+    .delete(actus.deleteOneActuSingle)
+    .put(actus.putActuSingle)
 
 // actuCreate
 router.route('/actuCreate')
     .get(actus.getActuCreate)
+    .post(actus.postActuCreate)
+
 
 
 //********* CONTACT ***********//
