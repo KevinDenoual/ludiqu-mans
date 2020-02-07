@@ -27,10 +27,6 @@ app.use(express.static('public'));
 app.use(connectFlash());
 app.use(fileupload());
 
-// app.use('*', (req, res, next) => {
-//     res.locals.user = req.session.userId;
-//     next()
-// })
 
 
 // Helpers
@@ -58,6 +54,11 @@ app.use(expressSession({
         { mongooseConnection: mongoose.connection }
     )
 }));
+
+app.use('*', (req, res, next) => {
+    res.locals.user = req.session.userId;
+    next()
+})
 
 // Mongoose
 mongoose.connect(urlDB, {
