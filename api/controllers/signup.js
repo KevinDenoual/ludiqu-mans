@@ -8,8 +8,10 @@ module.exports = {
     postSignup: (req, res) => {
         const pass = req.body.password
         const confPass = req.body.confPassword
-        if (pass !== confPass) {
-            res.redirect('/signup')
+        const check = req.body.gridCheck
+
+        if (pass !== confPass || pass === '' || confPass === '' || check !== 'on') {
+                res.redirect('/signup')
         } else {
             usermodel.create(
                 {
@@ -22,7 +24,6 @@ module.exports = {
                     isBan: false,
                 },
             )
-            console.log('mot de passe is ok')
             res.render('home')
         }
     }
