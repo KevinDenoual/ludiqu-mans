@@ -18,15 +18,21 @@
         </p>
     </div>
 
+    {{!-- bouton commenter --}}
     <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
         type="submit">Commenter</button>
 
+    {{!-- bouton suppression --}}
     <button class="btn btn-actu" data-toggle="modal" type="submit"
-        data-target="#modalConfirmSuppActu{{id}}">Supprimer</button>
+        data-target="#modalConfirmSuppActu{{_id}}">Supprimer</button>
+
+    {{!-- bouton modifier --}}
+    <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditerActu{{_id}}"
+        type="submit">Modifier</button>
 
 
     {{!-- modal confirmation suppression --}}
-    <div class="modal fade" id="modalConfirmSuppActu{{id}}" tabindex="-1" role="dialog">
+    <div class="modal fade" id="modalConfirmSuppActu{{_id}}" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -38,7 +44,7 @@
                     <p>Confirmez-vous la suppression de {{dbActu.title}} ?</p>
                 </div>
                 <div class="modal-footer">
-                    <form action="/actuSingle/{{ dbActu.id }}/?_method=delete" method="post">
+                    <form action="/actuSingle/{{ dbActu._id }}/?_method=delete" method="POST">
                         <button type="submit" class="btn btn-sign">Oui</button>
                     </form>
                     <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sign">Non</button>
@@ -49,14 +55,60 @@
 
 
     {{!-- Modal Editer Article --}}
-    {{> modals/modalEdit }}
+    <div class="container mt-3">
+        <div class="row text-center">
+            <div class="modal fade" id="modalEditerActu{{_id}}" tabindex="-1" role="dialog"
+                aria-labelledby="modalEditerLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/actuSingle/{{ dbActu._id }}/?_method=PUT" method="POST">
+                                <input type="text" name="title" contenteditable="true" value="{{dbActu.title}}">
+                                <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block"
+                                    alt="Responsive image">
+                                <input type="text" name="date" contenteditable="true"
+                                    value="Modifier le : {{dbActu.createDate}}">
+                                <input type="text" name="content" contenteditable="true" value="{{dbActu.content}}">
+                                <div class="file">
+                                    <label class="file-label">
+                                        <input class="file-input" type="file" name="image">
+                                        <span class="file-cta">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">
+                                                Envoyer une nouvelle image au format .jpg .jpeg .gif uniquement
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
 
-    
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-sign">Confirmer la modification</button>
+                                </div>
+                            </form>
+                        </div>
 
-    {{!-- Modal commenter --}}
-    {{> modals/modalCommenter }}
 
-    {{!-- Zone commentaire --}}
-    {{> zoneCommentaire }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Modal commenter --}}
+{{> modals/modalCommenter }}
+
+{{!-- Zone commentaire --}}
+{{> zoneCommentaire }}
 
 </div>

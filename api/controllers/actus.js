@@ -43,7 +43,25 @@ module.exports = {
             })
     },
 
-    putActuSingle: (req, res) => {
-        
+    putActuSingle: async(req, res) => {
+    const dbActu = await actuCollection.findById(req.params.id)
+        actuCollection.findOneAndUpdate(
+            {_id: req.params.id},
+            {
+                title: req.body.title,
+                content: req.body.content,
+                createDate : req.body.date,
+            },
+            {multi:true},
+            (err) => {
+                if (!err) {
+                    console.log('UPDATE OK');
+                    // res.redirect('/actuSingle/:id')
+                    res.redirect('/actus')
+                    // res.render('actu/actuSingle', { dbActu })
+                } else {
+                    res.send(err)
+                }
+            })
     }
 }

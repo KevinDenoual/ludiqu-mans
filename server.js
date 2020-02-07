@@ -26,7 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.use(connectFlash());
 app.use(fileupload());
-app.use(methodOverride('_method'));
 
 // app.use('*', (req, res, next) => {
 //     res.locals.user = req.session.userId;
@@ -63,7 +62,8 @@ app.use(expressSession({
 // Mongoose
 mongoose.connect(urlDB, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify : false,
 });
 
 // Handlebars
