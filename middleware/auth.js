@@ -1,4 +1,4 @@
-const userCollection = require('../database/models/userModel')
+const userCollection = require('../api/database/models/userModel')
 
 module.exports = {
     auth: (req, res, next) => {

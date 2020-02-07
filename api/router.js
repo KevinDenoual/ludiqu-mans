@@ -16,11 +16,15 @@ const actus = require('./controllers/actus')
 const contact = require ('./controllers/contact')
 const jeux = require('./controllers/jeux')
 const admin = require ('./controllers/admin')
+const auth = require('../middleware/auth')
+const redirectAuthSucces = require('../middleware/redirectAuthSucces')
+
 
 
 // Home
 router.route('/')
     .get(home.get)
+    .post(redirectAuthSucces, home.postLogin)
 
 //********* MKP ***********//
 // mkp
@@ -93,6 +97,7 @@ router.route('/admin')
 router.route('/signup')
     .get(signup.get)
     .post(signup.postSignup)
+    
 
 
 

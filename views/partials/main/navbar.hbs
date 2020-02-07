@@ -1,25 +1,28 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light shadow mb-2" style="background-color: rgb(203, 235, 214);"  id="scrollup">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light shadow mb-2" style="background-color: rgb(203, 235, 214);"
+  id="scrollup">
   <a class="navbar-brand" href="/">
     <img src="/ressources/images/Logo-ludiqu'mans.png" alt="logo" height="100">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link nav-ludi" href="/actus" style="color: #3098D9; ">Les actus<span class="sr-only" >(current)</span></a>
+        <a class="nav-link nav-ludi" href="/actus" style="color: #3098D9; ">Les actus<span
+            class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link nav-ludi" href="/jeux" style="color: #12A646; ">Les jeux<span class="sr-only">(current)</span></a>
+        <a class="nav-link nav-ludi" href="/jeux" style="color: #12A646; ">Les jeux<span
+            class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item dropdown  xpurple">
-        <a class="nav-link nav-ludi dropdown-toggle xpurple" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link nav-ludi dropdown-toggle xpurple" href="" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Le bon jeu
         </a>
         <div class="dropdown-menu xpurple" aria-labelledby="navbarDropdown">
@@ -30,7 +33,8 @@
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link nav-ludi" style="color:#F2A81D;" href="/wandw">Où et quand<span class="sr-only">(current)</span></a>
+        <a class="nav-link nav-ludi" style="color:#F2A81D;" href="/wandw">Où et quand<span
+            class="sr-only">(current)</span></a>
       </li>
 
     </ul>
@@ -38,19 +42,20 @@
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="#signin" data-toggle="modal" data-target="#exampleModal" style="color: #F2522E;">Se connecter<span
-              class="sr-only navbar-text">(current)</span></a>
+          <a class="nav-link nav-ludi" href="#signin" data-toggle="modal" data-target="#exampleModal"
+            style="color: #F2522E;">Se connecter<span class="sr-only navbar-text">(current)</span></a>
         </li>
-                <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="#"  style="color: #F2522E; ">Se deconnecter<span
-              class="sr-only navbar-text">(current)</span></a>
-        </li>
-                <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="/admin"  style="color: #F2522E;">Admin<span
+        <li class="nav-item active">
+          <a class="nav-link nav-ludi" href="#" style="color: #F2522E; ">Se deconnecter<span
               class="sr-only navbar-text">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="/signup" style="color: #F2522E; ">Créer un compte<span class="sr-only navbar-text">(current)</span></a>
+          <a class="nav-link nav-ludi" href="/admin" style="color: #F2522E;">Admin<span
+              class="sr-only navbar-text">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link nav-ludi" href="/signup" style="color: #F2522E; ">Créer un compte<span
+              class="sr-only navbar-text">(current)</span></a>
         </li>
       </ul>
       <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
@@ -61,40 +66,44 @@
 
 
 {{!-- modal --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="container login-container">
-        <div class="row ">
-          <div class="col-md-12 login-form-1 text-center">
-            <h3 style="color: #F2522E;">Se connecter</h3>
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Votre Email *" value="" />
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Votre mot de passe *" value="" />
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-sign" value="Se connecter" />
-              </div>
-              <div class="checkbox">
-                <label> <input type="checkbox"> Se rappeler de moi. </label>
-              </div>
-              <div class="form-group">
-                <a href="#" class="ForgetPwd">Mot de passe oublié</a>
-              </div>
-            </form>
+<form action="/" method="POST">
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="container login-container">
+          <div class="row ">
+            <div class="col-md-12 login-form-1 text-center">
+              <h3 style="color: #F2522E;">Se connecter</h3>
+              <form>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Votre Email *" value="" />
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Votre mot de passe *" value="" />
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-sign" value="Se connecter" />
+                </div>
+                <div class="checkbox">
+                  <label> <input type="checkbox"> Se rappeler de moi. </label>
+                </div>
+                <div class="form-group">
+                  <a href="#" class="ForgetPwd">Mot de passe oublié</a>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+</form>
 
 <style>
-.xpurple {
-  color: #A62985 !important;
-}
+  .xpurple {
+    color: #A62985 !important;
+  }
 </style>
