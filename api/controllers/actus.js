@@ -43,8 +43,7 @@ module.exports = {
             })
     },
 
-    putActuSingle: async(req, res) => {
-    const dbActu = await actuCollection.findById(req.params.id)
+    putActuSingle: (req, res) => {
         actuCollection.findOneAndUpdate(
             {_id: req.params.id},
             {
@@ -56,9 +55,7 @@ module.exports = {
             (err) => {
                 if (!err) {
                     console.log('UPDATE OK');
-                    // res.redirect('/actuSingle/:id')
-                    res.redirect('/actus')
-                    // res.render('actu/actuSingle', { dbActu })
+                    res.redirect('/actuSingle/' + req.params.id)
                 } else {
                     res.send(err)
                 }
