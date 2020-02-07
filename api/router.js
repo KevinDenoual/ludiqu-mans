@@ -22,10 +22,7 @@ const admin = require ('./controllers/admin')
 router.route('/')
     .get(home.get)
 
-// Signup
-router.route('/signup')
-    .get(signup.get)
-
+//********* MKP ***********//
 // mkp
 router.route('/mkp')
     .get(mkp.getmkp)
@@ -90,6 +87,12 @@ router.route('/jeuSingle/:id')
 //adminpage
 router.route('/admin')
     .get(admin.get)
+
+//********* Signup ***********//
+// Signup
+router.route('/signup')
+    .get(signup.get)
+    .post(signup.postSignup)
 
 
 

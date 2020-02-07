@@ -63,7 +63,8 @@ app.use(expressSession({
 // Mongoose
 mongoose.connect(urlDB, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify : false,
 });
 
 // Handlebars

@@ -1,6 +1,6 @@
 const express = require('express')
     , path = require('path')
-    , mkpmodel = require('../database/models/mkpmodel')
+    , mkpmodel = require('../database/models/mkpModel')
     , fileupload = require('express-fileupload')
     , moment = require('moment')
 
@@ -13,7 +13,7 @@ module.exports = {
     getmkp: async (req, res) => {
         const dbMkp = await mkpmodel.find({})
 
-        // console.log(dbMkp);   affiche le contenu de la db dasn la console     
+        // console.log(dbMkp);   affiche le contenu de la db dans la console     
         res.render('mkp/mkp', {dbMkp})
     },
     getmkpCreate: (req, res) => {
@@ -21,11 +21,9 @@ module.exports = {
 
     },
 
-    postmkpCreate: async (req, res) => {
-        // const { image } = req.files
-        const dbMkp = await mkpmodel.find({})
+    postmkpCreate:  (req, res) => {
+        // const { image } = req.files)
         // const uploadFile = path.resolve(__dirname, '..', 'public/ressources/images/mkp', image.name)
-
         // image.mv(uploadFile, (error) => {
             mkpmodel.create(
                 {
@@ -43,6 +41,9 @@ module.exports = {
                 })
         // })
     },
+
+
+    
     // supprimé une annonce
 
     deletemkp: (req, res) => {
