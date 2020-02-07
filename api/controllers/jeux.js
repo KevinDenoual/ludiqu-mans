@@ -9,12 +9,11 @@ const JeuxModel = require('../database/models/JeuxModel');
 module.exports = {
     getJeux: async (req, res) => {
         const dbJeuModel = await JeuxModel.find(req.params.id)
-        // console.log(dbJeuModel);       
         res.render('jeux/jeux', { dbJeuModel })
     },
 
     getJeuSingle: async (req, res) => {
-        const dbJeuModel = await JeuxModel.findById(req.params.id)   
+        const dbJeuModel = await JeuxModel.findById(req.params.id)
         res.render('jeux/jeuSingle', { dbJeuModel })
     },
 
@@ -35,9 +34,11 @@ module.exports = {
             {
                 ...req.body
             },
-            
-            ),
+
+        ),
+
             res.redirect('/jeux')
+
     },
 
 
@@ -60,31 +61,36 @@ module.exports = {
 
     // },
 
-    putJeuSingle: (req, res) => {
-        jeuItem.updateOne(
-            { _id: req.params.id },
+    putJeuSingle: async (req, res) => {
+        const dbJeuModel = await JeuxModel.findById(req.params._id)
+        let query = { _id: req.params.id }
+
+        JeuxModel.findOneAndUpdate(
+            query,
             {
                 title: req.body.title,
-                description: req.body.description,
+                content: req.body.content,
                 author: req.body.author,
                 price: req.body.price,
-                image: req.body.image,
+                image: req.body.image
             },
-            { multi: true },
-            function (err) {
-                if (!err) { res.redirect('/jeux')
-                    res.send(err)
+
+            (err) => {
+                if (!err) {
+                    res.redirect('/jeux')
+                } else {
+                    res.rend(err)
                 }
             }
         )
     },
 
     deleteJeuSingle: (req, res) => {
-    const query = { _id: req.params.id }
+        const query = { _id: req.params.id }
         JeuxModel.deleteOne(
             query,
-            
-             (err) => {
+
+            (err) => {
                 if (!err) {
                     res.redirect('/jeux')
                 } else {
@@ -92,7 +98,7 @@ module.exports = {
                 }
             }
         )
-       
+
     }
 
 }
