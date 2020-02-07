@@ -13,10 +13,12 @@
             data-whatever="@getbootstrap">Commenter</button>
 
 
-        {{!-- Modal Editer Article --}}
-        {{> modals/modalEdit }}
+        <!-- BOUTTON MODIFIER -->
+        <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditerJeu{{ _id }}"
+            type="submit">Modifier</button>
 
-        
+
+        <!-- BOUTTON SUPPRIMER -->
         <button class="btn btn-actu" data-toggle="modal" type="subit"
             data-target="#modalConfirmSuppJeu{{ _id }}">Supprimer</button>
 
@@ -46,13 +48,74 @@
             </div>
         </div>
 
+        {{!-- modal modifier jeu --}}
+        <div class="container mt-3">
+            <div class="row text-center">
+                <div class="modal fade" id="modalEditerJeu{{ _id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="modalEditerLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"> </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form action="/jeuSingle/{{ dbJeuModel._id }}/?_method=PUT" method="post">
+
+                                    <input type="text" class="form-control" name="title"
+                                        value="{{ dbJeuModel.title }}" />
+                                    <input type="text" class="form-control" name="content"
+                                        value="{{ dbJeuModel.content }}">
+                                    <input type="text" class="form-control" name="author"
+                                        value="{{ dbJeuModel.author }}">
+                                    <input type="number" class="form-control" name="price"
+                                        value="{{ dbJeuModel.price }}">
 
 
+                                    <div class="file">
+                                        <label class="file-label">
+                                            <input class="file-input" type="file" name="image">
+                                            <span class="file-cta">
+                                                <span class="file-icon">
+                                                    <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                    Envoyer une nouvelle image au format .jpg .jpeg .gif uniquement
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
+
+                                        <button type="submit" class="btn btn-sign">Confirmer la modification </button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
 
 
-    
+</div>
+
+
+
+
 
 
 
