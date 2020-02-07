@@ -24,6 +24,7 @@ module.exports = {
                     isBan: false,
                 },
             )
+            // console.log('mot de passe is ok')
             res.render('home')
         }
     }
