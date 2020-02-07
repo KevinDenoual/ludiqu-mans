@@ -27,10 +27,7 @@ app.use(express.static('public'));
 app.use(connectFlash());
 app.use(fileupload());
 
-// app.use('*', (req, res, next) => {
-//     res.locals.user = req.session.userId;
-//     next()
-// })
+
 
 
 // Helpers
@@ -59,6 +56,11 @@ app.use(expressSession({
     )
 }));
 
+app.use('*', (req, res, next) => {
+    res.locals.user = req.session.id;
+    next()
+})
+
 // Mongoose
 mongoose.connect(urlDB, {
     useNewUrlParser: true,
@@ -73,6 +75,7 @@ app.engine('hbs', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'hbs');
+
 
 // Router
 const router = require('./api/router')
