@@ -3,7 +3,7 @@
         <h1 class="text-center jeux-color">Tout les jeux</h1>
     </div>
 
-    
+
     <div class="container">
         <div class="row">
             <!-- GET -->
@@ -11,22 +11,23 @@
             <div class="col-md-12 col-sm-12">
                 <ul class="list-group ">
 
-                    
 
+                    {{#each dbJeuModel }}
                     <li class="list-item">
                         <div class="row">
                             <div class="col-md-4 col-sm-4  column">
-                                <h3>Jeu xxx</h3>
-                               <a href="/jeuSingle"><img src="https://picsum.photos/480/480" alt="" style="max-width: 100px;"></a> 
+                                <h3>{{title}}</h3>
+                                <img src="https://picsum.photos/480/480" alt=""
+                                        style="max-width: 100px;">
                             </div>
                             <div class="col-md-8 pt-4 col-sm-8">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos beatae quia
-                                    minima
-                                    ipsum maxime deserunt vero id, non sit, vitae ratione autem aliquam voluptatibus
-                                    voluptatum nihil fuga quo, soluta quisquam!</p>
+                                <p>{{content}} </p>
+                                <p>auteur: {{author}} </p>
+                                <p>prix: {{price}} </p>
                             </div>
-                        </div>
+                            <a href="/jeuSingle/{{_id}}">en savoir plus..</a>
                     </li>
+                    {{/each }}
 
 
                 </ul>
@@ -39,5 +40,7 @@
 </section>
 
 <style>
-li {list-style: none;}
+    li {
+        list-style: none;
+    }
 </style>
