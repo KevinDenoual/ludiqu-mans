@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
 
     name: {
         type: String,
-        // required: [true, ' le nom est obligatoire'],
+        required: [true, 'le nom est obligatoire'],
     },
     age: Number,
     image: String,
@@ -16,12 +16,12 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        // required: [true, "l'email est obligatoire"],
+        required: [true, "l'email est obligatoire"],
         unique: true,
     },
     password: {
         type: String,
-        // required: [true, "le mot de passe est obligatoire"],
+        required: [true, "le mot de passe est obligatoire"],
     },
     isVerified: Boolean,
     isModo: Boolean,

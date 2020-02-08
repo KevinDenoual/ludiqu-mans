@@ -3,6 +3,17 @@
 </div>
 <div class="container mt-3 ">
     <div class=" px-auto">
+        
+        <div class="row">
+            <ul class="list-group">
+                {{#each errors}}
+                <li class="list-group-item list-group-item-danger">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        
+        
+
         <form action="/signup" method="POST" enctype="multipart/form-data">
             <div class="form-row ">
                 <div class="form-group col-md-12">
