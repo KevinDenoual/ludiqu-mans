@@ -7,13 +7,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         // required: [true, ' le nom est obligatoire'],
     },
-    age: Number,
-    image: String,
-    bio: String,
-    createDate: {
-        type: Date,
-        default: new Date()
-    },
     email: {
         type: String,
         // required: [true, "l'email est obligatoire"],
@@ -23,10 +16,30 @@ const userSchema = new mongoose.Schema({
         type: String,
         // required: [true, "le mot de passe est obligatoire"],
     },
-    isVerified: Boolean,
-    isModo: Boolean,
-    isAdmin: Boolean,
-    isBan: Boolean,
+    status: {
+        type: String,
+        default: 'user'
+    },
+    isVerified:{
+        type: Boolean,
+        default: false
+    },
+    isModo: {
+        type: Boolean,
+        default: false,
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    },
+    isBan: {
+        type: Boolean,
+        default: false,
+    },
+    imgUser: {
+        type: String,
+        default: "https://i.stack.imgur.com/34AD2.jpg"
+    }
 })
 
 // userSchema.pre('save', ( next ) => {
