@@ -18,14 +18,60 @@
                                 <p>date d'inscription : {{moment createDate format="DD-MM-YY"}} </p>
                                 <p> Utilisateur vérifié : {{isVerified}} </p>
                                 <p> Modérateur : {{isModo}} </p>
-                                <p>Admin : {{isAdmin}} </p>
+                                <p> Admin : {{isAdmin}} </p>
                                 <p> Bannis : {{isBan}} </p>
                             </div>
                             <div class="col-md-2 pt-4 col-sm-2">
-                                <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditerUser{{_id}}"
-                                    type="submit">Modifier</button>
+                                <button class="btn btn-wandw" data-toggle="modal"
+                                    data-target="#modalEditerUser{{ _id }}" type="submit">Modifier</button>
                             </div>
+                        </div>
                     </li>
+                    {{!-- Modal Editer Article --}}
+                    <div class="container mt-3">
+                        <div class="row text-center">
+                            <div class="modal fade" id="modalEditerUser{{ _id }}" tabindex="-1" role="dialog"
+                                aria-labelledby="modalEditerLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title"> name : {{ this.name }} </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/signin/{{ _id }}/?_method=PUT" method="POST">
+                                                <div>
+                                                    <p>admin : </p>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="true" id={{isAdmin}} value="option1" >
+                                                        <label class="form-check-label" for="exampleRadios1">
+                                                            oui
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="false"
+                                                        id="false" value="option1" >
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        non
+                                                    </label>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-wandw"
+                                                        data-dismiss="modal">Fermer</button>
+                                                    <button type="submit" class="btn btn-wandw">Confirmer la
+                                                        modification</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {{/each }}
                 </ul>
             </div>
@@ -34,54 +80,8 @@
 </section>
 
 
-{{!-- Modal Editer Article --}}
-<div class="container mt-3">
-    <div class="row text-center">
-        <div class="modal fade" id="modalEditerUser{{_id}}" tabindex="-1" role="dialog"
-            aria-labelledby="modalEditerLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"> </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/actuSingle/{{ dbActu._id }}/?_method=PUT" method="POST">
-                            <input type="text" name="title" contenteditable="true" value="{{dbuser.email}}">
-                            <input type="text" name="date" contenteditable="true"
-                                value="Modifier le : {{dbuser.createDate}}">
-                            <input type="text" name="content" contenteditable="true" value="{{dbActu.content}}">
-                            <div class="file">
-                                <label class="file-label">
-                                    <input class="file-input" type="file" name="image">
-                                    <span class="file-cta">
-                                        <span class="file-icon">
-                                            <i class="fas fa-upload"></i>
-                                        </span>
-                                        <span class="file-label">
-                                            Envoyer une nouvelle image au format .jpg .jpeg .gif uniquement
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn btn-sign">Confirmer la modification</button>
-                            </div>
-                        </form>
-                    </div>
 
 
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 
 <style>
     li {

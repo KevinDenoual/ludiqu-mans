@@ -7,13 +7,13 @@ module.exports = {
     postLogin: async (req, res) => {
         const userAuth = await User.findOne({ email: req.body.email })
         if (!userAuth) {
-            console.log('pas dans la db')
+            // console.log('pas dans la db')
             res.redirect('/signup')
         } else {
             const { email, password } = req.body
             const dbUser = await User.find({})
             const sess = req.session
-            console.log(req.body)
+            // console.log(req.body)
 
             User.findOne({ email }, (err, User) => {
                 sess.name       = User.name
@@ -28,7 +28,7 @@ module.exports = {
                         bcrypt.compare(password, User.password, (err, same) => {
                             if ( same ) {
                                 req.session.userId = User._id
-                                console.log('OK 1')
+                                // console.log('OK 1')
                                 res.redirect('/')
                                 // res.render('success', { dbUser, sess })
                             } else if ( err ) {

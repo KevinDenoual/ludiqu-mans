@@ -112,16 +112,17 @@ body{
     border-color: #c02d0c; 
     }
 
-.btn-jeux {
-    color: #fff;  
-    background-color: #12A646;   
-    border-color: #12A646; 
-} 
 
-.btn-jeux:hover {   
+.btn-wandw {
+    color: #fff;  
+    background-color: #F2A81D;   
+    border-color: #F2A81D; 
+} 
+    
+.btn-wandw:hover {   
     color: #fff;   
-    background-color: #0f8a3a; 
-    border-color: #0d7330; 
+    background-color: #d9910d; 
+    border-color: #c1810b; 
 }
 
 
