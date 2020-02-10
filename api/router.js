@@ -21,6 +21,7 @@ const redirectAuthSucces = require('../middleware/redirectAuthSucces')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 
+const listUser = require('./controllers/listUser')
 
 
 
@@ -94,6 +95,9 @@ router.route('/jeuSingle/:id')
 //adminpage
 router.route('/admin')
     .get(admin.get)
+
+router.route('/listUser')
+    .get(listUser.getlistUser)
 
 //********* Signup ***********//
 // Signup ( CreateUser )

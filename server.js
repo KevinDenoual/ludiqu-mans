@@ -7,9 +7,12 @@ const fileupload = require('express-fileupload');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const connectFlash = require('connect-flash');
-const Handlebars = require("handlebars");
 const path = require('path');
 const methodOverride = require('method-override');
+const Handlebars = require("handlebars");
+const MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
+
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -26,6 +29,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.use(connectFlash());
 app.use(fileupload());
+
+//connect flash
+app.use(connectFlash())
 
 
 
