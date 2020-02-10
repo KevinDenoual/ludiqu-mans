@@ -20,8 +20,8 @@ const auth = require('../middleware/auth')
 const redirectAuthSucces = require('../middleware/redirectAuthSucces')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
-
 const listUser = require('./controllers/listUser')
+
 
 
 
@@ -72,7 +72,8 @@ router.route('/actuCreate')
 //********* CONTACT ***********//
 // contact
 router.route('/contact')
-    .get(contact.get)
+    .get(contact.getContact)
+    .post(contact.postContact)
 
 
 //********* JEUX ***********//
