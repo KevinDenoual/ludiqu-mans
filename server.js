@@ -71,6 +71,7 @@ mongoose.connect(urlDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify : false,
+    useCreateIndex: true
 });
 
 // Handlebars

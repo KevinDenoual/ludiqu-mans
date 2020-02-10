@@ -18,6 +18,7 @@ const jeux = require('./controllers/jeux')
 const admin = require ('./controllers/admin')
 const auth = require('../middleware/auth')
 const redirectAuthSucces = require('../middleware/redirectAuthSucces')
+const listUser = require('./controllers/listUser')
 
 
 
@@ -91,6 +92,9 @@ router.route('/jeuSingle/:id')
 //adminpage
 router.route('/admin')
     .get(admin.get)
+
+router.route('/listUser')
+    .get(listUser.getlistUser)
 
 //********* Signup ***********//
 // Signup

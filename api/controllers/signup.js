@@ -9,20 +9,6 @@ module.exports = {
         const Pass = req.body.password
         const confPass = req.body.confPassword
         const check = req.body.gridCheck
-        usermodel.create(
-            req.body, (error, user) => {
-                if (error) {
-                    const gestError = Object.keys(error.errors).map(key => error.errors[key].message)
-                    req.flash('gestError', gestError)
-                    console.log('coucou');
-                    return res.redirect('/signup')
-                    console.log('recoucou');
-                    
-                    
-                    
-                }
-                // next()
-            })
 
         if (Pass !== confPass || check !== 'on') {
             res.redirect('/signup')
@@ -35,11 +21,22 @@ module.exports = {
                     isVerified: false,
                     isModo: false,
                     isAdmin: false,
-                    isBan: false,
+                    isBan: false
                 },
-            )
-            res.render('home')
-        }
+                (error, user) => {
+                    if (error) {
+                        const gestError = Object.keys(error.errors).map(key => error.errors[key].message)
+                        req.flash('gestError', gestError)
 
+                        return res.redirect('/signup')
+
+                    } else {
+                        res.render('home')
+                    }
+                })
+        }
     }
+
+
+
 }
