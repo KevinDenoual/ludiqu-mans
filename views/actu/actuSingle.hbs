@@ -19,7 +19,7 @@
     </div>
 
     {{!-- bouton commenter --}}
-    <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
+    <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenterActu{{_id}}"
         type="submit">Commenter</button>
 
     {{!-- bouton suppression --}}
@@ -105,8 +105,52 @@
     </div>
 </div>
 
-{{!-- Modal commenter --}}
-{{> modals/modalCommenter }}
+{{!-- Modal commenter article--}}
+<div class="modal fade" id="modalCommenterActu{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{!-- Formulaire Commentary POST --}}
+                <form action="/commentaireActu" method="POST">
+                    <div class="rating form-group">
+                        <p>Votre note</p>
+                        <label class="stars">
+                            <i class="far fa-star gold"></i>
+                            <i class="far fa-star gold"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="commentaireActu" class="col-form-label">Votre commentaire</label>
+                        <textarea class="form-control" id="commentaireActu" type="text" name="content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentaire-text" class="col-form-label">Votre pseudo</label>
+                        <input class="form-control" type="text" name="author"></textarea>
+                    </div>
+
+                    {{!-- / Formulaire Commentary POST --}}
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-sign">Poster le commentaire</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 
 {{!-- Zone commentaire --}}
 {{> zoneCommentaire }}

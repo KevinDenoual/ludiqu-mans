@@ -11,9 +11,10 @@
             </div>
             <div class="modal-body">
                 {{!-- Formulaire Commentary POST --}}
-                <form>
+                <form action="/commentaire" method="POST">
                     <div class="rating form-group">
                         <p>Votre note</p>
+                        <input type="text">
                         <div class="stars">
                             <i class="far fa-star gold"></i>
                             <i class="far fa-star gold"></i>
@@ -25,7 +26,11 @@
 
                     <div class="form-group">
                         <label for="commentaire-text" class="col-form-label">Votre commentaire</label>
-                        <textarea class="form-control" id="commentaire-text"></textarea>
+                        <textarea class="form-control" id="commentaire-text" type="text" name="content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentaire-text" class="col-form-label">Votre commentaire</label>
+                        <input class="form-control" id="commentaire-text" type="text" name="author"></textarea>
                     </div>
                 </form>
                 {{!-- / Formulaire Commentary POST --}}

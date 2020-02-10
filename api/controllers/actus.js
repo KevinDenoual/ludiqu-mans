@@ -1,4 +1,6 @@
 const actuCollection = require('../database/models/actuModel');
+const comentaryCollection = require('../database/models/comentaryModel');
+
 
 module.exports = {
     getActu: async (req, res) => {
@@ -66,4 +68,22 @@ module.exports = {
                 }
             })
     },
+
+    postComment: (req, res) => {
+        comentaryCollection.create(
+            {
+                content: req.body.content,
+                author: req.body.author,
+            },
+            (err) => {
+                if (!err) {
+                    res.redirect('/actus')
+                } else {
+                    res.send(err)
+                }
+            })
+        // console.log(req.body)
+        console.log(req.params.id)
+
+    }
 }
