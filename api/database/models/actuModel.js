@@ -8,13 +8,13 @@ const actuSchema = new mongoose.Schema({
     comment : String,
     createDate : {
         type: Date,
-        default : new Date(),
+        default : new Date()
     },
     author : String,
     // sera le pseudo de la personne qui créé l'actu
     isVerified : {
         type : Boolean,
-        default : true,
+        default : true
     },
 
 })

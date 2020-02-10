@@ -4,38 +4,36 @@ const bcrypt = require('bcrypt');
 const User = require('../../database/models/userModel')
 
 module.exports = {
-    get: async (req, res, next) => {
-        let userAuth = await User.findOne({ email: req.body.email})
+    postLogin: async (req, res) => {
+        const userAuth = await User.findOne({ email: req.body.email })
         if (!userAuth) {
-            console.log('pas dans la db');
-            res.redirect('/signup');
+            console.log('pas dans la db')
+            res.redirect('/signup')
         } else {
-            const { email, password } = req.body;
-            const dbUser = await User.find({});
+            const { email, password } = req.body
+            const dbUser = await User.find({})
             const sess = req.session
+            console.log(req.body)
 
-            User.findOne({ email }, (error, User) => {
+            User.findOne({ email }, (err, User) => {
                 sess.name       = User.name
                 sess.email      = User.email
                 sess.status     = User.status
                 sess.isVerified = User.isVerified
+                sess.isAdmin    = User.isAdmin
                 sess.imgUser    = User.imgUser
 
                 if (User) {
-                    if (sess.stauts === 'user') {
-                        bcrypt.compare(password, User.passeword, (error, same) => {
-                            if (same) {
+                    if (sess.status === 'user') {
+                        bcrypt.compare(password, User.password, (err, same) => {
+                            if ( same ) {
                                 req.session.userId = User._id
                                 console.log('OK 1')
-                                res.render('success', { dbUser, sess })
-                            } else {
-                                if (req.body.passeword === User.password) {
-                                    console.log('OK 2')
-                                    res.render('success')                      
-                                } else {
-                                    console.log('Mot de passe incorrect')
-                                    res.redirect('/signup')                       
-                                }
+                                res.redirect('/')
+                                // res.render('success', { dbUser, sess })
+                            } else if ( err ) {
+                                console.log(err);
+                                
                             }
                         })
                     }
@@ -45,4 +43,3 @@ module.exports = {
     }
 }
 
-module.exports = router

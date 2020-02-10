@@ -56,7 +56,10 @@ app.use(expressSession({
 }));
 
 app.use('*', (req, res, next) => {
-    res.locals.user = req.session.userId;
+    res.locals.user = req.session.userId
+    if (req.session.isAdmin === true) {
+        res.locals.isAdmin = req.session.isAdmin
+    }
     next()
 })
 
@@ -65,6 +68,7 @@ mongoose.connect(urlDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify : false,
+    useCreateIndex: true
 });
 
 // Handlebars
