@@ -12,7 +12,7 @@ module.exports = {
 
     getActuSingle: async (req, res) => {
         const dbActu = await actuCollection.findById(req.params.id)
-        const dbComentaryActu = await comentaryCollection.find({articleId: req.params.id})
+        const dbComentaryActu = await comentaryCollection.find({ articleId: req.params.id })
         console.log(req.params.id);
 
         res.render('actu/actuSingle', { dbActu, dbComentaryActu })
@@ -92,4 +92,17 @@ module.exports = {
 
     },
 
+    deleteOneComment: (req, res) => {
+        comentaryCollection.deleteOne(
+            { _id: req.params.id },
+            (err) => {
+                if (!err) {
+                    res.redirect('back')
+                } else {
+                    res.send(err)
+                }
+                console.log(req.params.id);
+
+            })
+    }
 }

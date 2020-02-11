@@ -103,7 +103,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 {{!-- Modal commenter article--}}
@@ -175,36 +175,40 @@
                         <p>{{ author }} , {{ createDate }}</p>
                     </div>
                 </div>
+                <div>
+                    <a href="/contact"><button type="button" class="btn btn-sign" type="submit">Signaler</button></a>
+                    <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
+                        data-target="#modalConfirmSuppComActu{{_id}}">Supprimer</button>
+                </div>
+
+                {{!-- modal confirmation suppression --}}
+                <div class="modal fade" id="modalConfirmSuppComActu{{_id}}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Confirmez-vous la suppression du commentaire de {{ author }} ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="/commentaireActu/{{ _id }}/?_method=delete" method="POST">
+                                    <button type="submit" class="btn btn-sign">Oui</button>
+                                </form>
+                                <button type="button" data-dismiss="modal" aria-label="Close"
+                                    class="btn btn-sign">Non</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {{/each }}
+            </div>
 
-            </div>
-            <div>
-                <a href="/contact"><button type="button" class="btn btn-sign" type="submit">Signaler</button></a>
-                <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
-                    data-target="#modalConfirmSupp">Supprimer</button>
-            </div>
         </div>
     </div>
 </div>
 
-{{!-- modal confirmation suppression --}}
-<div class="modal fade" id="modalConfirmSupp" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Confirmez-vous la suppression ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-sign">Oui</button>
-                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sign">Non</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 </div>
