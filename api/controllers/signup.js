@@ -29,14 +29,15 @@ module.exports = {
                         req.flash('gestError', gestError)
 
                         return res.redirect('/signup')
-
                     } else {
                         res.render('home')
                     }
                 })
         }
-    }
+    },
 
+
+    
 
 
 }

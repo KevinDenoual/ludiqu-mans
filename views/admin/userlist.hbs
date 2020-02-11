@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </li>
-                    {{!-- Modal Editer Article --}}
+                    {{!-- Modal Editer user --}}
                     <div class="container mt-3">
                         <div class="row text-center">
                             <div class="modal fade" id="modalEditerUser{{ _id }}" tabindex="-1" role="dialog"
@@ -35,25 +35,27 @@
                                 <div class="modal-dialog modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title"> name : {{ this.name }} </h5>
+                                            <h5 class="modal-title"> name : {{ name }} </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="/signin/{{ _id }}/?_method=PUT" method="POST">
-                                                <div class="row">
+                                            <form action="/listUser/{{ _id }}/?_method=PUT" method="POST">
+                                            <input type="text" class="form-control" name="name"
+                                        contenteditable="true" value="{{ this.name }}">
+                                                {{!-- <div class="row">
                                                     <div class="col-md-3">
                                                         <p>Utilisateur Verifié : </p>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isVerified }}" value="" {{#if this.isVerified }}checked{{/if}}>
+                                                                name="" value="" {{#if this.isVerified }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isVerified }}" value="" {{#unless this.isVerified }}checked{{/unless}}>
+                                                                name="" value="" {{#unless this.isVerified }}checked{{/unless}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
@@ -63,13 +65,13 @@
                                                         <div class="form-check form-check-inline">
 
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isModo }}" {{#if this.isModo }}checked{{/if}}>
+                                                                name="" {{#if this.isModo }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isModo }}" {{#if this.isModo }} {{else}}checked{{/if}}>
+                                                                name="" {{#if this.isModo }} {{else}}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
@@ -79,13 +81,13 @@
                                                         <div class="form-check form-check-inline">
 
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isAdmin }}" value="true"{{#if this.isAdmin }}checked{{/if}}>
+                                                                name="" value="true"{{#if this.isAdmin }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isAdmin }}" value="false"{{#if this.isAdmin }}{{else}}checked{{/if}}>
+                                                                name="" value="false"{{#if this.isAdmin }}{{else}}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
@@ -95,18 +97,18 @@
                                                         <div class="form-check form-check-inline">
 
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isBan }}" value="true"{{#if this.isBan }}checked{{/if}}>
+                                                                name="" value="true"{{#if this.isBan }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio"
-                                                                name="{{ this.isBan }}" value="false"{{#if this.isBan }}{{else}}checked{{/if}}>
+                                                                name="" value="false"{{#if this.isBan }}{{else}}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-wandw"
