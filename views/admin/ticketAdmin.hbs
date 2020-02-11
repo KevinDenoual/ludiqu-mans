@@ -1,0 +1,92 @@
+<section class="item">
+
+
+    <div class="border-bottom mx-auto " style="width: 40%;">
+        <h1 class="text-center text-warning">Tickets Messages</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <!-- GET -->
+            <div class="col-md-12 col-sm-12">
+                <ul class="list-group ">
+                    {{#each dbMessageAdmin }}
+                    <li class="list-item border border-warning rounded m-2 p-3">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3  column">
+                                <h3>{{ sujet }}</h3>
+                            </div>
+                            <div class="col-md-7 pt-4 col-sm-7">
+                                <p>{{ email }} </p>
+                                <p>message : {{ message }} </p>
+                            </div>
+                            <!-- BOUTTON SUPPRIMER -->
+                            <button class="btn btn-actu" data-toggle="modal" type="subit"
+                                data-target="#modalConfirmSuppMessage{{ _id }}">Supprimer</button>
+                    </li>
+                    {{/each }}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="border-bottom mx-auto " style="width: 40%;">
+        <h1 class="text-center text-warning">Tickets Suppport</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- GET -->
+            <div class="col-md-12 col-sm-12">
+                <ul class="list-group ">
+                    {{#each dbuser }}
+                    <li class="list-item border border-warning rounded m-2 p-3">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3  column">
+                                <h3>{{name}}</h3>
+                            </div>
+                            <div class="col-md-7 pt-4 col-sm-7">
+                                <p>{{email}} </p>
+                                <p>date d'inscription : {{moment createDate format="DD-MM-YY"}} </p>
+                                <p> Utilisateur vérifié : {{isVerified}} </p>
+                                <p> Modérateur : {{isModo}} </p>
+                                <p>Admin : {{isAdmin}} </p>
+                                <p> Bannis : {{isBan}} </p>
+                            </div>
+                            <div class="col-md-2 pt-4 col-sm-2">
+                                <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditerUser{{_id}}"
+                                    type="submit">Modifier</button>
+                            </div>
+                    </li>
+                    {{/each }}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{{!-- modal confirmation suppression --}}
+        <div class="modal fade" id="modalConfirmSuppMessage{{ _id }}" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Confirmez-vous la suppression ?</p>
+                    </div>
+                    <div class="modal-footer">
+
+                        <form action="/ticketAdmin/{{ dbMessageAdmin._id }}/?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-sign">Oui</button>
+                        </form>
+
+
+                        <button type="button" class="btn btn-sign">Non</button>
+                    </div>
+                </div>
+            </div>
+        </div>

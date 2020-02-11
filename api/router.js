@@ -21,6 +21,8 @@ const redirectAuthSucces = require('../middleware/redirectAuthSucces')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
+const ticketAdmin = require('./controllers/ticketAdmin')
+
 
 
 
@@ -99,6 +101,13 @@ router.route('/admin')
 
 router.route('/listUser')
     .get(listUser.getlistUser)
+
+    // TicketAdmin  
+router.route('/ticketAdmin')
+    .get(ticketAdmin.getTicketAdmin)
+
+router.route('/ticketAdmin/:id')
+    .delete(ticketAdmin.deleteTicketAdmin)
 
 //********* Signup ***********//
 // Signup ( CreateUser )

@@ -6,17 +6,25 @@ module.exports = {
         res.render('contact')
     },
 
-    postContact: async (req, res) => {
+    postContact: (req, res) => {
+        
+            ContactModel.create(
+                {
+                    email: req.body.email,
+                    sujet: req.body.sujet,
+                    message: req.body.message
+                },
+                
+            )
 
-        ContactModel.create(
-            {
-                ...req.body
-            },
+            res.render('contact')
+
+        }
+
+        
+
             
-        ),
 
-            res.send('message envoyé')
+    }
 
-    },
-}
 

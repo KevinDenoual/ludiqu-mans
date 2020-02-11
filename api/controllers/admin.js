@@ -1,5 +1,5 @@
 module.exports = {
     get: (req, res) => {
-        res.render('admin')
+        res.render('admin/admin')
     }
 }
