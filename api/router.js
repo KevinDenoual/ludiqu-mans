@@ -16,13 +16,17 @@ const actus = require('./controllers/actus')
 const contact = require ('./controllers/contact')
 const jeux = require('./controllers/jeux')
 const admin = require ('./controllers/admin')
-const auth = require('../middleware/auth')
-const redirectAuthSucces = require('../middleware/redirectAuthSucces')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
 
+// Import middleware
+const auth = require('../middleware/auth')
+const redirectAuthSucces = require('../middleware/redirectAuthSucces')
+const isVerified = require('../middleware/isVerified')
+const isAdmin = require('../middleware/isAdmin')
+const isModo = require('../middleware/isModo')
 
 
 
@@ -30,7 +34,7 @@ const ticketAdmin = require('./controllers/ticketAdmin')
 // Home
 router.route('/')
     .get(home.get)
-    .post(redirectAuthSucces, home.postLogin)
+    .post(home.postLogin)
 
 //********* MKP ***********//
 // mkp
