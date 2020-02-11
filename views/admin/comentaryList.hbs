@@ -22,7 +22,9 @@
                 <div>
                     <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
                         data-target="#modalConfirmSuppComActuAdmin{{_id}}">Supprimer</button>
-                    <button type="button" class="btn btn-sign" type="submit">Indiquer comme isVerified</button>
+                    <form action="/comentaryList/{{ _id }}/?_method=PUT" method="POST">
+                        <button type="submit" class="btn btn-sign">Indiquer comme isVerified</button>
+                    </form>
                 </div>
 
                 {{!-- modal confirmation suppression --}}
