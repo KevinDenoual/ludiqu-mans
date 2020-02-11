@@ -76,6 +76,7 @@ router.route('/actuCreate')
 // commentaireActu
 router.route('/commentaireActu/:id')
     .post(actus.postComment)
+    .delete(actus.deleteOneComment)
 
 
 //********* CONTACT ***********//
@@ -106,13 +107,17 @@ router.route('/jeuSingle/:id')
 router.route('/admin')
     .get(admin.get)
     
-
 router.route('/listUser')
     .get(listUser.getlistUser)
     .put (listUser.putlistUser)
 
+// Gestion Commentaires
 router.route('/comentaryList')
     .get(admin.getComentaryList)
+
+router.route('/comentaryList/:id')
+    .delete(admin.deleteOneComentaryList)
+    .put(admin.putComentSingle)
 
     // TicketAdmin  
 router.route('/ticketAdmin')
