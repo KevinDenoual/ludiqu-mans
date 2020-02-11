@@ -62,9 +62,23 @@ app.use(expressSession({
 }));
 
 app.use('*', (req, res, next) => {
-    res.locals.user = req.session.userId
-    if (req.session.isAdmin === true) {
-        res.locals.isAdmin = req.session.isAdmin
+    if (res.locals.user === req.session.userId) {
+        if (res.session.isVerified === true) {
+            if (req.session.isModo === true) {
+                if (req.session.isAdmin === true) {
+                    res.locals.user = req.session.userId
+                    res.locals.isVerified = req.session.isVerified
+                    res.locals.isModo = req.session.isModo
+                    res.locals.isAdmin = req.session.isAdmin
+                }
+                res.locals.user = req.session.userId
+                res.locals.isVerified = req.session.isVerified
+                res.locals.isModo = req.session.isModo
+            }
+            res.locals.user = req.session.userId
+            res.locals.isVerified = req.session.isVerified
+        }
+        res.locals.user = req.session.userId
     }
     next()
 })
@@ -73,7 +87,7 @@ app.use('*', (req, res, next) => {
 mongoose.connect(urlDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify : false,
+    useFindAndModify: false,
     useCreateIndex: true
 });
 
@@ -96,7 +110,7 @@ app.use((req, res) => {
     res.render('error404')
 })
 
-  
+
 
 // Port
 app.listen(port, function () {

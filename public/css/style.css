@@ -113,6 +113,20 @@ body{
     }
 
 
+.btn-jeux {	
+    color: #fff;  	      
+    background-color: #12A646;   	      
+    border-color: #12A646; 	     
+} 	
+        
+            
+.btn-jeux:hover {
+    color: #fff;   	       
+    background-color: #0f8a3a;
+    border-color: #0d7330;
+}
+        
+
 .btn-wandw {
     color: #fff;  
     background-color: #F2A81D;   

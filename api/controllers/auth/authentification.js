@@ -16,11 +16,14 @@ module.exports = {
             // console.log(req.body)
 
             User.findOne({ email }, (err, User) => {
+                sess.userId     = User.id
                 sess.name       = User.name
                 sess.email      = User.email
                 sess.status     = User.status
                 sess.isVerified = User.isVerified
                 sess.isAdmin    = User.isAdmin
+                sess.isModo     = User.isModo
+                sess.isBan      = User.isBan
                 sess.imgUser    = User.imgUser
 
                 if (User) {

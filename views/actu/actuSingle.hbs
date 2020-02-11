@@ -23,12 +23,18 @@
         type="submit">Commenter</button>
 
     {{!-- bouton suppression --}}
+    {{#if isAdmin}}
     <button class="btn btn-actu" data-toggle="modal" type="submit"
         data-target="#modalConfirmSuppActu{{_id}}">Supprimer</button>
+    {{/if}}
 
     {{!-- bouton modifier --}}
+    {{#if isModo }}
+    
     <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditerActu{{_id}}"
         type="submit">Modifier</button>
+    
+    {{/if}}
 
 
     {{!-- modal confirmation suppression --}}
@@ -88,17 +94,13 @@
                                         </span>
                                     </label>
                                 </div>
-
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
                                     <button type="submit" class="btn btn-sign">Confirmer la modification</button>
                                 </div>
                             </form>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         </div>

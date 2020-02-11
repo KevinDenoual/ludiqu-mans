@@ -98,7 +98,10 @@ router.route('/admin')
 
 router.route('/listUser')
     .get(listUser.getlistUser)
-    .put (listUser.putlistUser)
+
+router.route('/listUser/:id')
+    .put(listUser.putlistUser)
+    .delete(listUser.deleteUser)
 
 //********* Signup ***********//
 // Signup ( CreateUser )
