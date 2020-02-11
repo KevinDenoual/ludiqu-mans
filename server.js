@@ -13,11 +13,11 @@ const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
-
+// MCzw5liAvGJPuvod
 const app = express()
 const port = process.env.PORT || 3000
 const urlDB = "mongodb://localhost:27017/ludiqumans"
-const mongoStore = MongoStore(expressSession);
+// const urlDB = "mongodb+srv://regis:MCzw5liAvGJPuvod@cluster0-9bswz.mongodb.net/test?retryWrites=true&w=majority"
 
 // Method-Override
 app.use(methodOverride('_method'));
