@@ -5,16 +5,17 @@ const comentaryCollection = require('../database/models/comentaryModel');
 module.exports = {
     getActu: async (req, res) => {
         const dbActu = await actuCollection.find({})
-        // console.log(dbActu);
+        // console.log(dbActu);        
 
         res.render('actu/actus', { dbActu })
     },
 
     getActuSingle: async (req, res) => {
         const dbActu = await actuCollection.findById(req.params.id)
-        // console.log(req.params.id);
+        const dbComentaryActu = await comentaryCollection.find({articleId: req.params.id})
+        console.log(req.params.id);
 
-        res.render('actu/actuSingle', { dbActu })
+        res.render('actu/actuSingle', { dbActu, dbComentaryActu })
     },
 
     getActuCreate: (req, res) => {
@@ -74,16 +75,21 @@ module.exports = {
             {
                 content: req.body.content,
                 author: req.body.author,
+                authorId: req.session.userId,
+                articleId: req.params.id
             },
             (err) => {
                 if (!err) {
-                    res.redirect('/actus')
+                    // res.redirect('/actuSingle/' + req.params.id)
+                    res.redirect('back')
+                    // 'back' permet de revenir à la page précédente
                 } else {
                     res.send(err)
                 }
             })
         // console.log(req.body)
-        console.log(req.params.id)
+        // console.log(req.params.id)
 
-    }
+    },
+
 }

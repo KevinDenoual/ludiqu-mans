@@ -8,11 +8,12 @@ const comentarySchema = new mongoose.Schema({
         default : new Date()
     },
     author : String,
+    authorId : String,
     isVerified : {
         type : Boolean,
-        default : true
+        default : false
     },
-
+    articleId : String,
 })
 
 const comentaryCollection = mongoose.model('comentarycollection', comentarySchema)

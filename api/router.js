@@ -67,7 +67,7 @@ router.route('/actuCreate')
     .post(actus.postActuCreate)
 
 // commentaireActu
-router.route('/commentaireActu')
+router.route('/commentaireActu/:id')
     .post(actus.postComment)
 
 
@@ -100,6 +100,9 @@ router.route('/admin')
 
 router.route('/listUser')
     .get(listUser.getlistUser)
+
+router.route('/comentaryList')
+    .get(admin.getComentaryList)
 
 //********* Signup ***********//
 // Signup ( CreateUser )
