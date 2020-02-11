@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const ContactSchema = new mongoose.Schema ({
 
     email: String,
-    sujet:  String,
-    support: String, 
+    sujet: String,
     message: String,
 
 })
