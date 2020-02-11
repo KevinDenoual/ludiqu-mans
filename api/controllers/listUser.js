@@ -5,25 +5,38 @@ module.exports = {
         const dbuser = await userModel.find(req.params.id)
         res.render('admin/userlist', { dbuser })
     },
-    putlistUser: async (req, res) => {
-        const dbUser = await userModel.findById(req.params._id)
+    putlistUser: (req, res) => {
         const myuser = { _id: req.params.id }
-        console.log(myuser);
+        console.log(req.body)
 
         userModel.findOneAndUpdate(
             myuser,
             {
-                name: req.body.name
+                name: req.body.name,
+                isVerified: req.body.isVerified,
+                isModo: req.body.isModo,
+                isAdmin: req.body.isAdmin,
+                isBan: req.body.isBan
             },
-
+            { multi: true },
             (err) => {
                 if (!err) {
-                    res.redirect('/userlist')
+                    res.redirect('/listUser')
                 } else {
-                    console.log("t'as fait de la merde"); 
                     res.rend(err)
                 }
             }
         )
+    },
+    deleteOnelistUser: (req, res) => {
+        const myuser = { _id: req.params.id }
+        userModel.deleteOne(myuser,
+            (err) => {
+                if (!err) {
+                    res.redirect('/listUser')
+                } else {
+                    res.send(err)
+                }
+            })
     }
 }

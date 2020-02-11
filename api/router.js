@@ -6,7 +6,6 @@
 const express = require('express')
 const router = express.Router()
 
-
 // Import de controllers
 const home = require('./controllers/home')
 const signup = require('./controllers/signup')
@@ -28,6 +27,7 @@ const listUser = require('./controllers/listUser')
 router.route('/')
     .get(home.get)
     .post(redirectAuthSucces, home.postLogin)
+
 
 //********* MKP ***********//
 // mkp
@@ -67,7 +67,6 @@ router.route('/actuCreate')
     .post(actus.postActuCreate)
 
 
-
 //********* CONTACT ***********//
 // contact
 router.route('/contact')
@@ -90,15 +89,21 @@ router.route('/jeuSingle/:id')
     .delete(jeux.deleteJeuSingle)
     .put(jeux.putJeuSingle)
 
+
 //********* ADMIN ***********//
 //adminpage
 router.route('/admin')
     .get(admin.get)
     
-
+//listuser
 router.route('/listUser')
     .get(listUser.getlistUser)
-    .put (listUser.putlistUser)
+
+    //listUser/:id
+router.route('/listUser/:id')
+    .put(listUser.putlistUser)
+    .delete(listUser.deleteOnelistUser)
+
 
 //********* Signup ***********//
 // Signup ( CreateUser )
@@ -106,7 +111,6 @@ router.route('/signup')
     .get(signup.get)
     .post(signup.postSignup)
     
-
 // Authentification 
 router.route('/authentification')
     .post(authentification.postLogin)

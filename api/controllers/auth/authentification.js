@@ -21,6 +21,8 @@ module.exports = {
                 sess.status     = User.status
                 sess.isVerified = User.isVerified
                 sess.isAdmin    = User.isAdmin
+                sess.isModo     = User.isModo
+                sess.isBan      = User.isBan
                 sess.imgUser    = User.imgUser
 
                 if (User) {
@@ -30,6 +32,8 @@ module.exports = {
                                 req.session.userId = User._id
                                 // console.log('OK 1')
                                 res.redirect('/')
+                                // console.log(req.session);
+                                
                                 // res.render('success', { dbUser, sess })
                             } else if ( err ) {
                                 console.log(err);

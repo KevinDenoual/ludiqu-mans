@@ -1,6 +1,6 @@
 <section class="item">
     <div class="border-bottom mx-auto " style="width: 40%;">
-        <h1 class="text-center text-warning">liste des utilisateurs</h1>
+        <h1 class="text-center text-warning">Liste des utilisateurs</h1>
     </div>
     <div class="container">
         <div class="row">
@@ -21,9 +21,13 @@
                                 <p> Admin : {{isAdmin}} </p>
                                 <p> Bannis : {{isBan}} </p>
                             </div>
+                            {{!-- bouton editer --}}
                             <div class="col-md-2 pt-4 col-sm-2">
-                                <button class="btn btn-wandw" data-toggle="modal"
+                                <button class="btn btn-wandw m-1" data-toggle="modal"
                                     data-target="#modalEditerUser{{ _id }}" type="submit">Modifier</button>
+                            {{!-- bouton suppression --}}
+                            <button class="btn btn-wandw m-1" data-toggle="modal" type="submit"
+                                data-target="#modalConfirmSuppUser{{_id}}">Supprimer</button>
                             </div>
                         </div>
                     </li>
@@ -42,20 +46,22 @@
                                         </div>
                                         <div class="modal-body">
                                             <form action="/listUser/{{ _id }}/?_method=PUT" method="POST">
-                                            <input type="text" class="form-control" name="name"
-                                        contenteditable="true" value="{{ this.name }}">
-                                                {{!-- <div class="row">
+                                                <input type="text" class="form-control" name="name"
+                                                    contenteditable="true" value="{{ this.name }}">
+                                                <div class="row">
                                                     <div class="col-md-3">
                                                         <p>Utilisateur Verifié : </p>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio"
-                                                                name="" value="" {{#if this.isVerified }}checked{{/if}}>
+                                                                name="isVerified" value="true"
+                                                                {{#if this.isVerified }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio"
-                                                                name="" value="" {{#unless this.isVerified }}checked{{/unless}}>
+                                                                name="isVerified" value="false"
+                                                                {{#unless this.isVerified }}checked{{/unless}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
@@ -64,14 +70,15 @@
                                                         <p>Modérateur : </p>
                                                         <div class="form-check form-check-inline">
 
-                                                            <input class="form-check-input" type="radio"
-                                                                name="" {{#if this.isModo }}checked{{/if}}>
+                                                            <input class="form-check-input" type="radio" name="isModo"
+                                                                value="true" {{#if this.isModo }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="" {{#if this.isModo }} {{else}}checked{{/if}}>
+                                                            <input class="form-check-input" type="radio" name="isModo"
+                                                                value="false" {{#if this.isModo }}
+                                                                {{else}}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
@@ -80,14 +87,15 @@
                                                         <p>Administrateur : </p>
                                                         <div class="form-check form-check-inline">
 
-                                                            <input class="form-check-input" type="radio"
-                                                                name="" value="true"{{#if this.isAdmin }}checked{{/if}}>
+                                                            <input class="form-check-input" type="radio" name="isAdmin"
+                                                                value="true" {{#if this.isAdmin }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="" value="false"{{#if this.isAdmin }}{{else}}checked{{/if}}>
+                                                            <input class="form-check-input" type="radio" name="isAdmin"
+                                                                value="false"
+                                                                {{#if this.isAdmin }}{{else}}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
@@ -96,19 +104,19 @@
                                                         <p>Banni : </p>
                                                         <div class="form-check form-check-inline">
 
-                                                            <input class="form-check-input" type="radio"
-                                                                name="" value="true"{{#if this.isBan }}checked{{/if}}>
+                                                            <input class="form-check-input" type="radio" name="isBan"
+                                                                value="true" {{#if this.isBan }}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio1">oui</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="" value="false"{{#if this.isBan }}{{else}}checked{{/if}}>
+                                                            <input class="form-check-input" type="radio" name="isBan"
+                                                                value="false" {{#if this.isBan }}{{else}}checked{{/if}}>
                                                             <label class="form-check-label"
                                                                 for="inlineRadio2">non</label>
                                                         </div>
                                                     </div>
-                                                </div> --}}
+                                                </div>
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-wandw"
@@ -119,6 +127,28 @@
                                             </form>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- Modal Supprimer user --}}
+                    <div class="modal fade" id="modalConfirmSuppUser{{_id}}" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Confirmez-vous la suppression de {{ name}} ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form action="/listUser/{{ _id }}/?_method=delete" method="POST">
+                                        <button type="submit" class="btn btn-sign">Oui</button>
+                                    </form>
+                                    <button type="button" data-dismiss="modal" aria-label="Close"
+                                        class="btn btn-sign">Non</button>
                                 </div>
                             </div>
                         </div>
