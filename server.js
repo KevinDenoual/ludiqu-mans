@@ -63,25 +63,7 @@ app.use(expressSession({
 }));
 
 app.use('*', (req, res, next) => {
-<<<<<<< HEAD
-    if (res.locals.user === req.session.userId) {
-        if (res.session.isVerified === true) {
-            if (req.session.isModo === true) {
-                if (req.session.isAdmin === true) {
-                    res.locals.user = req.session.userId
-                    res.locals.isVerified = req.session.isVerified
-                    res.locals.isModo = req.session.isModo
-                    res.locals.isAdmin = req.session.isAdmin
-                }
-                res.locals.user = req.session.userId
-                res.locals.isVerified = req.session.isVerified
-                res.locals.isModo = req.session.isModo
-            }
-            res.locals.user = req.session.userId
-            res.locals.isVerified = req.session.isVerified
-        }
-        res.locals.user = req.session.userId
-=======
+
     res.locals.user = req.session.status
     if(req.session.isAdmin === true){
         res.locals.isVerified = true
@@ -94,10 +76,8 @@ app.use('*', (req, res, next) => {
         res.locals.isVerified = true
     }else if (req.session.isBan === true){
         req.locals.isBan = true
->>>>>>> willy
-    }
-    // console.log(res.locals);
-    
+
+    }  
     next()
 })
 
