@@ -16,13 +16,17 @@ const actus = require('./controllers/actus')
 const contact = require ('./controllers/contact')
 const jeux = require('./controllers/jeux')
 const admin = require ('./controllers/admin')
-const auth = require('../middleware/auth')
-const redirectAuthSucces = require('../middleware/redirectAuthSucces')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
 
+// Import middleware
+const auth = require('../middleware/auth')
+const redirectAuthSucces = require('../middleware/redirectAuthSucces')
+const isVerified = require('../middleware/isVerified')
+const isAdmin = require('../middleware/isAdmin')
+const isModo = require('../middleware/isModo')
 
 
 
@@ -30,7 +34,7 @@ const ticketAdmin = require('./controllers/ticketAdmin')
 // Home
 router.route('/')
     .get(home.get)
-    .post(redirectAuthSucces, home.postLogin)
+    .post(home.postLogin)
 
 //********* MKP ***********//
 // mkp
@@ -72,6 +76,10 @@ router.route('/actuCreate')
 // commentaireActu
 router.route('/commentaireActu/:id')
     .post(actus.postComment)
+<<<<<<< HEAD
+=======
+    .delete(actus.deleteOneComment)
+>>>>>>> dfe79f627514c10c16eea5709a3b28de62f6da47
 
 
 //********* CONTACT ***********//
@@ -102,7 +110,6 @@ router.route('/jeuSingle/:id')
 router.route('/admin')
     .get(admin.get)
     
-
 router.route('/listUser')
     .get(listUser.getlistUser)
 
@@ -112,6 +119,21 @@ router.route('/listUser/:id')
 
 router.route('/comentaryList')
     .get(admin.getComentaryList)
+
+    // TicketAdmin  
+router.route('/ticketAdmin')
+    .get(ticketAdmin.getTicketAdmin)
+
+router.route('/ticketAdmin/:id')
+    .delete(ticketAdmin.deleteTicketAdmin)
+
+// Gestion Commentaires
+router.route('/comentaryList')
+    .get(admin.getComentaryList)
+
+router.route('/comentaryList/:id')
+    .delete(admin.deleteOneComentaryList)
+    .put(admin.putComentSingle)
 
     // TicketAdmin  
 router.route('/ticketAdmin')
