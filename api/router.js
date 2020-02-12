@@ -6,7 +6,6 @@
 const express = require('express')
 const router = express.Router()
 
-
 // Import de controllers
 const home = require('./controllers/home')
 const signup = require('./controllers/signup')
@@ -35,6 +34,7 @@ const isModo = require('../middleware/isModo')
 router.route('/')
     .get(home.get)
     .post(home.postLogin)
+
 
 //********* MKP ***********//
 // mkp
@@ -76,11 +76,7 @@ router.route('/actuCreate')
 // commentaireActu
 router.route('/commentaireActu/:id')
     .post(actus.postComment)
-<<<<<<< HEAD
-=======
     .delete(actus.deleteOneComment)
->>>>>>> dfe79f627514c10c16eea5709a3b28de62f6da47
-
 
 //********* CONTACT ***********//
 // contact
@@ -105,42 +101,21 @@ router.route('/jeuSingle/:id')
     .delete(jeux.deleteJeuSingle)
     .put(jeux.putJeuSingle)
 
+
 //********* ADMIN ***********//
 //adminpage
 router.route('/admin')
     .get(admin.get)
     
+//listuser
 router.route('/listUser')
     .get(listUser.getlistUser)
 
+    //listUser/:id
 router.route('/listUser/:id')
     .put(listUser.putlistUser)
-    .delete(listUser.deleteUser)
+    .delete(listUser.deleteOnelistUser)
 
-router.route('/comentaryList')
-    .get(admin.getComentaryList)
-
-    // TicketAdmin  
-router.route('/ticketAdmin')
-    .get(ticketAdmin.getTicketAdmin)
-
-router.route('/ticketAdmin/:id')
-    .delete(ticketAdmin.deleteTicketAdmin)
-
-// Gestion Commentaires
-router.route('/comentaryList')
-    .get(admin.getComentaryList)
-
-router.route('/comentaryList/:id')
-    .delete(admin.deleteOneComentaryList)
-    .put(admin.putComentSingle)
-
-    // TicketAdmin  
-router.route('/ticketAdmin')
-    .get(ticketAdmin.getTicketAdmin)
-
-router.route('/ticketAdmin/:id')
-    .delete(ticketAdmin.deleteTicketAdmin)
 
 //********* Signup ***********//
 // Signup ( CreateUser )
@@ -148,7 +123,6 @@ router.route('/signup')
     .get(signup.get)
     .post(signup.postSignup)
     
-
 // Authentification 
 router.route('/authentification')
     .post(authentification.postLogin)

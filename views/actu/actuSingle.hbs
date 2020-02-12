@@ -3,7 +3,7 @@
 </div>
 <div class="container mt-3 ">
     <div class="row text-center">
-        <img src="" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+        <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
     </div>
     <div class="row ">
         <div class="col-md-12">
@@ -19,12 +19,14 @@
     </div>
 
     {{!-- bouton commenter --}}
-    <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenterActu{{_id}}"
+    {{#if isVerified}}
+    <button class="btn btn-actu m-1" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
         type="submit">Commenter</button>
+    {{/if}}
 
     {{!-- bouton suppression --}}
     {{#if isAdmin}}
-    <button class="btn btn-actu" data-toggle="modal" type="submit"
+    <button class="btn btn-actu m-1" data-toggle="modal" type="submit"
         data-target="#modalConfirmSuppActu{{_id}}">Supprimer</button>
     {{/if}}
 

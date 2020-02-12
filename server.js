@@ -16,7 +16,8 @@ MomentHandler.registerHelpers(Handlebars);
 
 const app = express()
 const port = process.env.PORT || 3000
-const urlDB = "mongodb://localhost:27017/ludiqumans"
+// const urlDB = "mongodb://localhost:27017/ludiqumans"
+const urlDB = "mongodb+srv://willy:Ghj4vGKhdNp42pgN@cluster0-9bswz.mongodb.net/test?retryWrites=true&w=majority"
 const mongoStore = MongoStore(expressSession);
 
 // Method-Override
@@ -62,6 +63,7 @@ app.use(expressSession({
 }));
 
 app.use('*', (req, res, next) => {
+<<<<<<< HEAD
     if (res.locals.user === req.session.userId) {
         if (res.session.isVerified === true) {
             if (req.session.isModo === true) {
@@ -79,7 +81,23 @@ app.use('*', (req, res, next) => {
             res.locals.isVerified = req.session.isVerified
         }
         res.locals.user = req.session.userId
+=======
+    res.locals.user = req.session.status
+    if(req.session.isAdmin === true){
+        res.locals.isVerified = true
+        res.locals.isModo = true
+        res.locals.isAdmin = true
+    }else if(req.session.isModo === true){
+        res.locals.isVerified = true
+        res.locals.isModo = true
+    }else if(req.session.isVerified === true){
+        res.locals.isVerified = true
+    }else if (req.session.isBan === true){
+        req.locals.isBan = true
+>>>>>>> willy
     }
+    // console.log(res.locals);
+    
     next()
 })
 

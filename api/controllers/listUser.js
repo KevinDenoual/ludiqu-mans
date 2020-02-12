@@ -17,10 +17,8 @@ module.exports = {
                 isModo: req.body.isModo,
                 isAdmin: req.body.isAdmin,
                 isBan: req.body.isBan
-
             },
             { multi: true },
-
             (err) => {
                 if (!err) {
                     res.redirect('/listUser')
@@ -30,18 +28,15 @@ module.exports = {
             }
         )
     },
-    deleteUser: (req, res) => {
+    deleteOnelistUser: (req, res) => {
         const myuser = { _id: req.params.id }
-                
-        userModel.deleteOne(
-                myuser,
+        userModel.deleteOne(myuser,
             (err) => {
-                if (!err){
+                if (!err) {
                     res.redirect('/listUser')
                 } else {
                     res.send(err)
                 }
-            }  
-        )
+            })
     }
 }

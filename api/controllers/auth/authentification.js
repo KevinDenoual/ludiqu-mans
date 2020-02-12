@@ -33,6 +33,8 @@ module.exports = {
                                 req.session.userId = User._id
                                 // console.log('OK 1')
                                 res.redirect('/')
+                                // console.log(req.session);
+                                
                                 // res.render('success', { dbUser, sess })
                             } else if ( err ) {
                                 console.log(err);

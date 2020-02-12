@@ -1,6 +1,6 @@
 <section class="item">
     <div class="border-bottom mx-auto " style="width: 40%;">
-        <h1 class="text-center text-warning">liste des utilisateurs</h1>
+        <h1 class="text-center text-warning">Liste des utilisateurs</h1>
     </div>
     <div class="container">
         <div class="row">
@@ -21,11 +21,13 @@
                                 <p>Admin : {{isAdmin}} </p>
                                 <p> Bannis : {{isBan}} </p>
                             </div>
+                            {{!-- bouton editer --}}
                             <div class="col-md-2 pt-4 col-sm-2">
                                 <button class="btn btn-wandw m-1" data-toggle="modal"
                                     data-target="#modalEditerUser{{ _id }}" type="submit">Modifier</button>
-                                <button type="submit" class="btn btn-wandw m-1" data-toggle="modal"
-                                    data-target="#modalConfirmSuppUser{{_id}}">Supprimer</button>
+                            {{!-- bouton suppression --}}
+                            <button class="btn btn-wandw m-1" data-toggle="modal" type="submit"
+                                data-target="#modalConfirmSuppUser{{_id}}">Supprimer</button>
                             </div>
                     </li>
                     {{!-- Modal Editer user --}}
@@ -127,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    {{!-- modal confirmation suppression mkp --}}
+                    {{!-- Modal Supprimer user --}}
                     <div class="modal fade" id="modalConfirmSuppUser{{_id}}" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -137,14 +139,14 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Confirmez-vous la suppression de {{this.name}}</p>
+                                    <p>Confirmez-vous la suppression de {{ name}} ?</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <form method="POST" action="/listUser/{{_id}}/?_method=DELETE">
+                                    <form action="/listUser/{{ _id }}/?_method=delete" method="POST">
                                         <button type="submit" class="btn btn-sign">Oui</button>
                                     </form>
-                                    <button type="button" class="btn btn-sign " data-dismiss="modal"
-                                        aria-label="Close">Non</button>
+                                    <button type="button" data-dismiss="modal" aria-label="Close"
+                                        class="btn btn-sign">Non</button>
                                 </div>
                             </div>
                         </div>

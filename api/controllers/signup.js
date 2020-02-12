@@ -8,9 +8,8 @@ module.exports = {
     postSignup: (req, res) => {
         const Pass = req.body.password
         const confPass = req.body.confPassword
-        const check = req.body.gridCheck
 
-        if (Pass !== confPass || check !== 'on') {
+        if (Pass !== confPass) { //comparaison des mots de passe
             res.redirect('/signup')
         } else {
             usermodel.create(
@@ -23,21 +22,9 @@ module.exports = {
                     isAdmin: false,
                     isBan: false
                 },
-                (error, user) => {
-                    if (error) {
-                        const gestError = Object.keys(error.errors).map(key => error.errors[key].message)
-                        req.flash('gestError', gestError)
+            )
+            res.render('home')
 
-                        return res.redirect('/signup')
-                    } else {
-                        res.render('home')
-                    }
-                })
         }
-    },
-
-
-    
-
-
+    }
 }
