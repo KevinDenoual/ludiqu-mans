@@ -101,7 +101,7 @@ module.exports = {
                 } else {
                     res.send(err)
                 }
-                console.log(req.params.id);
+                // console.log(req.params.id);
 
             })
     }
