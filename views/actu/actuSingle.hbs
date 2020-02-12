@@ -19,7 +19,7 @@
     </div>
 
     {{!-- bouton commenter --}}
-    <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
+    <button class="btn btn-actu" data-toggle="modal" data-target="#modalCommenterActu{{_id}}"
         type="submit">Commenter</button>
 
     {{!-- bouton suppression --}}
@@ -105,12 +105,108 @@
             </div>
         </div>
     </div>
+    
 </div>
 
-{{!-- Modal commenter --}}
-{{> modals/modalCommenter }}
+{{!-- Modal commenter article--}}
+<div class="modal fade" id="modalCommenterActu{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{!-- Formulaire Commenter POST --}}
+                <form action="/commentaireActu/{{ dbActu._id }}" method="POST">
+                    <div class="rating form-group">
+                        <p>Votre note</p>
+                        <label class="stars">
+                            <i class="far fa-star gold"></i>
+                            <i class="far fa-star gold"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="commentaireActu" class="col-form-label">Votre commentaire</label>
+                        <textarea class="form-control" id="commentaireActu" type="text" name="content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentaire-text" class="col-form-label">Votre pseudo</label>
+                        <input class="form-control" type="text" name="author"></textarea>
+                    </div>
+
+                    {{!-- / Formulaire Commenter POST --}}
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-sign">Poster le commentaire</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 
 {{!-- Zone commentaire --}}
-{{> zoneCommentaire }}
+<div class="container mt-3 ">
+    <div class="row mt-3">
+        <div>
+            <div class="rating form-group">
+                <div class="stars mb-2 mt-5">
+                    <i class="far fa-star gold"></i>
+                    <i class="far fa-star gold"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                {{#each (reverse dbComentaryActu) }}
+                <div class="list-item border border-warning rounded m-2 p-2">
+                    <div>
+                        <h5>{{ content }}</h5>
+                    </div>
+
+                    <div>
+                        <p>{{ author }} , {{ createDate }}</p>
+                    </div>
+                </div>
+                {{/each }}
+
+            </div>
+            <div>
+                <a href="/contact"><button type="button" class="btn btn-sign" type="submit">Signaler</button></a>
+                <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
+                    data-target="#modalConfirmSupp">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- modal confirmation suppression --}}
+<div class="modal fade" id="modalConfirmSupp" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Confirmez-vous la suppression ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-sign">Oui</button>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sign">Non</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>

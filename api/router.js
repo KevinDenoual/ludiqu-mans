@@ -21,6 +21,9 @@ const redirectAuthSucces = require('../middleware/redirectAuthSucces')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
+const ticketAdmin = require('./controllers/ticketAdmin')
+
+
 
 
 
@@ -66,12 +69,16 @@ router.route('/actuCreate')
     .get(actus.getActuCreate)
     .post(actus.postActuCreate)
 
+// commentaireActu
+router.route('/commentaireActu/:id')
+    .post(actus.postComment)
 
 
 //********* CONTACT ***********//
 // contact
 router.route('/contact')
-    .get(contact.get)
+    .get(contact.getContact)
+    .post(contact.postContact)
 
 
 //********* JEUX ***********//
@@ -102,6 +109,16 @@ router.route('/listUser')
 router.route('/listUser/:id')
     .put(listUser.putlistUser)
     .delete(listUser.deleteUser)
+
+router.route('/comentaryList')
+    .get(admin.getComentaryList)
+
+    // TicketAdmin  
+router.route('/ticketAdmin')
+    .get(ticketAdmin.getTicketAdmin)
+
+router.route('/ticketAdmin/:id')
+    .delete(ticketAdmin.deleteTicketAdmin)
 
 //********* Signup ***********//
 // Signup ( CreateUser )
