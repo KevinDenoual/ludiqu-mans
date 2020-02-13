@@ -74,9 +74,10 @@ module.exports = {
         comentaryCollection.create(
             {
                 content: req.body.content,
+                typeArticle : "Actu",
                 author: req.body.author,
                 authorId: req.session.userId,
-                articleId: req.params.id
+                articleId: req.params.id,
             },
             (err) => {
                 if (!err) {

@@ -15,15 +15,9 @@ MomentHandler.registerHelpers(Handlebars);
 
 
 const app = express()
-<<<<<<< HEAD
-const port = process.env.PORT || 3000
-// const urlDB = "mongodb://localhost:27017/ludiqumans"
-const urlDB = "mongodb+srv://willy:Ghj4vGKhdNp42pgN@cluster0-9bswz.mongodb.net/test?retryWrites=true&w=majority"
-=======
 const port = process.env.PORT || 4000
 // const urlDB = "mongodb://localhost:27017/ludiqumans"
 const urlDB = "mongodb+srv://lucie:83Tde3k6mIOH4piD@cluster0-9bswz.mongodb.net/test?retryWrites=true&w=majority"
->>>>>>> lucie
 const mongoStore = MongoStore(expressSession);
 
 // Method-Override

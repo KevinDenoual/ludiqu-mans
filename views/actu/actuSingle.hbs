@@ -20,8 +20,8 @@
 
     {{!-- bouton commenter --}}
     {{#if isVerified}}
-    <button class="btn btn-actu m-1" data-toggle="modal" data-target="#modalCommenter" data-whatever="@getbootstrap"
-        type="submit">Commenter</button>
+    <button class="btn btn-actu m-1" data-toggle="modal" data-target="#modalCommenterActu{{_id}}"
+        data-whatever="@getbootstrap" type="submit">Commenter</button>
     {{/if}}
 
     {{!-- bouton suppression --}}
@@ -32,10 +32,10 @@
 
     {{!-- bouton modifier --}}
     {{#if isModo }}
-    
+
     <button class="btn btn-actu" data-toggle="modal" data-target="#modalEditerActu{{_id}}"
         type="submit">Modifier</button>
-    
+
     {{/if}}
 
 
@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 {{!-- Modal commenter article--}}
@@ -218,7 +218,7 @@
                     <i class="far fa-star"></i>
                 </div>
                 {{#each (reverse dbComentary) }}
-                {{#if isVerified}}
+                {{#if isValided}}
                 <div class="list-item border border-warning rounded m-2 p-2">
                     <div>
                         <h5>{{ content }}</h5>
@@ -229,9 +229,13 @@
                     </div>
                 </div>
                 <div>
+                    {{#if ../isVerified}}
                     <a href="/contact"><button type="button" class="btn btn-sign" type="submit">Signaler</button></a>
+                    {{/if}}
+                    {{#if ../isAdmin}}
                     <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
                         data-target="#modalConfirmSuppComActu{{_id}}">Supprimer</button>
+                    {{/if}}
                 </div>
 
                 {{!-- modal confirmation suppression --}}

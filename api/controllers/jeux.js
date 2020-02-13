@@ -110,6 +110,7 @@ module.exports = {
         comentaryCollection.create(
             {
                 content: req.body.content,
+                typeArticle : "Jeu",
                 author: req.body.author,
                 authorId: req.session.userId,
                 articleId: req.params.id

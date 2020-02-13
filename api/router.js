@@ -12,9 +12,9 @@ const signup = require('./controllers/signup')
 const mkp = require('./controllers/mkp')
 const wandw = require('./controllers/wandw')
 const actus = require('./controllers/actus')
-const contact = require ('./controllers/contact')
+const contact = require('./controllers/contact')
 const jeux = require('./controllers/jeux')
-const admin = require ('./controllers/admin')
+const admin = require('./controllers/admin')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
@@ -101,7 +101,7 @@ router.route('/jeuSingle/:id')
     .delete(jeux.deleteJeuSingle)
     .put(jeux.putJeuSingle)
 
-// // commentaireJeu
+// commentaireJeu
 router.route('/commentaireJeu/:id')
     .post(jeux.postComment)
     .delete(jeux.deleteOneComment)
@@ -110,15 +110,23 @@ router.route('/commentaireJeu/:id')
 //adminpage
 router.route('/admin')
     .get(admin.get)
-    
+
 //listuser
 router.route('/listUser')
     .get(listUser.getlistUser)
 
-    //listUser/:id
+//listUser/:id
 router.route('/listUser/:id')
     .put(listUser.putlistUser)
     .delete(listUser.deleteOnelistUser)
+
+// Gestion Commentaires
+router.route('/comentaryList')
+    .get(admin.getComentaryList)
+
+router.route('/comentaryList/:id')
+    .delete(admin.deleteOneComentaryList)
+    .put(admin.putComentSingle)
 
 
 //********* Signup ***********//
@@ -126,7 +134,7 @@ router.route('/listUser/:id')
 router.route('/signup')
     .get(signup.get)
     .post(signup.postSignup)
-    
+
 // Authentification 
 router.route('/authentification')
     .post(authentification.postLogin)

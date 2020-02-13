@@ -30,7 +30,7 @@ module.exports = {
         comentaryCollection.findOneAndUpdate(
             { _id: req.params.id },
             {
-                isVerified : true,
+                isValided: true,
             },
             (err) => {
                 if (!err) {

@@ -184,7 +184,7 @@ body{
 
 /* =============== NAVBAR =============== */
 .nav-ludi{
-    font-family: 'sacramento';
-     font-size: 180%;
+    /* font-family: 'sacramento'; */
+     font-size: 130%;
       font-weight: bold;
 }
