@@ -75,7 +75,16 @@ body{
     font-family: 'neucha'
 }
 
-
+.btn-jeux {
+    color: #fff;
+    background-color: #12A646;
+    border-color: #12A646;
+}
+.btn-jeux:hover {
+    color: #fff;
+    background-color: #0F8A3A;
+    border-color: #0D7330;
+}
 
 .btn-actu {
     font-family: 'neucha';

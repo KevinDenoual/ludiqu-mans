@@ -7,9 +7,9 @@ module.exports = {
     },
 
     getComentaryList: async (req, res) => {
-        const dbComentaryActu = await comentaryCollection.find({})
+        const dbComentary = await comentaryCollection.find({})
 
-        res.render('admin/comentaryList', { dbComentaryActu })
+        res.render('admin/comentaryList', { dbComentary })
     },
 
     deleteOneComentaryList: (req, res) => {
@@ -27,23 +27,22 @@ module.exports = {
     },
 
     putComentSingle: (req, res) => {
-        // comentaryCollection.findById(
-        //     { _id: req.params.id },
-        //     {
-        //         title: req.body.title,
-        //         content: req.body.content,
-        //         createDate: req.body.date,
-        //     },
-        //     { multi: true },
-        //     (err) => {
-        //         if (!err) {
-        //             // console.log('UPDATE OK');
-        //             res.redirect('/actuSingle/' + req.params.id)
-        //         } else {
-        //             res.send(err)
-        //         }
-        //     })
+        comentaryCollection.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+                isVerified : true,
+            },
+            (err) => {
+                if (!err) {
+                    // console.log('UPDATE OK');
+                    res.redirect('/comentaryList')
+                } else {
+                    res.send(err)
+                }
+            })
 
-        res.render('admin/admin')
+        // console.log(req.params.id);
+        
+        // res.render('admin/admin')
     }
 }
