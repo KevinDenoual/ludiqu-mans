@@ -47,6 +47,12 @@ Handlebars.registerHelper('reverse', function (arr) {
     if (!Array.isArray(arr)) { return []; }
     return arr.reverse();
 });
+// **************tri typeArticle Commentaires**********
+Handlebars.registerHelper('typeArticle', function (type) {
+    if (this.typeArticle == type) { 
+        return this;
+    }   
+});
 
 
 

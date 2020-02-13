@@ -7,20 +7,22 @@
     </div>
     <div class="row ">
         <div class="col-md-12">
-            <p class="mt-3 text-center">
+            <p class="mt-3 text-justify">
                 {{ dbActu.content }}
             </p>
         </div>
     </div>
     <div class="row ">
-        <p class="mt-3">
-            {{ dbActu.createDate }}
-        </p>
+        <div class="col-md-12">
+            <p class="mt-3">
+                {{ dbActu.createDate }}
+            </p>
+        </div>
     </div>
 
     {{!-- bouton commenter --}}
     {{#if isVerified}}
-    <button class="btn btn-actu m-1" data-toggle="modal" data-target="#modalCommenterActu{{_id}}"
+    <button class="btn btn-actu mr-1" data-toggle="modal" data-target="#modalCommenterActu{{_id}}"
         data-whatever="@getbootstrap" type="submit">Commenter</button>
     {{/if}}
 
@@ -208,7 +210,7 @@
 {{!-- Zone commentaire --}}
 <div class="container mt-3 ">
     <div class="row mt-3">
-        <div>
+        {{!-- <div class="col-md-12">
             <div class="rating form-group">
                 <div class="stars mb-2 mt-5">
                     <i class="far fa-star gold"></i>
@@ -217,53 +219,58 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                {{#each (reverse dbComentary) }}
-                {{#if isValided}}
-                <div class="list-item border border-warning rounded m-2 p-2">
-                    <div>
-                        <h5>{{ content }}</h5>
-                    </div>
-
-                    <div>
-                        <p>{{ author }} , {{ createDate }}</p>
-                    </div>
-                </div>
-                <div>
-                    {{#if ../isVerified}}
-                    <a href="/contact"><button type="button" class="btn btn-sign" type="submit">Signaler</button></a>
-                    {{/if}}
-                    {{#if ../isAdmin}}
-                    <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
-                        data-target="#modalConfirmSuppComActu{{_id}}">Supprimer</button>
-                    {{/if}}
-                </div>
-
-                {{!-- modal confirmation suppression --}}
-                <div class="modal fade" id="modalConfirmSuppComActu{{_id}}" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Confirmez-vous la suppression du commentaire de {{ author }} ?</p>
-                            </div>
-                            <div class="modal-footer">
-                                <form action="/commentaireActu/{{ _id }}/?_method=delete" method="POST">
-                                    <button type="submit" class="btn btn-sign">Oui</button>
-                                </form>
-                                <button type="button" data-dismiss="modal" aria-label="Close"
-                                    class="btn btn-sign">Non</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{/if}}
-                {{/each }}
             </div>
-
+        </div> --}}
+    </div>
+    {{#each (reverse dbComentary) }}
+    {{#if isValided}}
+    <div class="row list-item border border-warning rounded mt-3 p-2">
+        <div class="col-md-12">
+            <div class="row">
+                <h5>{{ content }}</h5>
+            </div>
+            <div class="row">
+                <p>{{ author }} , {{ createDate }}</p>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            {{#if ../isVerified}}
+            <a href="/contact"><button type="button" class="btn btn-sign" type="submit">Signaler</button></a>
+            {{/if}}
+            {{#if ../isAdmin}}
+            <button type="button" class="btn btn-sign" type="submit" data-toggle="modal"
+                data-target="#modalConfirmSuppComActu{{_id}}">Supprimer</button>
+            {{/if}}
+        </div>
+    </div>
+
+
+    {{!-- modal confirmation suppression --}}
+    <div class="modal fade" id="modalConfirmSuppComActu{{_id}}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirmez-vous la suppression du commentaire de {{ author }} ?</p>
+                </div>
+                <div class="modal-footer">
+                    <form action="/commentaireActu/{{ _id }}/?_method=delete" method="POST">
+                        <button type="submit" class="btn btn-sign">Oui</button>
+                    </form>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sign">Non</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{/each }}
+
+
+
 </div>
