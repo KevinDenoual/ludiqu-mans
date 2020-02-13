@@ -1,22 +1,38 @@
-<form action="/actuSingle/{{ dbActu._id }}/?_method=PUT" method="POST">
-    <input type="text" name="title" contenteditable="true" value="{{dbUser.name}}">
-    <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
-    <input type="text" name="date" contenteditable="true" value="Modifier le : {{dbActu.createDate}}">
-    <input type="text" name="content" contenteditable="true" value="{{dbuser.email}}">
-    <div class="file">
-        <label class="file-label">
-            <input class="file-input" type="file" name="image">
-            <span class="file-cta">
-                <span class="file-icon">
-                    <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                    Envoyer une nouvelle image au format .jpg .jpeg .gif uniquement
-                </span>
-            </span>
-        </label>
+<div class="border-bottom mx-auto " style="width: 40%;">
+    <h1 class="text-center sign-color">Créer un compte</h1>
+</div>
+<div class="container mt-3 ">
+    <div class=" px-auto">
+        {{!-- formulaire d'inscription --}}
+        <form action="/myaccount/{{ dbuser._id }}/?_method=PUT" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="name">modifier mon nom</label>
+                    <input type="input" class="form-control" name="name" value="{{name}}"
+                        required>{{!--required permet de forcer le remplissage de la zone de texte --}}
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-md-12">
+                    <label for="inputEmail">Modifier mon adresse Email</label>
+                    <input type="email" class="form-control" name="email" value="{{dbuser.email}}" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" class="form-control" name="password" required>
+                </div>
+                
+            </div>
+
+            {{!-- bouton d'inscription --}}
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-sign">Mettre à jour</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div>
-        <button type="submit" class="btn btn-sign">Confirmer la modification</button>
-    </div>
-</form>
+</div>
+

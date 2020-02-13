@@ -69,6 +69,7 @@ app.use(expressSession({
 }));
 
 app.use('*', (req, res, next) => {
+    res.locals.id = req.session.userId
     res.locals.user = req.session.status
     res.locals.name = req.session.name
     if(req.session.isAdmin === true){

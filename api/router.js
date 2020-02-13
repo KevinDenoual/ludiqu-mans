@@ -121,8 +121,9 @@ router.route('/listUser/:id')
     .put(listUser.putlistUser)
     .delete(listUser.deleteOnelistUser)
 
-router.route('myAccount/:id')
+router.route('/myAccount/:id')
     .get(myAccount.getMyAccount)
+    .put(myAccount.putMyAccount)
     
 // Gestion Commentaires
 router.route('/comentaryList')
