@@ -10,6 +10,8 @@
                     <i class="far fa-star"></i>
                 </div>
                 {{#each (reverse dbComentaryActu) }}
+                {{#if isVerified}}
+                {{else }}
                 <div class="list-item border border-warning rounded m-2 p-2">
                     <div>
                         <h5>{{ content }}</h5>
@@ -26,6 +28,7 @@
                         <button type="submit" class="btn btn-sign">Indiquer comme isVerified</button>
                     </form>
                 </div>
+                {{/if}}
 
                 {{!-- modal confirmation suppression --}}
                 <div class="modal fade" id="modalConfirmSuppComActuAdmin{{_id}}" tabindex="-1" role="dialog">
