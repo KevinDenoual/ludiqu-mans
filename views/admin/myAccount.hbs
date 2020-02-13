@@ -1,0 +1,22 @@
+<form action="/actuSingle/{{ dbActu._id }}/?_method=PUT" method="POST">
+    <input type="text" name="title" contenteditable="true" value="{{dbUser.name}}">
+    <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+    <input type="text" name="date" contenteditable="true" value="Modifier le : {{dbActu.createDate}}">
+    <input type="text" name="content" contenteditable="true" value="{{dbuser.email}}">
+    <div class="file">
+        <label class="file-label">
+            <input class="file-input" type="file" name="image">
+            <span class="file-cta">
+                <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                    Envoyer une nouvelle image au format .jpg .jpeg .gif uniquement
+                </span>
+            </span>
+        </label>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-sign">Confirmer la modification</button>
+    </div>
+</form>

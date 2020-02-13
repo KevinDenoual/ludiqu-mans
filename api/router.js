@@ -19,6 +19,7 @@ const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
+const myAccount = require('./controllers/myAccount')
 
 // Import middleware
 const auth = require('../middleware/auth')
@@ -119,6 +120,9 @@ router.route('/listUser')
 router.route('/listUser/:id')
     .put(listUser.putlistUser)
     .delete(listUser.deleteOnelistUser)
+
+router.route('myAccount/:id')
+    .get(myAccount.getMyAccount)
 
 
 //********* Signup ***********//
