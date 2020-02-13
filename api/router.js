@@ -102,6 +102,11 @@ router.route('/jeuSingle/:id')
     .delete(jeux.deleteJeuSingle)
     .put(jeux.putJeuSingle)
 
+// // commentaireJeu
+router.route('/commentaireJeu/:id')
+    .post(jeux.postComment)
+    .delete(jeux.deleteOneComment)
+
 //********* ADMIN ***********//
 //adminpage
 router.route('/admin')

@@ -7,9 +7,9 @@ module.exports = {
     },
 
     getComentaryList: async (req, res) => {
-        const dbComentaryActu = await comentaryCollection.find({})
+        const dbComentary = await comentaryCollection.find({})
 
-        res.render('admin/comentaryList', { dbComentaryActu })
+        res.render('admin/comentaryList', { dbComentary })
     },
 
     deleteOneComentaryList: (req, res) => {
@@ -34,7 +34,7 @@ module.exports = {
             },
             (err) => {
                 if (!err) {
-                    console.log('UPDATE OK');
+                    // console.log('UPDATE OK');
                     res.redirect('/comentaryList')
                 } else {
                     res.send(err)

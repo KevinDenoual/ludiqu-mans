@@ -12,10 +12,10 @@ module.exports = {
 
     getActuSingle: async (req, res) => {
         const dbActu = await actuCollection.findById(req.params.id)
-        const dbComentaryActu = await comentaryCollection.find({ articleId: req.params.id })
-        console.log(req.params.id);
+        const dbComentary = await comentaryCollection.find({ articleId: req.params.id })
+        // console.log(req.params.id);
 
-        res.render('actu/actuSingle', { dbActu, dbComentaryActu })
+        res.render('actu/actuSingle', { dbActu, dbComentary })
     },
 
     getActuCreate: (req, res) => {
