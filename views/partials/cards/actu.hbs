@@ -1,13 +1,13 @@
-
-            <div class="card card-actu mx-4">
-                <img class="card-img-top" src="https://picsum.photos/480/480" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Titre : {{ title }} </h5>
-                    <p class="card-text"> {{ content }}</p>
-                    <a href="/actuSingle/{{ id }}" class="btn btn-actu">Voir l'article</a>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">{{ createDate }}</small>
-                </div>
-            </div>
-            
+{{!------------ card d'actualité ------------------}}
+<div class="card card-actu mx-4">
+    <img class="card-img-top" src="https://picsum.photos/480/480" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{ title }} </h5>
+        <p class="card-text"> {{ content }}</p>
+        <a href="/actuSingle/{{ id }}" class="btn btn-actu">Voir l'article</a>
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">Publier le : {{ moment createDate format="DD-MM-YY" }}</small>
+    </div>
+</div>
+{{!------------/card d'actualité ------------------}}

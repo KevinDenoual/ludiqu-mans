@@ -1,45 +1,46 @@
-<section class="item">
-    <div class="border-bottom mx-auto " style="width: 40%;">
-        <h1 class="text-center jeux-color">Tous les jeux</h1>
-    </div>
+{{!------------ titre ------------------}}
+<div class="border-bottom mx-auto " style="width: 40%;">
+    <h1 class="text-center jeux-color">Tous les jeux</h1>
+</div>
+{{!------------/titre ------------------}}
 
-
-    <div class="container">
-        <div class="row">
-            <!-- GET -->
-
-            <div class="col-md-12 col-sm-12">
-                <ul class="list-group ">
-
-
-                    {{#each dbJeuModel }}
-                    <li class="list-item">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-2  column">
-                                <h3>{{title}}</h3>
-                                <img src="https://picsum.photos/480/480" alt="" style="max-width: 100px;">
+{{!------------liste de jeux ------------------}}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <ul class="list-group ">
+                {{#each dbJeuModel }}
+                <li class="list-item border-bottom mt-5">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2  column">
+                            <h3>{{title}}</h3>
+                            <img src="https://picsum.photos/480/480" alt="photo de jeu" style="max-width: 100px;">
+                        </div>
+                        <div class="col-md-10  col-sm-10">
+                            <div class="row">
+                                <div class="col-md-12 text-justify">
+                                    <p>{{content}} </p>
+                                </div>
                             </div>
-                            <div class="col-md-10 pt-4 col-sm-10">
-                                <p>{{content}} </p>
-                                <p>Auteur : {{author}} </p>
-                                <p class="font-weight-bold">Prix : {{price}}€ </p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Auteur : {{author}} </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="font-weight-bold">Prix : {{price}}€ </p>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <a href="/jeuSingle/{{_id}}">En savoir plus..</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 text-right">
-                                <a  href="/jeuSingle/{{_id}}">En savoir plus..</a>
-                            </div>
-                        </div>
-                    </li>
-                    {{/each }}
-                </ul>
-            </div>
+                    </div>
+                </li>
+                {{/each }}
+            </ul>
         </div>
     </div>
-</section>
-
-<style>
-    li {
-        list-style: none;
-    }
-</style>
+</div>
+{{!------------/liste de jeux ------------------}}

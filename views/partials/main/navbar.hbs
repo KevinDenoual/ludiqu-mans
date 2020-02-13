@@ -7,45 +7,39 @@
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link nav-ludi" href="/actus" style="color: #3098D9; ">Les actus<span
+        <a class="nav-link nav-ludi actu-color" href="/actus">Les actus<span
             class="sr-only">(current)</span></a>
       </li>
-
       <li class="nav-item active">
-        <a class="nav-link nav-ludi" href="/jeux" style="color: #12A646; ">Les jeux<span
+        <a class="nav-link nav-ludi jeux-color" href="/jeux" >Les jeux<span
             class="sr-only">(current)</span></a>
       </li>
-
-      <li class="nav-item dropdown  xpurple">
-        <a class="nav-link nav-ludi dropdown-toggle xpurple" href="" id="navbarDropdown" role="button"
+      <li class="nav-item dropdown">
+        <a class="nav-link nav-ludi dropdown-toggle mkp-color" href="" id="navbarDropdown" role="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Le bon jeu
         </a>
-        <div class="dropdown-menu xpurple" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item xpurple" href="/mkp">Toutes les annonces</a>
+        <div class="dropdown-menu mkp-color" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item mkp-color" href="/mkp">Toutes les annonces</a>
           {{#if isVerified}}
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item xpurple" href="/mkpCreate">Créer une annonce</a>
+          <a class="dropdown-item mkp-color" href="/mkpCreate">Créer une annonce</a>
           {{/if}}
         </div>
       </li>
-
       <li class="nav-item active">
-        <a class="nav-link nav-ludi" style="color:#F2A81D;" href="/wandw">Où et quand<span
+        <a class="nav-link nav-ludi wandw-color"  href="/wandw">Où et quand<span
             class="sr-only">(current)</span></a>
       </li>
     </ul>
-    
-
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
         {{#if user}}
         <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="/myAccount" style="color: #F2522E;">Bonjour {{name}}<span
+          <a class="nav-link nav-ludi sign-color" href="/myAccount">Bonjour {{name}}<span
               class="sr-only navbar-text">(current)</span></a>
         </li>
         {{/if}}
@@ -53,29 +47,28 @@
         {{#if user}}
         {{else}}
         <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="#signin" data-toggle="modal" data-target="#exampleModal"
-            style="color: #F2522E;">Se connecter<span class="sr-only navbar-text">(current)</span></a>
+          <a class="nav-link nav-ludi sign-color" href="#signin" data-toggle="modal" data-target="#exampleModal">Se
+            connecter<span class="sr-only navbar-text">(current)</span></a>
         </li>
         {{/if}}
 
         {{#if user}}
         <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="/logout" style="color: #F2522E; ">Se deconnecter<span
+          <a class="nav-link nav-ludi sign-color" href="/logout">Se deconnecter<span
               class="sr-only navbar-text">(current)</span></a>
         </li>
         {{/if}}
 
         {{#if isAdmin}}
         <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="/admin" style="color: #F2522E;">Admin<span
-              class="sr-only navbar-text">(current)</span></a>
+          <a class="nav-link nav-ludi sign-color" href="/admin">Admin<span class="sr-only navbar-text">(current)</span></a>
         </li>
         {{/if}}
 
         {{#if user}}
         {{else}}
         <li class="nav-item active">
-          <a class="nav-link nav-ludi" href="/signup" style="color: #F2522E; ">Créer un compte<span
+          <a class="nav-link nav-ludi sign-color" href="/signup">Créer un compte<span
               class="sr-only navbar-text">(current)</span></a>
         </li>
         {{/if}}
@@ -87,8 +80,7 @@
 </nav>
 
 
-{{!-- modal --}}
-
+{{!-- modal de connection --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -96,7 +88,7 @@
       <div class="container login-container">
         <div class="row ">
           <div class="col-md-12 login-form-1 text-center">
-            <h3 style="color: #F2522E;">Se connecter</h3>
+            <h3 classe="sign-color">Se connecter</h3>
             <form action="/authentification" method="post">
               <div class="form-group">
                 <input type="email" class="form-control" name="email" placeholder="Votre Email *" value="" />
@@ -121,9 +113,4 @@
     </div>
   </div>
 </div>
-
-<style>
-  .xpurple {
-    color: #A62985 !important;
-  }
-</style>
+{{!-- /modal de connection --}}

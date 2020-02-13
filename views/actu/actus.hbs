@@ -1,17 +1,17 @@
+{{!---------------- titre -----------------}}
 <div class="border-bottom mx-auto " style="width: 40%;">
-    <h1 class="text-center actu-color">Toutes les actus</h1>
+    <h1 class="text-center actu-color">Toutes les actualités</h1>
 </div>
+{{!----------------/titre -----------------}}
 
+{{!----------------card actu --------------}}
 <div class="container mt-3">
     <div class="row">
         <div class="card-deck">
-
             {{#each (reverse dbActu) }}
-
             {{> cards/actu }}
-
             {{/each }}
-
         </div>
     </div>
 </div>
+{{!----------------/card actu -------------}}

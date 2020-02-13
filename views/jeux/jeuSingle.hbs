@@ -1,7 +1,12 @@
+{{!------------ titre ------------------}}
 <div class="border-bottom mx-auto" style="width: 40%;">
     <h1 class="text-center jeux-color title">{{ dbJeuModel.title }}</h1>
 </div>
+{{!------------ /titre ------------------}}
+
+
 <div class="container mt-3">
+    {{!------- description de jeu -----------}}
     <div class="row">
         <div class="col-md-6">
             <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
@@ -16,11 +21,14 @@
 
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 mt-3">
+    {{!------- /description de jeu -----------}}
+
+    {{!---------------- boutons---------------}}
+    <div class="row mt-3">
+        <div class="col-md-12 ">
             {{!-- bouton commenter --}}
             {{#if isVerified}}
-            <button class="btn btn-actu mr-1" data-toggle="modal" data-target="#modalCommenterJeu{{_id}}"
+            <button class="btn btn-actu ml-4 mr-1" data-toggle="modal" data-target="#modalCommenterJeu{{_id}}"
                 type="submit">Commenter</button>
             {{/if}}
 
@@ -38,6 +46,9 @@
             {{/if}}
         </div>
     </div>
+    {{!---------------- boutons---------------}}
+
+
     {{!-- modal confirmation suppression --}}
     <div class="modal fade" id="modalConfirmSuppJeu{{ _id }}" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -62,30 +73,41 @@
             </div>
         </div>
     </div>
+    {{!-- /modal confirmation suppression --}}
 
     {{!-- modal modifier jeu --}}
     <div class="container mt-3">
-        <div class="row text-center">
+        <div class="row">
             <div class="modal fade" id="modalEditerJeu{{ _id }}" tabindex="-1" role="dialog"
                 aria-labelledby="modalEditerLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"> </h5>
+                        <div class="modal-header text-center">
+                            <h4 class="modal-title text-center" id="exampleModalLabel">Modifier le jeu</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-
                         <div class="modal-body">
                             <form action="/jeuSingle/{{ dbJeuModel._id }}/?_method=PUT" method="post">
 
-                                <input type="text" class="form-control" name="title" value="{{ dbJeuModel.title }}" />
-                                <input type="text" class="form-control" name="content" value="{{ dbJeuModel.content }}">
-                                <input type="text" class="form-control" name="author" value="{{ dbJeuModel.author }}">
-                                <input type="number" class="form-control" name="price" value="{{ dbJeuModel.price }}">
-
-
+                                <div class="form-group">
+                                    <label for="title">Titre</label>
+                                    <input type="text" id="title" class="form-control" name="title"
+                                        value="{{ dbJeuModel.title }}" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="content">Description</label>
+                                    <textarea class="form-control" id="content" rows="3" value="">{{ dbJeuModel.content }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="author">Auteur</label>
+                                    <input type="text" id="author" class="form-control" name="author" value="{{ dbJeuModel.author }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Prix</label>
+                                    <input type="number" id="price"class="form-control" name="price" value="{{ dbJeuModel.price }}">
+                                </div>
                                 <div class="file">
                                     <label class="file-label">
                                         <input class="file-input" type="file" name="image">
@@ -99,29 +121,22 @@
                                         </span>
                                     </label>
                                 </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
-
-                                    <button type="submit" class="btn btn-sign">Confirmer la modification </button>
-                                </div>
-
-                            </form>
                         </div>
-
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-sign">Confirmer la modification </button>
+                        </div>
+                        </form>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
     </div>
-
+    {{!--/ modal modifier jeu --}}
 </div>
 
 
-{{!-- Modal commenter article--}}
+{{!-- Modal commenter jeu--}}
 <div class="modal fade" id="modalCommenterJeu{{_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -154,24 +169,22 @@
                         <label for="pseudoJeu" class="col-form-label">Votre pseudo</label>
                         <input class="form-control" type="text" name="author"></textarea>
                     </div>
-
                     {{!-- / Formulaire Commenter POST --}}
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
                 <button type="submit" class="btn btn-sign">Poster le commentaire</button>
             </div>
             </form>
-
         </div>
     </div>
 </div>
+{{!-- /Modal commenter article--}}
 
 {{!-- Zone commentaire --}}
-<div class="container mt-3 ">
-    <div class="row mt-3">
-        {{!-- <div class="col-md-12">
+<div class="container mt-3  ">
+    {{!-- <div class="row mt-3">
+        <div class="col-md-12">
             <div class="rating form-group">
                 <div class="stars mb-2 mt-5">
                     <i class="far fa-star gold"></i>
@@ -181,20 +194,23 @@
                     <i class="far fa-star"></i>
                 </div>
             </div>
-        </div> --}}
-        {{#each (reverse dbComentary) }}
-        {{#if isValided}}
+        </div>
+    </div> --}}
+    {{#each (reverse dbComentary) }}
+    {{#if isValided}}
+    <div class="row ml-2">
         <div class="col-md-12">
             <div class="list-item border border-warning rounded p-2">
                 <div>
                     <h5>{{ content }}</h5>
                 </div>
-
                 <div>
-                    <p>{{ author }} , {{ createDate }}</p>
+                    <p>Ecrit par {{ author }}, le : {{ moment createDate format="DD-MM-YY" }}</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row ml-2">
         <div class="col-md-12">
             {{#if ../isVerified}}
             <a href="/contact"><button type="button" class="btn btn-sign my-2" type="submit">Signaler</button></a>
@@ -204,29 +220,31 @@
                 data-target="#modalConfirmSuppComJeu{{_id}}">Supprimer</button>
             {{/if}}
         </div>
-
-        {{!-- modal confirmation suppression --}}
-        <div class="modal fade" id="modalConfirmSuppComJeu{{_id}}" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Confirmez-vous la suppression du commentaire de {{ author }} ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <form action="/commentaireJeu/{{ _id }}/?_method=delete" method="POST">
-                            <button type="submit" class="btn btn-sign">Oui</button>
-                        </form>
-                        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sign">Non</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{/if}}
-        {{/each }}
     </div>
 </div>
+{{!-- /Zone commentaire --}}
+
+{{!-- modal confirmation suppression --}}
+<div class="modal fade" id="modalConfirmSuppComJeu{{_id}}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Confirmez-vous la suppression du commentaire de {{ author }} ?</p>
+            </div>
+            <div class="modal-footer">
+                <form action="/commentaireJeu/{{ _id }}/?_method=delete" method="POST">
+                    <button type="submit" class="btn btn-sign">Oui</button>
+                </form>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-sign">Non</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+{{/each }}
+{{!-- /modal confirmation suppression --}}

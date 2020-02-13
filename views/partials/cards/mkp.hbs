@@ -1,3 +1,4 @@
+{{!------------ card d'annonce ------------------}}
 <div class="card card-mkp mx-4">
     <div class="card-body">
         <h5 class="card-title">{{title}}</h5>
@@ -20,8 +21,6 @@
         <small class="text-muted">mis en vente le : {{ moment createDate format="DD-MM-YY" }}</small>
     </div>
 </div>
-
-
 
 {{!-- modal confirmation suppression mkp --}}
 <div class="modal fade" id="modalConfirmSuppMkp{{_id}}" tabindex="-1" role="dialog">
@@ -47,3 +46,5 @@
 
 {{!-- Modal bouton contacter le vendeur --}}
 {{> modals/modalContactVendeur }}
+
+{{!------------/card d'annonce ------------------}}

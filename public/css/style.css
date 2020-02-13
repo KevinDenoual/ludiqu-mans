@@ -52,21 +52,21 @@ h1 {
 
 /*couleur de texte */
 .actu-color{
-    color: #3098D9
+    color: #3098D9 !important
 }
     
 .jeux-color{
-    color: #12A646
+    color: #12A646 !important
 }
 
 .mkp-color{
-    color: #A62985 
+    color: #A62985  !important
 }
 .wandw-color{
-    color: #F2A81D
-}
+    color: #F2A81D !important
+} 
 .sign-color{
-    color: #F2522E
+    color: #F2522E !important
 }
 
 /*mise en forme des boutons*/
@@ -187,4 +187,9 @@ body{
     /* font-family: 'sacramento'; */
      font-size: 130%;
       font-weight: bold;
+}
+
+/* =============== List jeu  =============== */
+li {
+    list-style: none;
 }
