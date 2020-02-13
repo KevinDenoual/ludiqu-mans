@@ -7,9 +7,10 @@ const comentarySchema = new mongoose.Schema({
         type: Date,
         default : new Date()
     },
+    typeArticle : String,
     author : String,
     authorId : String,
-    isVerified : {
+    isValided : {
         type : Boolean,
         default : false
     },
