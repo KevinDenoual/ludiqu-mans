@@ -64,6 +64,7 @@ app.use(expressSession({
 
 app.use('*', (req, res, next) => {
     res.locals.user = req.session.status
+    res.locals.name = req.session.name
     if(req.session.isAdmin === true){
         res.locals.isVerified = true
         res.locals.isModo = true

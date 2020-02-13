@@ -38,11 +38,18 @@
         <a class="nav-link nav-ludi" style="color:#F2A81D;" href="/wandw">Où et quand<span
             class="sr-only">(current)</span></a>
       </li>
-
     </ul>
+    
 
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
+        {{#if user}}
+        <li class="nav-item active">
+          <a class="nav-link nav-ludi" href="" style="color: #F2522E;">Bonjour {{name}}<span
+              class="sr-only navbar-text">(current)</span></a>
+        </li>
+        {{/if}}
+
         {{#if user}}
         {{else}}
         <li class="nav-item active">
