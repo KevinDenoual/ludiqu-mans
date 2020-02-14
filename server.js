@@ -61,6 +61,15 @@ Handlebars.registerHelper('truncate', function (str, len) {
     return str;
 
 });
+
+//*****************compter les objet d'une colection**************
+Handlebars.registerHelper("counter", function (db){
+    if (!Array.isArray(db)) { return [] }
+    return db.length 
+});
+
+
+
 // **************limitation taille texte cards sans couper le mot**********
 // Handlebars.registerHelper('truncate', function (str, len) {
 //     if (str.length > len && str.length > 0) {
