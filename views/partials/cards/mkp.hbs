@@ -5,10 +5,13 @@
     </div>
     <img class="card-img-top " src="https://picsum.photos/480/480" alt="Card image cap">
     <div class="card-body">
-        <p class="card-text"> {{ content }}</p>
+        <p class="card-text">{{content}}</p>
+        <h5>Prix : {{price}}€</h5>
+{{#if isVerified}}
         <button type="button" class="btn btn-mkp m-1" data-toggle="modal" data-target="#modalContactVendeur"
             data-whatever="@getbootstrap">Contacter le vendeur</button>
         <a href="/contact"><button class="btn btn-mkp m-1" type="submit">Signaler</button></a>
+{{/if}}
 
 {{#if isModo}}
         <button type="submit" class="btn btn-mkp m-1" data-toggle="modal"

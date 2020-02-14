@@ -1,5 +1,6 @@
 const actuCollection = require('../database/models/actuModel');
 const comentaryCollection = require('../database/models/comentaryModel');
+const userModel = require('../database/models/userModel')
 
 
 module.exports = {
@@ -18,8 +19,10 @@ module.exports = {
         res.render('actu/actuSingle', { dbActu, dbComentary })
     },
 
-    getActuCreate: (req, res) => {
-        res.render('actu/actuCreate')
+    getActuCreate: async (req, res) => {
+        const dbuser = await userModel.findById(req.params.id)
+
+        res.render('actu/actuCreate', { dbuser })
     },
 
     postActuCreate: (req, res) => {
@@ -27,6 +30,7 @@ module.exports = {
             {
                 title: req.body.title,
                 content: req.body.content,
+                author: req.body.author,
             },
             (err) => {
                 if (!err) {
@@ -74,7 +78,7 @@ module.exports = {
         comentaryCollection.create(
             {
                 content: req.body.content,
-                typeArticle : "Actu",
+                typeArticle: "Actu",
                 author: req.body.author,
                 authorId: req.session.userId,
                 articleId: req.params.id,

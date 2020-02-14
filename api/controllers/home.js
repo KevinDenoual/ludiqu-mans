@@ -6,10 +6,6 @@ module.exports = {
         const dbActu = await actuCollection.find({})
         const dbMkp = await mkpmodel.find({})
         res.render('home', { dbActu, dbMkp })
-    },
-
-    postLogin: (req, res) => {
-        res.redirect('/admin')
     }
 
 
