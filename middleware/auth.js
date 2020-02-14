@@ -1,7 +1,6 @@
 const userCollection = require('../api/database/models/userModel')
 
-module.exports = {
-    auth: (req, res, next) => {
+module.exports = (req, res, next) => {
         userCollection.findById(req.session.userId, 
             (error, user) => {
             if (error || !user) {
@@ -11,4 +10,3 @@ module.exports = {
         })
 
     }
-}

@@ -5,6 +5,7 @@ module.exports = (req, res, next) => {
         if (user && user.isAdmin == true && !error) {
             next()
         } else {
+            console.log(error);
             return res.redirect('/signup')
         }
     })
