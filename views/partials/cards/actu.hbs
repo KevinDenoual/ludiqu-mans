@@ -3,7 +3,7 @@
     <img class="card-img-top" src="https://picsum.photos/480/480" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{ title }} </h5>
-        <p class="card-text"> {{ content }}</p>
+        <p class="card-text"> {{truncate content 320 }} </p>
         <a href="/actuSingle/{{ id }}" class="btn btn-actu">Voir l'article</a>
     </div>
     <div class="card-footer">
