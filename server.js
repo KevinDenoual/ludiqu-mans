@@ -49,10 +49,30 @@ Handlebars.registerHelper('reverse', function (arr) {
 });
 // **************tri typeArticle Commentaires**********
 Handlebars.registerHelper('typeArticle', function (type) {
-    if (this.typeArticle == type) { 
+    if (this.typeArticle == type) {
         return this;
-    }   
+    }
 });
+// **************limitation taille texte cards**********
+Handlebars.registerHelper('truncate', function (str, len) {
+    if (str != null && str.length > len && str.length > 0) {
+        return new Handlebars.SafeString(str.substring(0, len) + '...');
+    }
+    return str;
+
+});
+// **************limitation taille texte cards sans couper le mot**********
+// Handlebars.registerHelper('truncate', function (str, len) {
+//     if (str.length > len && str.length > 0) {
+//         var new_str = str + " ";
+//         new_str = str.substr(0, len);
+//         new_str = str.substr(0, new_str.lastIndexOf(" "));
+//         new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
+
+//         return new Handlebars.SafeString(new_str + '...');
+//     }
+//     return str;
+// });
 
 
 
@@ -72,20 +92,20 @@ app.use('*', (req, res, next) => {
     res.locals.id = req.session.userId
     res.locals.user = req.session.status
     res.locals.name = req.session.name
-    if(req.session.isAdmin === true){
+    if (req.session.isAdmin === true) {
         res.locals.isVerified = true
         res.locals.isModo = true
         res.locals.isAdmin = true
-    }else if(req.session.isModo === true){
+    } else if (req.session.isModo === true) {
         res.locals.isVerified = true
         res.locals.isModo = true
-    }else if(req.session.isVerified === true){
+    } else if (req.session.isVerified === true) {
         res.locals.isVerified = true
-    }else if (req.session.isBan === true){
+    } else if (req.session.isBan === true) {
         req.locals.isBan = true
     }
     // console.log(res.locals);
-    
+
     next()
 })
 
