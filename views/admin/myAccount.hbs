@@ -1,14 +1,14 @@
 <div class="border-bottom mx-auto " style="width: 40%;">
-    <h1 class="text-center sign-color">Créer un compte</h1>
+    <h1 class="text-center sign-color">Modifier mon compte</h1>
 </div>
 <div class="container mt-3 ">
     <div class=" px-auto">
         {{!-- formulaire d'inscription --}}
-        <form action="/myaccount/{{ dbuser._id }}/?_method=PUT" method="post" enctype="multipart/form-data">
+        <form action="/myaccount/{{ dbuser._id }}/?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="name">modifier mon nom</label>
-                    <input type="input" class="form-control" name="name" value="{{name}}"
+                    <label for="name">Modifier mon nom</label>
+                    <input type="input" class="form-control" name="name" value="{{dbuser.name}}"
                         required>{{!--required permet de forcer le remplissage de la zone de texte --}}
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <label for="password">Mot de passe</label>
                     <input type="password" class="form-control" name="password" required>
                 </div>
-                
+
             </div>
 
             {{!-- bouton d'inscription --}}
@@ -35,4 +35,3 @@
         </form>
     </div>
 </div>
-

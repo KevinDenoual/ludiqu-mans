@@ -24,7 +24,6 @@ module.exports = {
                 },
             )
             res.render('home')
-
         }
     }
 }

@@ -1,29 +1,40 @@
 const userModel = require('../database/models/userModel')
+const bcrypt = require('bcrypt')
 
 module.exports = {
     getMyAccount: async (req, res) => {
         const dbuser = await userModel.findById(req.params.id)
-        res.render('admin/myAccount', {dbuser})
+        res.render('admin/myAccount', { dbuser })
     },
 
     putMyAccount: async (req, res) => {
-        const myuser = await userModel.findById(req.params.id)
+        let query = { _id: req.params.id }
         const Pass = req.body.password
-        console.log(myuser.password);
-        console.log(Pass);
-        
-        
+        const myuser = await userModel.findById(req.params.id)
 
-        if (Pass !== myuser.password){
-            res.render('admin/myAccount')
-        }else{
-            userModel.findOneAndUpdate(
-                {
-                    name: req.body.name,
-                    email: req.body.email   
-                },
-                { multi: true }
-            )
-        }
+        bcrypt.hash(Pass, 10, (err, encrypted) => {
+            PassEncrypted = encrypted
+        })
+
+        bcrypt.compare(Pass, myuser.password).then((same) => {  //same est un booleen
+            if (same) {                
+                userModel.findOneAndUpdate(
+                    query,
+                    {
+                        name: req.body.name,
+                        email: req.body.email,
+                    },
+                    (err) => {
+                        if (!err) {
+                            res.redirect('/')
+                        } else {
+                            res.rend(err)
+                        }
+                    },
+                )
+            } else {
+                res.redirect('/')
+            }
+        })
     }
 }
