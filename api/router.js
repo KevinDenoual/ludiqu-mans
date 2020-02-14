@@ -133,6 +133,11 @@ router.route('/comentaryList/:id')
     .delete(admin.deleteOneComentaryList)
     .put(admin.putComentSingle)
 
+// TicketAdmin
+router.route('/ticketAdmin')
+    .get(ticketAdmin.getTicketAdmin)
+router.route('/ticketAdmin/:id')
+    .delete(ticketAdmin.deleteTicketAdmin)
 
 //********* Signup ***********//
 // Signup ( CreateUser )
