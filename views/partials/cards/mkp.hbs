@@ -1,5 +1,5 @@
 {{!------------ card d'annonce ------------------}}
-{{#each (reverse dbMkp)}}
+
 
 <div class="card card-mkp mx-4">
      <div class=" mt-3">
@@ -10,7 +10,7 @@
         <p class="card-text">{{content}}</p>
         <h5>Prix : {{price}}€</h5>
 
-{{#if ../Adminnn}}
+{{#if Adminnn}}
         <button type="button" class="btn btn-mkp m-1" data-toggle="modal" data-target="#modalContactVendeur{{_id}}"
             data-whatever="@getbootstrap">Contacter le vendeur</button>
         <a href="/contact"><button class="btn btn-mkp m-1" type="submit">Signaler</button></a>
@@ -52,4 +52,4 @@
 
 {{!------------/card d'annonce ------------------}}
 
-{{/each }}
+

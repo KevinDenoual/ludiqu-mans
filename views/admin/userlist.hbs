@@ -25,9 +25,9 @@
                             <div class="col-md-2 pt-4 col-sm-2">
                                 <button class="btn btn-wandw m-1" data-toggle="modal"
                                     data-target="#modalEditerUser{{ _id }}" type="submit">Modifier</button>
-                            {{!-- bouton suppression --}}
-                            <button class="btn btn-wandw m-1" data-toggle="modal" type="submit"
-                                data-target="#modalConfirmSuppUser{{_id}}">Supprimer</button>
+                                {{!-- bouton suppression --}}
+                                <button class="btn btn-wandw m-1" data-toggle="modal" type="submit"
+                                    data-target="#modalConfirmSuppUser{{_id}}">Supprimer</button>
                             </div>
                     </li>
                     {{!-- Modal Editer user --}}
@@ -54,15 +54,6 @@
                                                             <input class="form-check-input" type="radio"
                                                                 name="isVerified" value="true"
                                                                 {{#if this.isVerified }}checked{{/if}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio1">oui</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="isVerified" value="false"
-                                                                {{#unless this.isVerified }}checked{{/unless}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio2">non</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -71,15 +62,6 @@
 
                                                             <input class="form-check-input" type="radio" name="isModo"
                                                                 value="true" {{#if this.isModo }}checked{{/if}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio1">oui</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="isModo"
-                                                                value="false" {{#if this.isModo }}
-                                                                {{else}}checked{{/if}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio2">non</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -88,31 +70,13 @@
 
                                                             <input class="form-check-input" type="radio" name="isAdmin"
                                                                 value="true" {{#if this.isAdmin }}checked{{/if}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio1">oui</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="isAdmin"
-                                                                value="false"
-                                                                {{#if this.isAdmin }}{{else}}checked{{/if}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio2">non</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <p>Banni : </p>
                                                         <div class="form-check form-check-inline">
-
                                                             <input class="form-check-input" type="radio" name="isBan"
                                                                 value="true" {{#if this.isBan }}checked{{/if}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio1">oui</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="isBan"
-                                                                value="false" {{#if this.isBan }}{{else}}checked{{/if}}>
-                                                            <label class="form-check-label"
-                                                                for="inlineRadio2">non</label>
                                                         </div>
                                                     </div>
                                                 </div>

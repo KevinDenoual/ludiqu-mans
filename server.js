@@ -91,12 +91,15 @@ app.use(expressSession({
 }));
 
 app.use('*', (req, res, next) => {
-    console.log('1')
+    
 
     res.locals.id = req.session.userId
     res.locals.user = req.session.status
     res.locals.name = req.session.name
-    res.locals.Adminnn = req.session.isAdmin
+    res.locals.isAdmin = req.session.isAdmin
+    res.locals.isModo = req.session.isModo
+    res.locals.isVerified = req.session.isVerified
+    res.locals.isBan = req.session.isBan
     // if (req.session.isAdmin === true) {
         // console.log('2')
         // console.log(req.session);
