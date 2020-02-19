@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const fileupload = require('express-fileupload');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
-const connectFlash = require('connect-flash');
 const path = require('path');
 const methodOverride = require('method-override');
 const Handlebars = require("handlebars");
@@ -28,12 +27,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static('public'));
-app.use(connectFlash());
 app.use(fileupload());
-
-//connect flash
-app.use(connectFlash())
-
 
 
 // Helpers
@@ -91,28 +85,37 @@ app.use(expressSession({
     name: 'cookie',
     saveUninitialized: true,
     resave: false,
-
     store: new mongoStore(
         { mongooseConnection: mongoose.connection }
     )
 }));
 
 app.use('*', (req, res, next) => {
+    console.log('1')
+
     res.locals.id = req.session.userId
     res.locals.user = req.session.status
     res.locals.name = req.session.name
-    if (req.session.isAdmin === true) {
-        res.locals.isVerified = true
-        res.locals.isModo = true
-        res.locals.isAdmin = true
-    } else if (req.session.isModo === true) {
-        res.locals.isVerified = true
-        res.locals.isModo = true
-    } else if (req.session.isVerified === true) {
-        res.locals.isVerified = true
-    } else if (req.session.isBan === true) {
-        req.locals.isBan = true
-    }
+    res.locals.Adminnn = req.session.isAdmin
+    // if (req.session.isAdmin === true) {
+        // console.log('2')
+        // console.log(req.session);
+        // res.locals.isVerified = true
+        // res.locals.isModo = true
+        // res.locals.isAdmin = req.session.isAdmin
+        // console.log(res.locals);
+    // } 
+    // else if (req.session.isModo === true) {
+    //     console.log('3')
+    //     res.locals.isVerified = true
+    //     res.locals.isModo = req.session.isModo
+    // } else if (req.session.isVerified === true) {
+    //     console.log('4')
+    //     res.locals.isVerified = req.session.isVerified
+    // } else if (req.session.isBan === true) {
+    //     console.log('5')
+    //     req.locals.isBan = true
+    // }
     // console.log(res.locals);
 
     next()

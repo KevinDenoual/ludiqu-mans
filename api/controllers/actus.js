@@ -1,3 +1,4 @@
+const express = require('express');
 const actuCollection = require('../database/models/actuModel');
 const comentaryCollection = require('../database/models/comentaryModel');
 const userModel = require('../database/models/userModel')
@@ -7,7 +8,6 @@ module.exports = {
     getActu: async (req, res) => {
         const dbActu = await actuCollection.find({})
         // console.log(dbActu);        
-
         res.render('actu/actus', { dbActu })
     },
 
@@ -15,13 +15,11 @@ module.exports = {
         const dbActu = await actuCollection.findById(req.params.id)
         const dbComentary = await comentaryCollection.find({ articleId: req.params.id })
         // console.log(req.params.id);
-
         res.render('actu/actuSingle', { dbActu, dbComentary })
     },
 
     getActuCreate: async (req, res) => {
         const dbuser = await userModel.findById(req.params.id)
-
         res.render('actu/actuCreate', { dbuser })
     },
 
