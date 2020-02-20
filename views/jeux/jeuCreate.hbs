@@ -1,53 +1,54 @@
+{{!------------ titre ------------------}}
 <div class="border-bottom mx-auto " style="width: 40%;">
     <h1 class="text-center jeux-color ">Créer un jeu</h1>
 </div>
+{{!------------ /titre ------------------}}
 
-
-<div class="container  mt-3">
-    <div class="px-auto">
-        <form action="/jeuCreate" method="POST">
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="title">Titre du jeu</label>
-                    <input type="text" class="form-control" id="title" name="title">
-                </div>
+{{!------- formulaire de creation de jeu ------------}}
+<div class="container  mt-3 px-auto">
+    <form action="/jeuCreate" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="title">Titre du jeu</label>
+                <input type="text" class="form-control" id="title" name="title">
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="validationTextarea" type="text" name="content"></textarea>
-                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="validationTextarea" type="text" name="content"></textarea>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="seller">Auteur/éditeur</label>
-                    <input type="text" class="form-control"  id="seller" name="author">
-                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="seller">Auteur/éditeur</label>
+                <input type="text" class="form-control" id="seller" name="author">
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="price">Prix public conseillé</label>
-                    <input type="number" name="price" class="form-control" placeholder="En euros uniquement" id="price">
-                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="price">Prix public conseillé</label>
+                <input type="number" name="price" class="form-control" placeholder="En euros uniquement" id="price">
             </div>
-            <div class="file">
-                <label class="file-label">
-                    <input class="file-input" type="file" name="image">
-                    <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-upload"></i>
-                        </span>
-                        <span class="file-label">
-                            Envoyer une image au format .jpg .jpeg .gif uniquement
-                        </span>
+        </div>
+        <div class="file">
+            <label class="file-label">
+                <input class="file-input" type="file" name="image">
+                <span class="file-cta">
+                    <span class="file-icon">
+                        <i class="fas fa-upload"></i>
                     </span>
-                </label>
+                    <span class="file-label">
+                        Envoyer une image au format .jpg .jpeg .gif uniquement
+                    </span>
+                </span>
+            </label>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="btn btn-jeux" type="submit">Enregistrer</button>
             </div>
-            <div class="field is-grouped">
-                <div class="control">
-                    <button class="btn btn-jeux" type="submit">Enregistrer</button>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
+{{!------- /formulaire de creation de jeu ------------}}

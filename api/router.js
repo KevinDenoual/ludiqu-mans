@@ -6,20 +6,20 @@
 const express = require('express')
 const router = express.Router()
 
-
 // Import de controllers
 const home = require('./controllers/home')
 const signup = require('./controllers/signup')
 const mkp = require('./controllers/mkp')
 const wandw = require('./controllers/wandw')
 const actus = require('./controllers/actus')
-const contact = require ('./controllers/contact')
+const contact = require('./controllers/contact')
 const jeux = require('./controllers/jeux')
-const admin = require ('./controllers/admin')
+const admin = require('./controllers/admin')
 const authentification = require('./controllers/auth/authentification')
 const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
+const myAccount = require('./controllers/myAccount')
 
 // Import middleware
 const auth = require('../middleware/auth')
@@ -30,25 +30,25 @@ const isModo = require('../middleware/isModo')
 
 
 
-
+/******** PAGE ACCUEIL **********/
 // Home
 router.route('/')
     .get(home.get)
-    .post(home.postLogin)
+
 
 //********* MKP ***********//
 // mkp
 router.route('/mkp')
     .get(mkp.getmkp)
 
-//mkp/:id(for delete)
+//mkp/:id (for delete)
 router.route('/mkp/:id')
-    .delete(mkp.deletemkp)
+    .delete(isModo, mkp.deletemkp)
 
 // mkpCreate
 router.route('/mkpCreate')
-    .get(mkp.getmkpCreate)
-    .post(mkp.postmkpCreate)
+    .get(isVerified, mkp.getmkpCreate)
+    .post(isVerified, mkp.postmkpCreate)
 
 
 //********* OU ET QUAND ***********//
@@ -65,18 +65,18 @@ router.route('/actus')
 // actuSingle
 router.route('/actuSingle/:id')
     .get(actus.getActuSingle)
-    .delete(actus.deleteOneActuSingle)
-    .put(actus.putActuSingle)
+    .delete(isAdmin, actus.deleteOneActuSingle)
+    .put(isModo, actus.putActuSingle)
 
 // actuCreate
 router.route('/actuCreate')
-    .get(actus.getActuCreate)
-    .post(actus.postActuCreate)
+    .get(isAdmin, actus.getActuCreate)
+    .post(isAdmin, actus.postActuCreate)
 
 // commentaireActu
 router.route('/commentaireActu/:id')
-    .post(actus.postComment)
-
+    .post(isVerified, actus.postComment)
+    .delete(isAdmin, actus.deleteOneComment)
 
 //********* CONTACT ***********//
 // contact
@@ -92,41 +92,57 @@ router.route('/jeux')
 
 // JeuCreate
 router.route('/jeuCreate')
-    .get(jeux.getJeuCreate)
-    .post(jeux.postJeuItem)
+    .get(isAdmin, jeux.getJeuCreate)
+    .post(isAdmin, jeux.postJeuItem)
 
 // jeuSingle
 router.route('/jeuSingle/:id')
     .get(jeux.getJeuSingle)
-    .delete(jeux.deleteJeuSingle)
-    .put(jeux.putJeuSingle)
+    .delete(isAdmin, jeux.deleteJeuSingle)
+    .put(isModo, jeux.putJeuSingle)
+
+// commentaireJeu
+router.route('/commentaireJeu/:id')
+    .post(isVerified, jeux.postComment)
+    .delete(isModo, jeux.deleteOneComment)
 
 //********* ADMIN ***********//
 //adminpage
 router.route('/admin')
-    .get(admin.get)
-    
+    .get(isAdmin, admin.get)
 
+//listuser
 router.route('/listUser')
-    .get(listUser.getlistUser)
-    .put (listUser.putlistUser)
+    .get(isAdmin, listUser.getlistUser)
 
+//listUser/:id
+router.route('/listUser/:id')
+    .put(isAdmin, listUser.putlistUser)
+    .delete(isAdmin, listUser.deleteOnelistUser)
+
+router.route('/myAccount/:id')
+    .get(auth, myAccount.getMyAccount)
+    .put(auth, myAccount.putMyAccount)
+    
+// Gestion Commentaires
 router.route('/comentaryList')
-    .get(admin.getComentaryList)
+    .get(isAdmin, admin.getComentaryList)
 
-    // TicketAdmin  
+router.route('/comentaryList/:id')
+    .delete(isModo, admin.deleteOneComentaryList)
+    .put(isModo, admin.putComentSingle)
+
+// TicketAdmin
 router.route('/ticketAdmin')
-    .get(ticketAdmin.getTicketAdmin)
-
+    .get(isAdmin, ticketAdmin.getTicketAdmin)
 router.route('/ticketAdmin/:id')
-    .delete(ticketAdmin.deleteTicketAdmin)
+    .delete(isAdmin, ticketAdmin.deleteTicketAdmin)
 
 //********* Signup ***********//
 // Signup ( CreateUser )
 router.route('/signup')
     .get(signup.get)
     .post(signup.postSignup)
-    
 
 // Authentification 
 router.route('/authentification')
@@ -134,6 +150,6 @@ router.route('/authentification')
 
 // Logout
 router.route('/logout')
-    .get(logout.getLogout)
+    .get(auth, logout.getLogout)
 
 module.exports = router

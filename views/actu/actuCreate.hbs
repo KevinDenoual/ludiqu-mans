@@ -1,8 +1,10 @@
+{{!---------- titre ------------------}}
 <div class="border-bottom mx-auto " style="width: 40%;">
     <h1 class="text-center actu-color ">Nouvelle actu</h1>
 </div>
+{{!----------/titre ------------------}}
 
-
+{{!------- formulaire de creation d'actualité ------------}}
 <div class="container  mt-3">
     <div class="px-auto">
         <form action="/actuCreate" method="POST">
@@ -16,6 +18,12 @@
                 <div class="form-group col-md-12">
                     <label for="description">Contenu</label>
                     <textarea class="form-control" id="validationTextarea" type="text" name="content"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="author">Auteur</label>
+                    <input type="text" id="author" class="form-control" name="author" value="{{ name }}">
                 </div>
             </div>
             <div class="file">
@@ -39,3 +47,4 @@
         </form>
     </div>
 </div>
+{{!------- /formulaire de creation d'actualité ------------}}

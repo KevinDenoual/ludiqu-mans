@@ -1,9 +1,9 @@
 {{!-- Modal bouton contacter le vendeur --}}
-<div class="modal fade" id="modalContactVendeur" tabindex="-1" role="dialog">
+<div class="modal fade" id="modalContactVendeur{{_id}}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalContactVendeurl">Formulaire de contact</h5>
+                <h5 class="modal-title" >Formulaire de contact</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,13 +11,13 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Email de contact</label>
-                        <input type="email" class="form-control" id="modalContactVendeur"
+                        <label>Email de contact {{title}}</label>
+                        <input type="email" class="form-control"
                             placeholder="name@example.com">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Votre message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label>Votre message</label>
+                        <textarea class="form-control" rows="3"></textarea>
                     </div>
                 </form>
             </div>

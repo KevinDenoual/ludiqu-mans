@@ -30,6 +30,7 @@ body {
 
 .card-mkp {
     border-color: rgb(166, 41, 133);
+    transition: 1s;
     box-shadow: 10px 10px 5px rgba(166, 41, 133, 0.5) ;
 }
 
@@ -52,21 +53,21 @@ h1 {
 
 /*couleur de texte */
 .actu-color{
-    color: #3098D9
+    color: #3098D9 !important
 }
     
 .jeux-color{
-    color: #12A646
+    color: #12A646 !important
 }
 
 .mkp-color{
-    color: #A62985 
+    color: #A62985  !important
 }
 .wandw-color{
-    color: #F2A81D
-}
+    color: #F2A81D !important
+} 
 .sign-color{
-    color: #F2522E
+    color: #F2522E !important
 }
 
 /*mise en forme des boutons*/
@@ -75,7 +76,16 @@ body{
     font-family: 'neucha'
 }
 
-
+.btn-jeux {
+    color: #fff;
+    background-color: #12A646;
+    border-color: #12A646;
+}
+.btn-jeux:hover {
+    color: #fff;
+    background-color: #0F8A3A;
+    border-color: #0D7330;
+}
 
 .btn-actu {
     font-family: 'neucha';
@@ -112,6 +122,20 @@ body{
     border-color: #c02d0c; 
     }
 
+.btn-jeux {	
+    color: #fff;  	      
+    background-color: #12A646;   	      
+    border-color: #12A646; 	     
+} 	
+            
+                
+.btn-jeux:hover {
+    color: #fff;   	       
+    background-color: #0f8a3a;
+    border-color: #0d7330;
+}
+
+       
 
 .btn-wandw {
     color: #fff;  
@@ -161,7 +185,12 @@ body{
 
 /* =============== NAVBAR =============== */
 .nav-ludi{
-    font-family: 'sacramento';
-     font-size: 180%;
+    /* font-family: 'sacramento'; */
+     font-size: 130%;
       font-weight: bold;
+}
+
+/* =============== List jeu  =============== */
+li {
+    list-style: none;
 }

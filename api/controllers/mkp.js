@@ -1,20 +1,16 @@
 const express = require('express')
-    , path = require('path')
-    , mkpmodel = require('../database/models/mkpModel')
-    , fileupload = require('express-fileupload')
-    , moment = require('moment')
-
-
-moment.locale('fr'); // 'fr'
-
+const path = require('path')
+const mkpmodel = require('../database/models/mkpModel')
+const fileupload = require('express-fileupload')
+const userModel = require('../database/models/userModel')
 
 
 module.exports = {
     getmkp: async (req, res) => {
         const dbMkp = await mkpmodel.find({})
-
+        const dbUser = await userModel.find({})
         // console.log(dbMkp);   affiche le contenu de la db dans la console     
-        res.render('mkp/mkp', {dbMkp})
+        res.render('mkp/mkp', {dbMkp, dbUser})
     },
     getmkpCreate: (req, res) => {
         res.render('mkp/mkpCreate')
@@ -42,8 +38,6 @@ module.exports = {
         // })
     },
 
-
-    
     // supprimé une annonce
 
     deletemkp: (req, res) => {

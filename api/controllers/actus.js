@@ -1,25 +1,26 @@
+const express = require('express');
 const actuCollection = require('../database/models/actuModel');
 const comentaryCollection = require('../database/models/comentaryModel');
+const userModel = require('../database/models/userModel')
 
 
 module.exports = {
     getActu: async (req, res) => {
         const dbActu = await actuCollection.find({})
         // console.log(dbActu);        
-
         res.render('actu/actus', { dbActu })
     },
 
     getActuSingle: async (req, res) => {
         const dbActu = await actuCollection.findById(req.params.id)
-        const dbComentaryActu = await comentaryCollection.find({articleId: req.params.id})
-        console.log(req.params.id);
-
-        res.render('actu/actuSingle', { dbActu, dbComentaryActu })
+        const dbComentary = await comentaryCollection.find({ articleId: req.params.id })
+        // console.log(req.params.id);
+        res.render('actu/actuSingle', { dbActu, dbComentary })
     },
 
-    getActuCreate: (req, res) => {
-        res.render('actu/actuCreate')
+    getActuCreate: async (req, res) => {
+        const dbuser = await userModel.findById(req.params.id)
+        res.render('actu/actuCreate', { dbuser })
     },
 
     postActuCreate: (req, res) => {
@@ -27,6 +28,7 @@ module.exports = {
             {
                 title: req.body.title,
                 content: req.body.content,
+                author: req.body.author,
             },
             (err) => {
                 if (!err) {
@@ -74,9 +76,10 @@ module.exports = {
         comentaryCollection.create(
             {
                 content: req.body.content,
+                typeArticle: "Actu",
                 author: req.body.author,
                 authorId: req.session.userId,
-                articleId: req.params.id
+                articleId: req.params.id,
             },
             (err) => {
                 if (!err) {
@@ -92,4 +95,17 @@ module.exports = {
 
     },
 
+    deleteOneComment: (req, res) => {
+        comentaryCollection.deleteOne(
+            { _id: req.params.id },
+            (err) => {
+                if (!err) {
+                    res.redirect('back')
+                } else {
+                    res.send(err)
+                }
+                // console.log(req.params.id);
+
+            })
+    }
 }
