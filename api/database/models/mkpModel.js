@@ -11,7 +11,10 @@ const mkpModelSchema = new mongoose.Schema({
         type: Date,
         default : new Date()
     },
-    isSignal: Boolean,
+    isSignal: {
+        type : Boolean,
+        default: false
+    },
     interessed: Boolean,
 })
 

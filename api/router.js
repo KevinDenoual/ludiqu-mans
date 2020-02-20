@@ -20,6 +20,7 @@ const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
 const myAccount = require('./controllers/myAccount')
+const mkplist = require('./controllers/mkplist')
 
 // Import middleware
 const auth = require('../middleware/auth')
@@ -44,6 +45,7 @@ router.route('/mkp')
 //mkp/:id (for delete)
 router.route('/mkp/:id')
     .delete(isModo, mkp.deletemkp)
+    .put(isVerified, mkp.putmkp)
 
 // mkpCreate
 router.route('/mkpCreate')
@@ -110,6 +112,14 @@ router.route('/commentaireJeu/:id')
 //adminpage
 router.route('/admin')
     .get(isAdmin, admin.get)
+
+//mkplist
+router.route('/mkplist')
+    .get(isAdmin, mkplist.getmkplist)
+
+//mkplist/:id
+router.route('/mkplist/:id')
+    .put(isAdmin, mkplist.putmkplist)
 
 //listuser
 router.route('/listUser')

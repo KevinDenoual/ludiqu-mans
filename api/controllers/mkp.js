@@ -37,6 +37,24 @@ module.exports = {
                 })
         // })
     },
+    // signalement des annonces
+    putmkp: (req, res) => {
+        const mymkp = {_id: req.params.id}  
+        mkpmodel.findOneAndUpdate(
+            mymkp,
+            {
+                isSignal: true
+            },
+            (err) => {
+                if (!err) {
+                    res.redirect('/contact')
+                } else {
+                    res.rend(err)
+                }
+            }
+        )
+    },
+
 
     // supprimé une annonce
 

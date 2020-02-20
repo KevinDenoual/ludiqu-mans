@@ -20,6 +20,8 @@ body {
     border-color: rgb(48, 152, 217);
     transition: 1s;
     box-shadow: 10px 10px 5px rgba(48, 152, 217, 0.5) ;
+    min-width: 300px;
+    max-width: 300px;
 }
 
 .card-actu:hover {
@@ -32,6 +34,8 @@ body {
     border-color: rgb(166, 41, 133);
     transition: 1s;
     box-shadow: 10px 10px 5px rgba(166, 41, 133, 0.5) ;
+    min-width: 300px;
+    max-width: 300px;
 }
 
 .card-mkp:hover {

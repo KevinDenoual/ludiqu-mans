@@ -2,7 +2,8 @@
 <div class="row">
     <div class="card-deck">
         {{#each (reverse dbMkp )}}
-        <div class="card card-mkp mx-4">
+        {{#unless isSignal}}
+        <div class="card card-mkp m-4">
             <div class=" mt-3">
                 <h5 class="card-title text-center">{{title}}</h5>
             </div>
@@ -14,7 +15,9 @@
                 <button type="button" class="btn btn-mkp m-1" data-toggle="modal"
                     data-target="#modalContactVendeur{{_id}}" data-whatever="@getbootstrap">Contacter le
                     vendeur</button>
-                <a href="/contact"><button class="btn btn-mkp m-1" type="submit">Signaler</button></a>
+                <form method="POST" action="/mkp/{{_id}}/?_method=PUT">
+                    <button class="btn btn-mkp m-1" type="submit">Signaler</button>
+                </form>
                 {{/if }}
                 {{#if ../isModo}}
                 <button type="submit" class="btn btn-mkp m-1" data-toggle="modal"
@@ -25,33 +28,36 @@
                 <small class="text-muted">Publié le {{ moment createDate format="DD-MM-YY" }}</small>
             </div>
         </div>
+        {{/unless}}
+
+
+
+        {{!-- modal confirmation suppression mkp --}}
+        <div class="modal fade" id="modalConfirmSuppMkp{{_id}}" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Confirmez-vous la suppression de {{this.title}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form method="POST" action="/mkp/{{_id}}/?_method=DELETE">
+                            <button type="submit" class="btn btn-sign">Oui</button>
+                        </form>
+                        <button type="button" class="btn btn-sign " data-dismiss="modal" aria-label="Close">Non</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Modal bouton contacter le vendeur --}}
+        {{> modals/modalContactVendeur }}
+
+        {{!------------/card d'annonce ------------------}}
         {{/each}}
     </div>
 </div>
-
-{{!-- modal confirmation suppression mkp --}}
-<div class="modal fade" id="modalConfirmSuppMkp{{_id}}" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Confirmez-vous la suppression de {{this.title}}</p>
-            </div>
-            <div class="modal-footer">
-                <form method="POST" action="/mkp/{{_id}}/?_method=DELETE">
-                    <button type="submit" class="btn btn-sign">Oui</button>
-                </form>
-                <button type="button" class="btn btn-sign " data-dismiss="modal" aria-label="Close">Non</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-{{!-- Modal bouton contacter le vendeur --}}
-{{> modals/modalContactVendeur }}
-
-{{!------------/card d'annonce ------------------}}
