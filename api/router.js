@@ -20,6 +20,7 @@ const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
 const myAccount = require('./controllers/myAccount')
+const nodemailer = require('./controllers/nodemailer')
 
 // Import middleware
 const auth = require('../middleware/auth')
@@ -151,5 +152,9 @@ router.route('/authentification')
 // Logout
 router.route('/logout')
     .get(auth, logout.getLogout)
+
+// Nodemailer
+router.route('/signup')
+    .get(nodemailer.getNodemailerTest)
 
 module.exports = router
