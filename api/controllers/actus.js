@@ -14,8 +14,9 @@ module.exports = {
     getActuSingle: async (req, res) => {
         const dbActu = await actuCollection.findById(req.params.id)
         const dbComentary = await comentaryCollection.find({ articleId: req.params.id })
+        const dbuser = await userModel.findById(req.params.id)
         // console.log(req.params.id);
-        res.render('actu/actuSingle', { dbActu, dbComentary })
+        res.render('actu/actuSingle', { dbActu, dbComentary, dbuser })
     },
 
     getActuCreate: async (req, res) => {
@@ -24,11 +25,12 @@ module.exports = {
     },
 
     postActuCreate: (req, res) => {
+        
         actuCollection.create(
             {
                 title: req.body.title,
                 content: req.body.content,
-                author: req.body.author,
+                author: req.session.name,
             },
             (err) => {
                 if (!err) {
@@ -77,7 +79,7 @@ module.exports = {
             {
                 content: req.body.content,
                 typeArticle: "Actu",
-                author: req.body.author,
+                author: req.session.name,
                 authorId: req.session.userId,
                 articleId: req.params.id,
             },
