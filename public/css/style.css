@@ -30,6 +30,7 @@ body {
 
 .card-mkp {
     border-color: rgb(166, 41, 133);
+    transition: 1s;
     box-shadow: 10px 10px 5px rgba(166, 41, 133, 0.5) ;
 }
 

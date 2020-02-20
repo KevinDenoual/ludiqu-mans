@@ -2,7 +2,7 @@ const usermodel = require('../database/models/userModel')
 
 module.exports = {
     get: (req, res) => {
-        res.render('signup', { errors: req.flash('gestError') })
+        res.render('signup')
     },
 
     postSignup: (req, res) => {

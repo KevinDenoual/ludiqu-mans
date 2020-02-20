@@ -57,9 +57,9 @@ Handlebars.registerHelper('truncate', function (str, len) {
 });
 
 //*****************compter les objet d'une colection**************
-Handlebars.registerHelper("counter", function (db){
+Handlebars.registerHelper("counter", function (db) {
     if (!Array.isArray(db)) { return [] }
-    return db.length 
+    return db.length
 });
 
 
@@ -91,7 +91,7 @@ app.use(expressSession({
 }));
 
 app.use('*', (req, res, next) => {
-    
+
 
     res.locals.id = req.session.userId
     res.locals.user = req.session.status
@@ -100,27 +100,6 @@ app.use('*', (req, res, next) => {
     res.locals.isModo = req.session.isModo
     res.locals.isVerified = req.session.isVerified
     res.locals.isBan = req.session.isBan
-    // if (req.session.isAdmin === true) {
-        // console.log('2')
-        // console.log(req.session);
-        // res.locals.isVerified = true
-        // res.locals.isModo = true
-        // res.locals.isAdmin = req.session.isAdmin
-        // console.log(res.locals);
-    // } 
-    // else if (req.session.isModo === true) {
-    //     console.log('3')
-    //     res.locals.isVerified = true
-    //     res.locals.isModo = req.session.isModo
-    // } else if (req.session.isVerified === true) {
-    //     console.log('4')
-    //     res.locals.isVerified = req.session.isVerified
-    // } else if (req.session.isBan === true) {
-    //     console.log('5')
-    //     req.locals.isBan = true
-    // }
-    // console.log(res.locals);
-
     next()
 })
 

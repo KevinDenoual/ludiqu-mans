@@ -8,26 +8,85 @@ module.exports = {
     },
     putlistUser: (req, res) => {
         const myuser = { _id: req.params.id }
-
-        userModel.findOneAndUpdate(
-            myuser,
-            {
-                name: req.body.name,
-                isVerified: req.body.isVerified,
-                isModo: req.body.isModo,
-                isAdmin: req.body.isAdmin,
-                isBan: req.body.isBan
-            },
-            { multi: true },
-            (err) => {
-                if (!err) {
-                    res.redirect('/listUser')
-                } else {
-                    res.rend(err)
+        if (req.body.status === 'isAdmin') {
+            userModel.findOneAndUpdate(
+                myuser,
+                {
+                    name: req.body.name,
+                    isVerified: true,
+                    isModo: true,
+                    isAdmin: true,
+                    isBan: false
+                },
+                { multi: true },
+                (err) => {
+                    if (!err) {
+                        res.redirect('/listUser')
+                    } else {
+                        res.rend(err)
+                    }
                 }
-            }
-        )
+            )
+        } else if (req.body.status === 'isModo') {
+            userModel.findOneAndUpdate(
+                myuser,
+                {
+                    name: req.body.name,
+                    isVerified: true,
+                    isModo: true,
+                    isAdmin: false,
+                    isBan: false
+                },
+                { multi: true },
+                (err) => {
+                    if (!err) {
+                        res.redirect('/listUser')
+                    } else {
+                        res.rend(err)
+                    }
+                }
+            )
+        } else if (req.body.status === 'isVerified') {
+            userModel.findOneAndUpdate(
+                myuser,
+                {
+                    name: req.body.name,
+                    isVerified: true,
+                    isModo: false,
+                    isAdmin: false,
+                    isBan: false
+                },
+                { multi: true },
+                (err) => {
+                    if (!err) {
+                        res.redirect('/listUser')
+                    } else {
+                        res.rend(err)
+                    }
+                }
+            )
+        } else if (req.body.status === 'isBan') {
+            userModel.findOneAndUpdate(
+                myuser,
+                {
+                    name: req.body.name,
+                    isVerified: false,
+                    isModo: false,
+                    isAdmin: false,
+                    isBan: true
+                },
+                { multi: true },
+                (err) => {
+                    if (!err) {
+                        res.redirect('/listUser')
+                    } else {
+                        res.rend(err)
+                    }
+                }
+            )
+        }
     },
+
     deleteOnelistUser: (req, res) => {
         const myuser = { _id: req.params.id }
         userModel.deleteOne(myuser,

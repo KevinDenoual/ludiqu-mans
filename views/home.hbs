@@ -46,13 +46,11 @@
     {{!--------------- /titre -----------------}}
 
     {{!---------------- card mkp --------------}}
-    <div class="row">
-        <div class="card-deck">
-            {{#each (limitEach dbMkp 3) }}
-            {{> cards/mkp }}
-            {{/each}}
-        </div>
-    </div>
+    
+            
+            {{> cards/mkphome }}
+            
+        
     <div class="d-flex flex-row-reverse bd-highlight mr-5 pt-2">
         <a href="/mkp">Voir la suite</a>
     </div>
