@@ -12,7 +12,6 @@ const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
-
 const app = express()
 const port = process.env.PORT || 4000
 // const urlDB = "mongodb://localhost:27017/ludiqumans"
@@ -27,6 +26,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static('public'));
+
 app.use(fileupload());
 
 
