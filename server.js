@@ -11,6 +11,7 @@ const methodOverride = require('method-override');
 const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
+const dotenv = require('dotenv')
 
 // MCzw5liAvGJPuvod
 const app = express()
@@ -104,7 +105,7 @@ app.use('*', (req, res, next) => {
 })
 
 // Mongoose
-mongoose.connect(urlDB, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -118,6 +119,9 @@ app.engine('hbs', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'hbs');
+
+// Dotenv
+dotenv.config()
 
 
 // Router
