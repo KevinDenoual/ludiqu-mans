@@ -87,7 +87,8 @@ app.use(expressSession({
     resave: false,
     store: new mongoStore(
         { mongooseConnection: mongoose.connection }
-    )
+    ),
+    expires: new Date(Date.now() + (3600000))
 }));
 
 app.use('*', (req, res, next) => {

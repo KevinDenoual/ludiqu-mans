@@ -3,7 +3,6 @@ const mkpmodel = require('../database/models/mkpModel')
 module.exports = {
     getmkplist: async (req, res) => {
         const dbMkp = await mkpmodel.find({}) 
-        console.log(dbMkp.isSignal);
         res.render('admin/mkplist', {dbMkp})
     },
     putmkplist: (req, res) => {
@@ -21,5 +20,5 @@ module.exports = {
                 }
             }
         )
-    },
+    }
 }
