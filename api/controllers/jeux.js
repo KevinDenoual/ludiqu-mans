@@ -38,7 +38,8 @@ module.exports = {
 
         JeuxModel.create(
             {
-                ...req.body
+                ...req.body,
+                image: `/assets/ressources/images/${req.file.filename}`
             },
 
         ),
@@ -78,7 +79,7 @@ module.exports = {
                 content: req.body.content,
                 author: req.body.author,
                 price: req.body.price,
-                image: req.body.image
+                image: `/assets/ressources/images/${req.file.filename}`
             },
 
             (err) => {

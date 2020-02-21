@@ -27,7 +27,7 @@ module.exports = {
     },
 
     postActuCreate: (req, res) => {
-        console.log(req.file);
+        // console.log(req.file);
         
         actuCollection.create(
             {
@@ -43,7 +43,7 @@ module.exports = {
                     res.send(err)
                 }
             })
-        console.log(req.body)
+        // console.log(req.body)
     },
 
     deleteOneActuSingle: async (req, res, next) => {
@@ -78,6 +78,7 @@ module.exports = {
                 title: req.body.title,
                 content: req.body.content,
                 createDate: req.body.date,
+                image: `/assets/ressources/images/${req.file.filename}`
             },
             { multi: true },
             (err) => {

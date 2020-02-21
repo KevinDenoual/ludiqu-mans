@@ -70,7 +70,7 @@ router.route('/mkp/:id')
 // mkpCreate
 router.route('/mkpCreate')
     .get(isVerified, mkp.getmkpCreate)
-    .post(isVerified, mkp.postmkpCreate)
+    .post(isVerified, upload.single('image'), mkp.postmkpCreate)
 
 
 //********* OU ET QUAND ***********//
@@ -88,7 +88,7 @@ router.route('/actus')
 router.route('/actuSingle/:id')
     .get(actus.getActuSingle)
     .delete(isAdmin, actus.deleteOneActuSingle)
-    .put(isModo, actus.putActuSingle)
+    .put(isModo, upload.single('image'), actus.putActuSingle)
 
 // actuCreate
 router.route('/actuCreate')
@@ -115,13 +115,13 @@ router.route('/jeux')
 // JeuCreate
 router.route('/jeuCreate')
     .get(isAdmin, jeux.getJeuCreate)
-    .post(isAdmin, jeux.postJeuItem)
+    .post(isAdmin, upload.single('image'), jeux.postJeuItem)
 
 // jeuSingle
 router.route('/jeuSingle/:id')
     .get(jeux.getJeuSingle)
     .delete(isAdmin, jeux.deleteJeuSingle)
-    .put(isModo, jeux.putJeuSingle)
+    .put(isModo, upload.single('image'), jeux.putJeuSingle)
 
 // commentaireJeu
 router.route('/commentaireJeu/:id')

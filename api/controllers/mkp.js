@@ -24,9 +24,9 @@ module.exports = {
                 {
                     title: req.body.title,
                     content: req.body.content,
-                    seller: req.body.seller,
+                    seller: req.session.name,
                     price: req.body.price,
-                    // image: `/ressources/images/mkp/${image.name}`,
+                    image: `/assets/ressources/images/${req.file.filename}`,
                     createDate: req.body.createDate,
                     isSignal: false,
                     interessed: false

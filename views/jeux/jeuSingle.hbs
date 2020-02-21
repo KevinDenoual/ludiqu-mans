@@ -9,7 +9,7 @@
     {{!------- description de jeu -----------}}
     <div class="row">
         <div class="col-md-6">
-            <img src="https://picsum.photos/480/480" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+            <img src="{{ dbJeuModel.image }}" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
         </div>
         <div class="col-md-6">
             <div class="row">
@@ -89,7 +89,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="/jeuSingle/{{ dbJeuModel._id }}/?_method=PUT" method="post">
+                            <form action="/jeuSingle/{{ dbJeuModel._id }}/?_method=PUT" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label for="title">Titre</label>
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="file">
                                     <label class="file-label">
-                                        <input class="file-input" type="file" name="image">
+                                        <input class="file-input" type="file" name="image" value="{{ dbJeuModel.image }}">
                                         <span class="file-cta">
                                             <span class="file-icon">
                                                 <i class="fas fa-upload"></i>
