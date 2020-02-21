@@ -10,7 +10,7 @@ const methodOverride = require('method-override');
 const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 const key = require('./api/controllers/config')
-// const mongooseAlgolia = require('mongoose-algolia')
+const mongooseAlgolia = require('mongoose-algolia')
 
 
 
@@ -114,40 +114,34 @@ mongoose.connect(urlDB, {
 });
 
 //Algolia
-// YourSchema.plugin(mongooseAlgolia, {
-//     appId: YOUR_ALGOLIA_APP_ID,
-//     apiKey: YOUR_ALGOLIA_API_KEY,
-//     indexName: 'yourSchema', //The name of the index in Algolia, you can also pass in a function
-//     selector: '-author', //You can decide which field that are getting synced to Algolia (same as selector in mongoose)
-//     populate: {
-//       path: 'comments',
-//       select: 'author',
-//     },
-//     defaults: {
-//       author: 'unknown',
-//     },
-//     mappings: {
-//       title: function(value) {
-//         return `Book: ${value}`
-//       },
-//     },
-//     virtuals: {
-//       whatever: function(doc) {
-//         return `Custom data ${doc.title}`
-//       },
-//     },
-//     filter: function(doc) {
-//       return !doc.softdelete
-//     },
-//     debug: true, // Default: false -> If true operations are logged out in your console
-//   })
+const dbActu = require('./api/database/models/actuModel')
+dbActu.plugin(mongooseAlgolia, {
+    appId: "4b30286df9636c99ccf9b6cbcfd022fa",
+    apiKey: key.Algolia,
+    indexName: 'dbActu', //The name of the index in Algolia, you can also pass in a function
+    selector: 'title content', //You can decide which field that are getting synced to Algolia (same as selector in mongoose)
+    defaults: {
+      author: 'unknown',
+    },
+    mappings: {
+      title: function(value) {
+        return value
+      },
+    },
+    virtuals: {
+      whatever: function(doc) {
+        return `Custom data ${doc.title}`
+      },
+    },
+    debug: true, // Default: false -> If true operations are logged out in your console
+  })
    
-//   let Model = mongoose.model('YourSchema', YourSchema)
+  let Model = mongoose.model('YourSchema', YourSchema)
    
-//   Model.SyncToAlgolia() //Clears the Algolia index for this schema and synchronizes all documents to Algolia (based on the settings defined in your plugin settings)
-//   Model.SetAlgoliaSettings({
-//     searchableAttributes: ['name', 'properties', 'shows'], //Sets the settings for this schema, see [Algolia's Index settings parameters](https://www.algolia.com/doc/api-client/javascript/settings#set-settings) for more info.
-//   })
+  Model.SyncToAlgolia() //Clears the Algolia index for this schema and synchronizes all documents to Algolia (based on the settings defined in your plugin settings)
+  Model.SetAlgoliaSettings({
+    searchableAttributes: ['name', 'properties', 'shows'], //Sets the settings for this schema, see [Algolia's Index settings parameters](https://www.algolia.com/doc/api-client/javascript/settings#set-settings) for more info.
+  })
 
 
 // Handlebars
