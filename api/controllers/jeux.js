@@ -4,7 +4,7 @@ const router = express.Router();
 const path = require('path');
 const JeuxModel = require('../database/models/JeuxModel');
 const comentaryCollection = require('../database/models/comentaryModel');
-
+const userModel = require('../database/models/userModel')
 
 
 
@@ -17,9 +17,10 @@ module.exports = {
     getJeuSingle: async (req, res) => {
         const dbJeuModel = await JeuxModel.findById(req.params.id)
         const dbComentary = await comentaryCollection.find({ articleId: req.params.id })
+        const dbuser = await userModel.findById(req.params.id)
         // console.log(req.params.id);
 
-        res.render('jeux/jeuSingle', { dbJeuModel, dbComentary  })
+        res.render('jeux/jeuSingle', { dbJeuModel, dbComentary , dbuser })
     },
 
     getJeuCreate: (req, res) => {
@@ -111,7 +112,7 @@ module.exports = {
             {
                 content: req.body.content,
                 typeArticle : "Jeu",
-                author: req.body.author,
+                author: req.session.name,
                 authorId: req.session.userId,
                 articleId: req.params.id
             },

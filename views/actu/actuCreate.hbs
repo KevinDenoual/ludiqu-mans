@@ -7,7 +7,7 @@
 {{!------- formulaire de creation d'actualité ------------}}
 <div class="container  mt-3">
     <div class="px-auto">
-        <form action="/actuCreate" method="POST">
+        <form action="/actuCreate" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="title">Titre de l'article</label>
@@ -23,7 +23,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="author">Auteur</label>
-                    <input type="text" id="author" class="form-control" name="author" value="{{ name }}">
+                    <input type="text" id="author" class="form-control" name="author" value="{{ name }}" disabled="disabled" >
                 </div>
             </div>
             <div class="file">
@@ -41,7 +41,7 @@
             </div>
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="btn btn-actu">Enregistrer</button>
+                    <button type="submit" class="btn btn-actu">Enregistrer</button>
                 </div>
             </div>
         </form>

@@ -2,6 +2,8 @@ const express = require('express');
 const actuCollection = require('../database/models/actuModel');
 const comentaryCollection = require('../database/models/comentaryModel');
 const userModel = require('../database/models/userModel')
+const path = require('path');
+
 
 
 module.exports = {
@@ -14,8 +16,9 @@ module.exports = {
     getActuSingle: async (req, res) => {
         const dbActu = await actuCollection.findById(req.params.id)
         const dbComentary = await comentaryCollection.find({ articleId: req.params.id })
+        const dbuser = await userModel.findById(req.params.id)
         // console.log(req.params.id);
-        res.render('actu/actuSingle', { dbActu, dbComentary })
+        res.render('actu/actuSingle', { dbActu, dbComentary, dbuser })
     },
 
     getActuCreate: async (req, res) => {
@@ -24,11 +27,14 @@ module.exports = {
     },
 
     postActuCreate: (req, res) => {
+        console.log(req.file);
+        
         actuCollection.create(
             {
                 title: req.body.title,
                 content: req.body.content,
-                author: req.body.author,
+                author: req.session.name,
+                image: `/assets/ressources/images/${req.file.filename}`
             },
             (err) => {
                 if (!err) {
@@ -37,7 +43,7 @@ module.exports = {
                     res.send(err)
                 }
             })
-        // console.log(req.body)
+        console.log(req.body)
     },
 
     deleteOneActuSingle: (req, res) => {
@@ -77,7 +83,7 @@ module.exports = {
             {
                 content: req.body.content,
                 typeArticle: "Actu",
-                author: req.body.author,
+                author: req.session.name,
                 authorId: req.session.userId,
                 articleId: req.params.id,
             },

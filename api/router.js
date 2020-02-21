@@ -29,7 +29,27 @@ const isVerified = require('../middleware/isVerified')
 const isAdmin = require('../middleware/isAdmin')
 const isModo = require('../middleware/isModo')
 
+// Multer
+const multer = require("multer");
 
+const MIME_TYPES = {
+    'image/jpg': 'jpg',
+    'image/jpeg': 'jpg',
+    'image/png': 'png'
+};
+
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, './public/ressources/images')
+    },
+    filename: (req, file, callback) => {
+        const name = file.originalname.split(' ').join('_');
+        const extension = MIME_TYPES[file.mimetype];
+        callback(null, name + Date.now() + '.' + extension);
+    }
+});
+
+const upload = multer({ storage: storage });
 
 /******** PAGE ACCUEIL **********/
 // Home
@@ -73,7 +93,7 @@ router.route('/actuSingle/:id')
 // actuCreate
 router.route('/actuCreate')
     .get(isAdmin, actus.getActuCreate)
-    .post(isAdmin, actus.postActuCreate)
+    .post(isAdmin, upload.single('image'), actus.postActuCreate)
 
 // commentaireActu
 router.route('/commentaireActu/:id')

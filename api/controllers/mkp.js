@@ -1,7 +1,6 @@
 const express = require('express')
 const path = require('path')
 const mkpmodel = require('../database/models/mkpModel')
-const fileupload = require('express-fileupload')
 const userModel = require('../database/models/userModel')
 
 
