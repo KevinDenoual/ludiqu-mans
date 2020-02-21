@@ -98,15 +98,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Description</label>
-                                    <textarea class="form-control" id="content" rows="3" name="content">{{ dbJeuModel.content }}</textarea>
+                                    <textarea class="form-control" id="content" rows="3"
+                                        name="content">{{ dbJeuModel.content }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="author">Auteur</label>
-                                    <input type="text" id="author" class="form-control" name="author" value="{{ dbJeuModel.author }}">
+                                    <input type="text" id="author" class="form-control" name="author"
+                                        value="{{ dbJeuModel.author }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Prix</label>
-                                    <input type="number" id="price"class="form-control" name="price" value="{{ dbJeuModel.price }}">
+                                    <input type="number" id="price" class="form-control" name="price"
+                                        value="{{ dbJeuModel.price }}">
                                 </div>
                                 <div class="file">
                                     <label class="file-label">
@@ -147,9 +150,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                {{!-- Formulaire Commenter POST --}}
-                <form action="/commentaireJeu/{{ dbJeuModel._id }}" method="POST">
+            <form action="/commentaireJeu/{{ dbJeuModel._id }}" method="POST">
+                <div class="modal-body">
+                    {{!-- Formulaire Commenter POST --}}
+
                     {{!-- <div class="rating form-group">
                         <p>Votre note</p>
                         <label class="stars">
@@ -167,22 +171,23 @@
                     </div>
                     <div class="form-group">
                         <label for="pseudoJeu" class="col-form-label">Votre pseudo</label>
-                        <input class="form-control" type="text" name="author"  value="{{ name }}" disabled="disabled"></textarea>
+                        <input class="form-control" type="text" name="author" value="{{ name }}"
+                            disabled="disabled"></textarea>
                     </div>
                     {{!-- / Formulaire Commenter POST --}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
-                <button type="submit" class="btn btn-sign">Poster le commentaire</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sign" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-sign">Poster le commentaire</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
-{{!-- /Modal commenter article--}}
+{{!-- /Modal commenter jeu--}}
 
 {{!-- Zone commentaire --}}
-<div class="container mt-3  ">
+<div class="container mt-3  coucou">
     {{!-- <div class="row mt-3">
         <div class="col-md-12">
             <div class="rating form-group">
