@@ -2,36 +2,40 @@
 const nodemailer = require('nodemailer')
 const path = require('path')
 
-// const express = require('express')
-//     , app = express()
-//     , router = express.Router()
-//     , transporter = nodemailer.createTransport({
-//   host: "smtp.gmail.com",
-//   service: 'gmail',
-//   port: '587',
-//   auth: {
-//       user: "jojocoin2019@gmail.com",
-//       pass: "jojocoin.2019$"
-//   }
-// })
 
-// router.get('/test', (req, res, next) => {
-//   const mailOptions = {
-//       from: 'jojocoin2019@gmail.com', // sender address
-//       to: req.session.email, // list of receivers
-//       subject: 'Félicitation !', // Subject line
-//       html: '<h2>Mon premier mail avec nodemailer, Successfull</h2>'// plain text body
-//     }
-//   transporter.sendMail(mailOptions, function (err, info) {
-//       if(err)
-//         console.log(err)
-//       else
-//         console.log(info);
-//    });
-//   res.redirect('back')
-// })
+module.exports = {
 
-// module.exports = router
+  // Formulaire de cerification du compte isVerified
+ post: async (req, res) => {
+  const sess = req.session,
+    dbUser = await User.find({ email: sess.email })
+
+  let query = { _id: req.session.userId }
+
+  if (sess.email === sess.email) {
+    User.findOneAndUpdate(
+      query,
+      {
+        isVerified: true
+      },
+      { useFindAndModify: false },
+      
+      function (error, post) {
+          if (error) {
+            console.log('err 2')
+            res.redirect('/')
+          } else {
+              User.findOneAndUpdate({
+                isVerified: true
+              })
+              res.render('myaccount')
+          }
+      })
+    }
+
+}
+}
+
 
 
 
@@ -112,4 +116,4 @@ const path = require('path')
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 // }
 
-// main().catch(console.error);
+// main().catch(console.error)
