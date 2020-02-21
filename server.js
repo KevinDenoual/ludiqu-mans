@@ -9,13 +9,14 @@ const path = require('path');
 const methodOverride = require('method-override');
 const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
-MomentHandler.registerHelpers(Handlebars);
+const key = require('./api/controllers/config')
+// const mongooseAlgolia = require('mongoose-algolia')
+
 
 
 const app = express()
 const port = process.env.PORT || 4000
-// const urlDB = "mongodb://localhost:27017/ludiqumans"
-const urlDB = "mongodb+srv://lucie:83Tde3k6mIOH4piD@cluster0-9bswz.mongodb.net/test?retryWrites=true&w=majority"
+const urlDB = key.urlDBcloud //key.urlDBlocal
 const mongoStore = MongoStore(expressSession);
 
 // Method-Override
@@ -29,7 +30,10 @@ app.use(express.static('public'));
 app.use('/assets', express.static('public'));
 
 
-// Helpers
+// Moment
+MomentHandler.registerHelpers(Handlebars);
+
+//Helpers
 // **************limitEach***********
 Handlebars.registerHelper('limitEach', function (arr, limitEach) {
     if (!Array.isArray(arr)) { return []; }
@@ -108,6 +112,43 @@ mongoose.connect(urlDB, {
     useFindAndModify: false,
     useCreateIndex: true
 });
+
+//Algolia
+// YourSchema.plugin(mongooseAlgolia, {
+//     appId: YOUR_ALGOLIA_APP_ID,
+//     apiKey: YOUR_ALGOLIA_API_KEY,
+//     indexName: 'yourSchema', //The name of the index in Algolia, you can also pass in a function
+//     selector: '-author', //You can decide which field that are getting synced to Algolia (same as selector in mongoose)
+//     populate: {
+//       path: 'comments',
+//       select: 'author',
+//     },
+//     defaults: {
+//       author: 'unknown',
+//     },
+//     mappings: {
+//       title: function(value) {
+//         return `Book: ${value}`
+//       },
+//     },
+//     virtuals: {
+//       whatever: function(doc) {
+//         return `Custom data ${doc.title}`
+//       },
+//     },
+//     filter: function(doc) {
+//       return !doc.softdelete
+//     },
+//     debug: true, // Default: false -> If true operations are logged out in your console
+//   })
+   
+//   let Model = mongoose.model('YourSchema', YourSchema)
+   
+//   Model.SyncToAlgolia() //Clears the Algolia index for this schema and synchronizes all documents to Algolia (based on the settings defined in your plugin settings)
+//   Model.SetAlgoliaSettings({
+//     searchableAttributes: ['name', 'properties', 'shows'], //Sets the settings for this schema, see [Algolia's Index settings parameters](https://www.algolia.com/doc/api-client/javascript/settings#set-settings) for more info.
+//   })
+
 
 // Handlebars
 var handlebars = require('handlebars')

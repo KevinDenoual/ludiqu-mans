@@ -46,17 +46,29 @@ module.exports = {
         console.log(req.body)
     },
 
-    deleteOneActuSingle: (req, res) => {
+    deleteOneActuSingle: async (req, res, next) => {
+        const dbComentary = await comentaryCollection.find({ articleId: req.params.id })
         // console.log('delete Article')
-        actuCollection.deleteOne(
-            { _id: req.params.id },
+        // console.log(dbComentary);
+        comentaryCollection.deleteMany(
+            { dbComentary } ,
             (err) => {
                 if (!err) {
-                    res.redirect('/actus')
+                    actuCollection.deleteOne(
+                        { _id: req.params.id },
+                        (err) => {
+                            if (!err) {
+                                res.redirect('/actus')
+                            } else {
+                                res.send(err)
+                            }
+                        }
+                    )
                 } else {
                     res.send(err)
                 }
-            })
+            }
+        )
     },
 
     putActuSingle: (req, res) => {
@@ -104,14 +116,13 @@ module.exports = {
     deleteOneComment: (req, res) => {
         comentaryCollection.deleteOne(
             { _id: req.params.id },
+
             (err) => {
                 if (!err) {
                     res.redirect('back')
                 } else {
                     res.send(err)
                 }
-                // console.log(req.params.id);
-
             })
     }
 }
