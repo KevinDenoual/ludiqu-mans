@@ -10,7 +10,8 @@ const methodOverride = require('method-override');
 const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 const key = require('./api/controllers/config')
-MomentHandler.registerHelpers(Handlebars);
+// const mongooseAlgolia = require('mongoose-algolia')
+
 
 
 const app = express()
@@ -28,8 +29,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
 
+// Moment
+MomentHandler.registerHelpers(Handlebars);
 
-// Helpers
+//Helpers
 // **************limitEach***********
 Handlebars.registerHelper('limitEach', function (arr, limitEach) {
     if (!Array.isArray(arr)) { return []; }
@@ -108,6 +111,43 @@ mongoose.connect(urlDB, {
     useFindAndModify: false,
     useCreateIndex: true
 });
+
+//Algolia
+// YourSchema.plugin(mongooseAlgolia, {
+//     appId: YOUR_ALGOLIA_APP_ID,
+//     apiKey: YOUR_ALGOLIA_API_KEY,
+//     indexName: 'yourSchema', //The name of the index in Algolia, you can also pass in a function
+//     selector: '-author', //You can decide which field that are getting synced to Algolia (same as selector in mongoose)
+//     populate: {
+//       path: 'comments',
+//       select: 'author',
+//     },
+//     defaults: {
+//       author: 'unknown',
+//     },
+//     mappings: {
+//       title: function(value) {
+//         return `Book: ${value}`
+//       },
+//     },
+//     virtuals: {
+//       whatever: function(doc) {
+//         return `Custom data ${doc.title}`
+//       },
+//     },
+//     filter: function(doc) {
+//       return !doc.softdelete
+//     },
+//     debug: true, // Default: false -> If true operations are logged out in your console
+//   })
+   
+//   let Model = mongoose.model('YourSchema', YourSchema)
+   
+//   Model.SyncToAlgolia() //Clears the Algolia index for this schema and synchronizes all documents to Algolia (based on the settings defined in your plugin settings)
+//   Model.SetAlgoliaSettings({
+//     searchableAttributes: ['name', 'properties', 'shows'], //Sets the settings for this schema, see [Algolia's Index settings parameters](https://www.algolia.com/doc/api-client/javascript/settings#set-settings) for more info.
+//   })
+
 
 // Handlebars
 var handlebars = require('handlebars')
