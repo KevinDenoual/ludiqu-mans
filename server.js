@@ -3,7 +3,6 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const fileupload = require('express-fileupload');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const path = require('path');
@@ -11,6 +10,7 @@ const methodOverride = require('method-override');
 const Handlebars = require("handlebars");
 const MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
+
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -26,8 +26,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static('public'));
-
-app.use(fileupload());
+app.use('/assets', express.static('public'));
 
 
 // Helpers

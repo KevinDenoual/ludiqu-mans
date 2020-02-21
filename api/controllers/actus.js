@@ -3,9 +3,6 @@ const actuCollection = require('../database/models/actuModel');
 const comentaryCollection = require('../database/models/comentaryModel');
 const userModel = require('../database/models/userModel')
 const path = require('path');
-// const fileupload = require('express-fileupload');
-// const app = express()
-// app.use(fileupload());
 
 
 
@@ -30,46 +27,23 @@ module.exports = {
     },
 
     postActuCreate: (req, res) => {
-
-        console.log(req.files);
-
-        const image = req.files.image
-        const uploadFile = path.resolve(__dirname + 'public/ressources/images', image.name)
-
-        image.mv(uploadFile, (error) => {
-            // console.log(req.files);
-
-            actuCollection.create(
-                {
-                    title: req.body.title,
-                    content: req.body.content,
-                    author: req.session.name,
-                    image : `/ressources/images/${image.name}`
-                },
-                (err) => {
-                    if (!err) {
-                        res.redirect('/actus')
-                    } else {
-                        res.send(err)
-                    }
-                })
-
-        })
-
-        // actuCollection.create(
-        //     {
-        //         title: req.body.title,
-        //         content: req.body.content,
-        //         author: req.session.name,
-        //     },
-        //     (err) => {
-        //         if (!err) {
-        //             res.redirect('/actus')
-        //         } else {
-        //             res.send(err)
-        //         }
-        //     })
-        // console.log(req.body)
+        console.log(req.file);
+        
+        actuCollection.create(
+            {
+                title: req.body.title,
+                content: req.body.content,
+                author: req.session.name,
+                image: `/assets/ressources/images/${req.file.filename}`
+            },
+            (err) => {
+                if (!err) {
+                    res.redirect('/actus')
+                } else {
+                    res.send(err)
+                }
+            })
+        console.log(req.body)
     },
 
     deleteOneActuSingle: (req, res) => {
