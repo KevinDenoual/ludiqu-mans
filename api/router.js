@@ -20,7 +20,8 @@ const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
 const myAccount = require('./controllers/myAccount')
-const nodemailer = require('./controllers/nodemailer')
+// const nodemailer = require('./controllers/nodemailer')
+const nodemailer = require('nodemailer')
 
 // Import middleware
 const auth = require('../middleware/auth')
@@ -80,13 +81,9 @@ router.route('/commentaireActu/:id')
     .delete(isAdmin, actus.deleteOneComment)
 
 //********* CONTACT ***********//
-// contact
+// contactouter.js:158:6
 router.route('/contact')
     .get(contact.getContact)
-    .post(contact.postContact)
-
-
-//********* JEUX ***********//
 // Jeux 
 router.route('/jeux')
     .get(jeux.getJeux)
@@ -145,6 +142,7 @@ router.route('/signup')
     .get(signup.get)
     .post(signup.postSignup)
 
+
 // Authentification 
 router.route('/authentification')
     .post(authentification.postLogin)
@@ -154,7 +152,35 @@ router.route('/logout')
     .get(auth, logout.getLogout)
 
 // Nodemailer
-router.route('/signup')
-    .get(nodemailer.getNodemailerTest)
+// router.route('/signup')
+//     .get(nodemailer.getNodemailerTest)
+
+// const transporter = nodemailer.createTransport({
+//     host: "smtp.gmail.com",
+//     service: 'gmail',
+//     port: '587',
+//     auth: {
+//         user: "regis.dupond666@gmail.com",
+//         pass: "Arinfo2019"
+//     }
+// })
+
+// router.get('/test', (req, res, next) => {
+// const mailOptions = {
+//     from: 'regis.dupond666@gmail.com', // sender address
+//     to: 'regis.dupond666@gmail.com', // list of receivers
+//     subject: 'Félicitation !', // Subject line
+//     html: '<h2>Mon premier mail avec nodemailer, Successfull</h2>'// plain text body
+//   }
+// transporter.sendMail(mailOptions, function (err, info) {
+//     if(err)
+//       console.log(err)
+//     else
+//       console.log(info);
+//  });
+// res.redirect('back')
+// })
+
+
 
 module.exports = router
