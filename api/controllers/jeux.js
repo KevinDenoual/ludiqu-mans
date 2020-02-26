@@ -33,7 +33,7 @@ module.exports = {
     },
 
     postJeuItem: async (req, res) => {
-        // const file = req.file,
+        // const file = req.file
         const dbJeuxModel = await JeuxModel.find({})
 
         JeuxModel.create(
@@ -49,24 +49,24 @@ module.exports = {
     },
 
 
-    //     if (file) {
-    //         newJeu.image = {
-    //             name: file.filename,
-    //             originalName: file.originalname,
-    //             path: file.path.replace('public', ''),
-    //             createAt: Date.now()
-    //         }
+        // if (file) {
+        //     newJeu.image = {
+        //         name: file.filename,
+        //         originalName: file.originalname,
+        //         path: file.path.replace('public', ''),
+        //         createAt: Date.now()
+        //     }
 
-    //         newJeu.save(function (err) {
-    //             if (!err) {
-    //                 res.redirect('/')
-    //             } else {
-    //                 res.send(err)
-    //             }
-    //         })
-    //     }
+        //     newJeu.save(function (err) {
+        //         if (!err) {
+        //             res.redirect('/')
+        //         } else {
+        //             res.send(err)
+        //         }
+        //     })
+        // },
 
-    // },
+    
 
     putJeuSingle: async (req, res) => {
         const dbJeuModel = await JeuxModel.findById(req.params._id)

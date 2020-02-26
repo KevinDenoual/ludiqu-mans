@@ -13,7 +13,7 @@ const key = require('./api/controllers/config')
 // const mongooseAlgolia = require('mongoose-algolia')
 
 
-
+// MCzw5liAvGJPuvod
 const app = express()
 const port = process.env.PORT || 4000
 const urlDB = key.urlDBcloud //key.urlDBlocal
@@ -157,6 +157,9 @@ app.engine('hbs', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'hbs');
+
+// Dotenv
+// dotenv.config()
 
 
 // Router

@@ -21,6 +21,7 @@ const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
 const myAccount = require('./controllers/myAccount')
 const mkplist = require('./controllers/mkplist')
+const verifMail = require('./controllers/verifMail')
 
 // Import middleware
 const auth = require('../middleware/auth')
@@ -101,13 +102,9 @@ router.route('/commentaireActu/:id')
     .delete(isAdmin, actus.deleteOneComment)
 
 //********* CONTACT ***********//
-// contact
+// contactouter.js:158:6
 router.route('/contact')
     .get(contact.getContact)
-    .post(contact.postContact)
-
-
-//********* JEUX ***********//
 // Jeux 
 router.route('/jeux')
     .get(jeux.getJeux)
@@ -173,6 +170,12 @@ router.route('/ticketAdmin/:id')
 router.route('/signup')
     .get(signup.get)
     .post(signup.postSignup)
+// Nodemailer verif 
+router.route('/verify/:id')
+    .get(signup.verifMail)
+// verifMail
+router.route('/verifMail')
+    .get(verifMail.get)
 
 // Authentification 
 router.route('/authentification')
@@ -181,5 +184,8 @@ router.route('/authentification')
 // Logout
 router.route('/logout')
     .get(auth, logout.getLogout)
+
+
+
 
 module.exports = router

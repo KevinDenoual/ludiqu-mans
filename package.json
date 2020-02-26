@@ -25,6 +25,7 @@
     "bootstrap": "^4.4.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
@@ -33,7 +34,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.8.11",
     "multer": "^1.4.2",
-    "mongoose-algolia": "^1.10.1"
+    "mongoose-algolia": "^1.10.1",
+    "nodemailer": "^6.4.2"
   },
   "devDependencies": {
     "handlebars": "^4.5.0",
