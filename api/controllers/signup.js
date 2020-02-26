@@ -38,6 +38,10 @@ module.exports = {
             rand: rand,
             html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>",
         }
+        console.log(req.body)
+       
+        
+        
         console.log(mailOptions)
         if (Pass !== confPass) { //comparaison des mots de passe
             res.redirect('/signup')
@@ -56,7 +60,7 @@ module.exports = {
                 transporter.sendMail(mailOptions, (err, res, next) => {
                     if (err) {
                         console.log(err)
-                        res.send("error")
+                        res.send(err)
                     } else {
                         console.log('Message envoyé');
                         next()

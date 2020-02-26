@@ -5,16 +5,16 @@ const userSchema = new mongoose.Schema({
 
     name: {
         type: String,
-        required: [true, 'le nom est obligatoire'],
+        required: true,
     },
     email: {
         type: String,
-        required: [true, "l'email est obligatoire"],
+        required: true,
         unique: true,
     },
     password: {
         type: String,
-        required: [true, "le mot de passe est obligatoire"],
+        required: true,
     },
     status: {
         type: String,
