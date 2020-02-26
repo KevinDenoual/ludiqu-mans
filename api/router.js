@@ -20,6 +20,7 @@ const logout = require('./controllers/auth/logout')
 const listUser = require('./controllers/listUser')
 const ticketAdmin = require('./controllers/ticketAdmin')
 const myAccount = require('./controllers/myAccount')
+const verifMail = require('./controllers/verifMail')
 
 // Import middleware
 const auth = require('../middleware/auth')
@@ -142,7 +143,9 @@ router.route('/signup')
 // Nodemailer verif 
 router.route('/verify/:id')
     .get(signup.verifMail)
-
+// verifMail
+router.route('/verifMail')
+    .get(verifMail.get)
 
 // Authentification 
 router.route('/authentification')
